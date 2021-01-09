@@ -37,7 +37,7 @@ const MainDetail = (props) => {
                         </div>
                         <div className="col-md-7 movie-text-data">
                             <h1>{props.title} ({props.year})</h1>
-                            <h6>{props.tagline}</h6>
+                            <h6><i>{props.tagline}</i></h6>
                             <h6 className="mt-2">
                                 <i className="fa fa-calendar-o pr-2" aria-hidden="true"></i>
                                 <span className="text-info" style={{fontWeight: '400'}}>
