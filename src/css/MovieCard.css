@@ -1,0 +1,17 @@
+.movie-card {
+  margin: 1rem 2rem;
+}
+.movie-card h6 {
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  background-color: #141518;
+  color: white;
+  text-decoration: none;
+}
+.movie-card:hover {
+  text-decoration: none;
+}
+.movie-card img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}

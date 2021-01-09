@@ -1,7 +1,6 @@
 import React from 'react'
 import MainDetail from './MainDetail'
-import Review from './Review'
-import SimilarMovie from './SimilarMovie'
+import AllReviews from './AllReviews'
 import RecommendedMovie from './RecommendedMovie'
 class Index extends React.Component{
     constructor(){
@@ -30,9 +29,8 @@ class Index extends React.Component{
                         year={this.state.data.release_date.substr(0,4)}
                         data={this.state.data}
                         />
-                    <Review/>
-                    <SimilarMovie/>
-                    <RecommendedMovie/>
+                    <AllReviews movie_id={this.props.match.params.id}/>
+                    <RecommendedMovie movie_id={this.props.match.params.id}/>
                 </div>
             )
         }else{

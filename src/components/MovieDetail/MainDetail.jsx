@@ -88,14 +88,14 @@ const MainDetail = (props) => {
                             <p>
                                 {props.data.overview}
                             </p>
-                            <div className="d-flex flex-wrap justify-content-between col-8" style={{paddingLeft: 0}}>
-                                <div className="text-center">
+                            <div className="d-flex flex-wrap justify-content-between col-10" style={{paddingLeft: 0}}>
+                                <div className="text-center col-6">
                                     <h5>Origin Country</h5>
                                     <h6 style={{fontWeight: '400', color: '#07B4E1'}}>
                                         &nbsp;{props.data.production_countries[0].name}
                                     </h6>
                                 </div>
-                                <div className="text-center">
+                                <div className="text-center col-6">
                                     <h5>Language</h5>
                                     <h6 style={{fontWeight: '400', color: '#62C6B8'}}>
                                         {
