@@ -22,7 +22,11 @@
   align-items: center;
 }
 .movie-image {
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
 }
 
 .movie-image img {
@@ -36,6 +40,10 @@
   text-shadow: 2px 2px 1px #00000087;
   color: #e5e5e5;
   transition: transform 2s;
+}
+
+.movie-text-data h1 {
+  font-weight: 700;
 }
 
 .inline-ul li {

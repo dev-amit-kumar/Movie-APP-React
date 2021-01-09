@@ -8,8 +8,9 @@ const MainDetail = (props) => {
                         <div className="col-md-4 movie-image">
                             <img src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`}/>
                         </div>
-                        <div className="col-md-8 movie-text-data">
+                        <div className="col-md-7 movie-text-data">
                             <h1>{props.title} ({props.year})</h1>
+                            <h6>{props.tagline}</h6>
                             <p>
                                 <span><i class="fa fa-circle" aria-hidden="true"></i>{props.data.release_date}</span>
                                 <span>
@@ -31,10 +32,10 @@ const MainDetail = (props) => {
                                 {
                                     props.data.spoken_languages.map((item, idx) => {
                                         if(idx !== props.data.spoken_languages.length-1){
-                                            return(`${item['name']}, `)
+                                            return(`${item['english_name']}, `)
                                         }
                                         else{
-                                            return(item['name'])
+                                            return(item['english_name'])
                                         }
                                     })
                                 }
@@ -42,7 +43,10 @@ const MainDetail = (props) => {
                             <p>
                                 Run time: {`${parseInt(props.data.runtime/60)}h ${props.data.runtime%60}min`}
                             </p>
-                            <h6>{props.tagline}</h6>
+                            <h4>Overview</h4>
+                            <p>
+                                {props.data.overview}
+                            </p>
                         </div>
                     </div>
                 </div>

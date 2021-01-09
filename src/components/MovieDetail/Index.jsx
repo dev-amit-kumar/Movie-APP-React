@@ -20,11 +20,10 @@ class Index extends React.Component{
     render(){
         console.log(this.state.data)
         if(this.state.data){
-
             return(
                 <div>
                     <MainDetail 
-                        title={this.state.data.original_title} 
+                        title={this.state.data.title} 
                         tagline={this.state.data.tagline} 
                         poster_path={this.state.data.poster_path}
                         bg_path={this.state.data.backdrop_path}
