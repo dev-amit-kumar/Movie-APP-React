@@ -43,10 +43,8 @@ const MainDetail = (props) => {
                                 <span className="text-info" style={{fontWeight: '400'}}>
                                     {props.data.release_date}
                                 </span>
-
                                 <i className="fa fa-film pr-2 pl-4" aria-hidden="true"></i>
                                 <span className="text-info" style={{fontWeight: '400'}}>
-
                                     {
                                         props.data.genres.map((item, idx) => {
                                             if(idx !== props.data.genres.length-1){
@@ -58,7 +56,6 @@ const MainDetail = (props) => {
                                         })
                                     }
                                 </span>
-
                                 <i className="fa fa-clock-o pr-2 pl-4" aria-hidden="true"></i>
                                 <span className="text-info" style={{fontWeight: '400'}}>
                                     &nbsp;{`${parseInt(props.data.runtime/60)}h ${props.data.runtime%60}min`}
@@ -91,7 +88,7 @@ const MainDetail = (props) => {
                             <p>
                                 {props.data.overview}
                             </p>
-                            <div className="d-flex flex-wrap justify-content-between col-6" style={{paddingLeft: 0}}>
+                            <div className="d-flex flex-wrap justify-content-between col-8" style={{paddingLeft: 0}}>
                                 <div className="text-center">
                                     <h5>Origin Country</h5>
                                     <h6 style={{fontWeight: '400', color: '#07B4E1'}}>
