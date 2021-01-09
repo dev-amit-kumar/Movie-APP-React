@@ -50,9 +50,32 @@
   display: inline;
 }
 
-.fa-circle {
-  font-size: 6px;
-  margin: 0 5px;
+.play-btn {
+  background-color: #fff0;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  padding: 5px;
+  outline: none;
+}
+
+.play-btn:focus {
+  border: none;
+  outline: none;
+}
+
+.modal-content {
+  border: none;
+  outline: 0;
+}
+
+.modal-dialog {
+  max-width: 90vw;
+  height: 90vh;
+}
+
+.modal-body {
+  padding: 0;
 }
 /*
 .overlay-data:hover {
