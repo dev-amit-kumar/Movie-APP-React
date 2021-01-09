@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom"
-import PeopleDisplay from "./peopleDisplay";
-import PeopleKnownFor from "./peopleKnownFor";
+import PeopleDisplay from "./PeopleDisplay";
+import PeopleKnownFor from "./PeopleKnownFor";
 const url = `https://api.themoviedb.org/3/person`;
 
 class PeopleData extends Component {

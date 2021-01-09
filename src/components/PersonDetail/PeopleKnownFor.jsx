@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
-import PeopleKnownDisplay from "./peopleknownDisplay";
+import PeopleKnownDisplay from "./PeopleknownDisplay";
 const url ="https://api.themoviedb.org/3/person";
 class PeopleKnownFor extends Component {
     constructor(){
@@ -10,7 +10,6 @@ class PeopleKnownFor extends Component {
         }
     }
     render() {
-        console.log(this.state.known)
         return (
             <div>
                 <PeopleKnownDisplay mknown={this.state.known}/>
