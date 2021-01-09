@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import PeopleDisplay from "./PeopleDisplay";
-import PeopleKnownFor from "./PeopleKnownFor";
-const url = 'https://api.themoviedb.org/3/person/500?api_key=911c65436dd290d171fc662603dac6b3&language=en-US';
+import {withRouter} from "react-router-dom"
+import PeopleDisplay from "./peopleDisplay";
+import PeopleKnownFor from "./peopleKnownFor";
+const url = `https://api.themoviedb.org/3/person`;
 
 class PeopleData extends Component {
     constructor(){
@@ -19,7 +20,7 @@ class PeopleData extends Component {
         )
     }
     componentDidMount(){
-        fetch(url,{
+        fetch(`${url}/${this.props.match.params.id}?api_key=911c65436dd290d171fc662603dac6b3&language=en-US`,{
             method:"GET"
         })
         .then((res)=>res.json())
@@ -27,4 +28,4 @@ class PeopleData extends Component {
     }
 }
 
-export default PeopleData;
+export default withRouter(PeopleData);

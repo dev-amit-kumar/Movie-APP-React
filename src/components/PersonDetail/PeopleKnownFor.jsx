@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PeopleKnownDisplay from "./PeopleknownDisplay";
-const url ="https://api.themoviedb.org/3/person/500/movie_credits?api_key=911c65436dd290d171fc662603dac6b3&language=en-US";
+import {withRouter} from "react-router-dom";
+import PeopleKnownDisplay from "./peopleknownDisplay";
+const url ="https://api.themoviedb.org/3/person";
 class PeopleKnownFor extends Component {
     constructor(){
         super()
@@ -17,7 +18,7 @@ class PeopleKnownFor extends Component {
         )
     }
     componentDidMount(){
-        fetch(url,{
+        fetch(`${url}/${this.props.match.params.id}/movie_credits?api_key=911c65436dd290d171fc662603dac6b3&language=en-US`,{
             method:"GET"
         })
         .then((res)=>res.json())
@@ -25,4 +26,4 @@ class PeopleKnownFor extends Component {
     }
 }
 
-export default PeopleKnownFor;
+export default withRouter(PeopleKnownFor);

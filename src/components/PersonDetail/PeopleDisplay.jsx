@@ -5,7 +5,7 @@ const PeopleDisplay = (props)=>{
                 return(
                     <div>
                         <div className=" container d-flex flex-row justify-content-between">
-                            <img className="p-4" src={`https://image.tmdb.org/t/p/original${mList.profile_path}`}/>
+                            <img className="p-4" style={{width:"20vw",height:"60vh"}} src={`https://image.tmdb.org/t/p/original${mList.profile_path}`}/>
                             <div className="d-flex flex-column">
                                 <h1>{mList.name}</h1>
                                 <p>{mList.biography}</p>
