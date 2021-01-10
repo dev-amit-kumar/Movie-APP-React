@@ -92,7 +92,16 @@ const MainDetail = (props) => {
                                 <div className="text-center col-6">
                                     <h5>Origin Country</h5>
                                     <h6 style={{fontWeight: '400', color: '#07B4E1'}}>
-                                        &nbsp;{props.data.production_countries[0].name}
+                                        {
+                                            props.data.production_countries.map((item, idx) => {
+                                                if(idx !== props.data.production_countries.length-1){
+                                                    return(`${item['name']}, `)
+                                                }
+                                                else{
+                                                    return(item['name'])
+                                                }
+                                            })
+                                        }
                                     </h6>
                                 </div>
                                 <div className="text-center col-6">
