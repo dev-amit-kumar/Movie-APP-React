@@ -19,8 +19,8 @@ class RecommendedMovie extends React.Component{
 
     render(){
         return(
-            <div className="container-fluid">
-                <h2>Recommended Movie</h2>
+            <div className="container-fluid mt-4">
+                <h2 className="font-weight-bolder ml-4">Recommended Movie</h2>
                 <div className="row text-center">
                         {this.state.data && this.state.data.results.map((movie, idx) => {
                             return(<MovieCard data={movie} key={idx}/>)

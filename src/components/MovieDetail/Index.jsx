@@ -21,7 +21,6 @@ class Index extends React.Component{
     }
 
     render(){
-        console.log(this.state.data)
         if(this.state.data){
             return(
                 <>
@@ -35,10 +34,10 @@ class Index extends React.Component{
                     />
                     <div className="container-fluid">
                         <div className="row">
-                            <div className="col-md-9 mt-4">
+                            <div className="col-md-9">
                                 <AllCast movie_id={this.props.match.params.id}/>
                             </div>
-                            <div className="col-md-3 mt-4">
+                            <div className="col-md-3">
                                 <OtherData 
                                     original_title={this.state.data.original_title}
                                     vote_count={this.state.data.vote_count}

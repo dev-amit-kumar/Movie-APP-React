@@ -28,8 +28,9 @@ class Review extends React.Component{
             dots: true
         };
         return(
-            <div className="other_data container mt-4 pb-4">
+            <div className="other_data container review_container">
                 <h1 className="text-center font-weight-bolder">Review</h1>
+                <hr/>
                 <Slider {...settings}>
                     {this.state.data && this.state.data.results.map((review, idx) => {
                         return(<ReviewData data={review} key={idx} active={idx===0 && 'active'}/>)

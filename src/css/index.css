@@ -32,3 +32,7 @@ code {
 .slick-prev:before {
   color: black;
 }
+
+.review_container {
+  padding: 20px 30px 50px 30px;
+}
