@@ -15,3 +15,12 @@
   width: 100%;
   border-radius: 10px 10px 0 0;
 }
+
+@media only screen and (max-width: 600px) {
+  .movie-card {
+    margin: 0.1rem 0.1rem;
+  }
+  .movie-card h6 {
+    font-size: 0.8rem;
+  }
+}
