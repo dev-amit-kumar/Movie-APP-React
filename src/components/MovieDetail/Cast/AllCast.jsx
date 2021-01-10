@@ -22,29 +22,23 @@ class AllCast extends React.Component{
     render(){
         var settings = {
       cssEase: "linear",
-      speed: 2000,
-      autoplaySpeed: 2000,
-      infinite: false,
+      infinite: true,
+      speed: 500,
       slidesToShow: 8,
-      slidesToScroll: 2,
-      autoplay: true,
-      initialSlide: 0,
+      slidesToScroll: 1,
       responsive: [
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
+            slidesToShow: 5,
+            slidesToScroll: 5
           }
         },
         {
           breakpoint: 600,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
+            slidesToScroll: 2
           }
         },
         {
@@ -57,11 +51,14 @@ class AllCast extends React.Component{
       ]
         };
         return(
+          <div className="other_data">
+            <h2>Movie Cast</h2>
             <Slider {...settings}>
                 {this.state.data && this.state.data.map((cast, idx) => {
-                    return(<CastData data={cast} key={idx}/>)
+                  return(<CastData data={cast} key={idx}/>)
                 })}
             </Slider>
+          </div>
         )
     }
 }

@@ -3,6 +3,7 @@ import TopContainer from './TopContainer'
 import AllReviews from './Review/AllReviews'
 import RecommendedMovie from './RecommendedMovie'
 import AllCast from './Cast/AllCast'
+import OtherData from './OtherData'
 
 class Index extends React.Component{
     constructor(){
@@ -32,9 +33,22 @@ class Index extends React.Component{
                         year={this.state.data.release_date.substr(0,4)}
                         data={this.state.data}
                         />
-                        <div className="container-fluid"  style={{padding: '0 30px'}}>
-                            <h3>Movie Cast</h3>
-                            <AllCast movie_id={this.props.match.params.id}/>
+                        <div className="container-fluid mt-4" >
+                            <div className="row">
+                                <div className="col-md-9">
+                                    <AllCast movie_id={this.props.match.params.id}/>
+                                </div>
+                                <div className="col-md-3 ">
+                                    <OtherData 
+                                        original_title={this.state.data.original_title}
+                                        vote_count={this.state.data.vote_count}
+                                        popularity={this.state.data.popularity}
+                                        status={this.state.data.status}
+                                        imdb={this.state.data.imdb_id}
+                                        website={this.state.data.homepage}
+                                    />
+                                </div>
+                            </div>
                         </div>
                         <div className="container">
                             <h1>Review</h1>
