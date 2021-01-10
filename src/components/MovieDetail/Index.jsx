@@ -32,28 +32,27 @@ class Index extends React.Component{
                         bg_path={this.state.data.backdrop_path}
                         year={this.state.data.release_date.substr(0,4)}
                         data={this.state.data}
-                        />
-                        <div className="container-fluid mt-4" >
-                            <div className="row">
-                                <div className="col-md-9">
-                                    <AllCast movie_id={this.props.match.params.id}/>
-                                </div>
-                                <div className="col-md-3 ">
-                                    <OtherData 
-                                        original_title={this.state.data.original_title}
-                                        vote_count={this.state.data.vote_count}
-                                        popularity={this.state.data.popularity}
-                                        status={this.state.data.status}
-                                        imdb={this.state.data.imdb_id}
-                                        website={this.state.data.homepage}
-                                    />
-                                </div>
+                    />
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-md-9 mt-4">
+                                <AllCast movie_id={this.props.match.params.id}/>
+                            </div>
+                            <div className="col-md-3 mt-4">
+                                <OtherData 
+                                    original_title={this.state.data.original_title}
+                                    vote_count={this.state.data.vote_count}
+                                    popularity={this.state.data.popularity}
+                                    status={this.state.data.status}
+                                    imdb={this.state.data.imdb_id}
+                                    website={this.state.data.homepage}
+                                />
+                            </div>
+                            <div className="col-md-12">
+                                <AllReviews movie_id={this.props.match.params.id}/>
                             </div>
                         </div>
-                        <div className="container">
-                            <h1>Review</h1>
-                            <AllReviews movie_id={this.props.match.params.id}/>
-                        </div>
+                    </div>
                     <RecommendedMovie movie_id={this.props.match.params.id}/>
                 </>
             )

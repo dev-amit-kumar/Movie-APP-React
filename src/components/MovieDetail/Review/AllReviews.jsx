@@ -20,19 +20,22 @@ class Review extends React.Component{
 
     render(){
         var settings = {
-            dots: true,
-            infinite: true,
+            cssEase: "linear",
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1,
-            slickNext: true
+            arrows: false,
+            dots: true
         };
         return(
-            <Slider {...settings}>
-                {this.state.data && this.state.data.results.map((review, idx) => {
-                    return(<ReviewData data={review} key={idx} active={idx===0 && 'active'}/>)
-                })}
-            </Slider>
+            <div className="other_data container mt-4 pb-4">
+                <h1 className="text-center font-weight-bolder">Review</h1>
+                <Slider {...settings}>
+                    {this.state.data && this.state.data.results.map((review, idx) => {
+                        return(<ReviewData data={review} key={idx} active={idx===0 && 'active'}/>)
+                    })}
+                </Slider>
+            </div>
         )
     }
 }

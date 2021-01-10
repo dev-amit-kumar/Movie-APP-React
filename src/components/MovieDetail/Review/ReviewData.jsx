@@ -1,6 +1,6 @@
 const ReviewData = (props) => {
     return(
-        <div className="card" >
+        <div>
             <h6>Author: {props.data.author}</h6>
             <small>{props.data.created_at}</small>
             <img src={`https://image.tmdb.org/t/p/w500${props.data.author_details.avatar_path}`} alt="review_person" width="50"/>
@@ -10,4 +10,3 @@ const ReviewData = (props) => {
     )
 }
 export default ReviewData
-// style={{width: '80%',padding:'20px', marginLeft: 'auto', marginRight: 'auto'}}
