@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import '../../css/MainDetail.css'
-const MainDetail = (props) => {
+import '../../css/TopContainer.css'
+const TopContainer = (props) => {
     const [videoSrc, changeSrc] = useState('')
 
     const fnum = (x) => {
@@ -143,4 +143,4 @@ const MainDetail = (props) => {
         </div>
     )
 }
-export default MainDetail
+export default TopContainer

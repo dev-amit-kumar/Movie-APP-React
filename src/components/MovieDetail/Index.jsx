@@ -1,7 +1,9 @@
 import React from 'react'
-import MainDetail from './MainDetail'
-import AllReviews from './AllReviews'
+import TopContainer from './TopContainer'
+import AllReviews from './Review/AllReviews'
 import RecommendedMovie from './RecommendedMovie'
+import AllCast from './Cast/AllCast'
+
 class Index extends React.Component{
     constructor(){
         super()
@@ -16,12 +18,13 @@ class Index extends React.Component{
         .then(res => res.json())
         .then(res => this.setState({data: res}))
     }
+
     render(){
         console.log(this.state.data)
         if(this.state.data){
             return(
-                <div>
-                    <MainDetail 
+                <>
+                    <TopContainer 
                         title={this.state.data.title} 
                         tagline={this.state.data.tagline} 
                         poster_path={this.state.data.poster_path}
@@ -29,9 +32,16 @@ class Index extends React.Component{
                         year={this.state.data.release_date.substr(0,4)}
                         data={this.state.data}
                         />
-                    <AllReviews movie_id={this.props.match.params.id}/>
+                        <div className="container-fluid"  style={{padding: '0 30px'}}>
+                            <h3>Movie Cast</h3>
+                            <AllCast movie_id={this.props.match.params.id}/>
+                        </div>
+                        <div className="container">
+                            <h1>Review</h1>
+                            <AllReviews movie_id={this.props.match.params.id}/>
+                        </div>
                     <RecommendedMovie movie_id={this.props.match.params.id}/>
-                </div>
+                </>
             )
         }else{
             return(

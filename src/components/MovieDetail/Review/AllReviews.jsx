@@ -1,5 +1,6 @@
 import React from 'react'
 import ReviewData from './ReviewData'
+import Slider from "react-slick";
 
 class Review extends React.Component{
     constructor(props){
@@ -18,12 +19,20 @@ class Review extends React.Component{
     }
 
     render(){
+        var settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            slickNext: true
+        };
         return(
-            <div>
+            <Slider {...settings}>
                 {this.state.data && this.state.data.results.map((review, idx) => {
-                    return(<ReviewData data={review} key={idx}/>)
+                    return(<ReviewData data={review} key={idx} active={idx===0 && 'active'}/>)
                 })}
-            </div>
+            </Slider>
         )
     }
 }
