@@ -1,26 +1,48 @@
-.movie-card {
-  margin: 1rem 2rem;
+.movie-inner-card {
+  margin: 30px 30px 30px 30px;
 }
-.movie-card h6 {
-  padding: 10px;
+.movie-outer-card {
+  width: 20%;
+}
+.movie-card-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
   border-radius: 0 0 10px 10px;
   background-color: #141518;
   color: white;
+  height: 70px;
   text-decoration: none;
 }
-.movie-card:hover {
+.movie-inner-card:hover {
   text-decoration: none;
 }
-.movie-card img {
+.movie-inner-card img {
   width: 100%;
   border-radius: 10px 10px 0 0;
 }
 
-@media only screen and (max-width: 600px) {
-  .movie-card {
-    margin: 0.1rem 0.1rem;
+@media screen and (max-width: 900px) {
+  .movie-inner-card {
+    margin: 15px;
   }
-  .movie-card h6 {
-    font-size: 0.8rem;
+  .movie-card-text {
+    font-size: 10px;
+  }
+  .movie-outer-card {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .movie-inner-card {
+    margin: 15px;
+  }
+  .movie-card-text {
+    font-size: 10px;
+  }
+  .movie-outer-card {
+    width: 50%;
   }
 }
