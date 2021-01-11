@@ -8,17 +8,34 @@ const PersonData = (props)=>{
                         <div className="card-image col-md-3">
                             <img src={`https://image.tmdb.org/t/p/w500${data.profile_path}`} alt="actor"/>
                         </div>
-                        <div className="col-md-9">
+                        <div className="col-md-1"></div>
+                        <div className="col-md-8 person-text">
                             <h1>{data.name}</h1>
+                            <div className="d-flex flex-row flex-wrap align-items-center">
+                                <h6 className="mr-2 text-warning">{data.birthday}</h6>
+                                <h6 className="mr-2 text-warning">{data.gender===2 ? 'Male': 'Female'}</h6>
+                                <h6 className="mr-2 text-warning">{data.known_for_department}</h6>
+                                <h6 className="mr-2 text-warning">{data.popularity}%</h6>
+                            </div>
                             <p>{data.biography}</p>
-                            <h2>PERSONAL INFO</h2>
-                            <div className="d-flex flex-row flex-wrap justify-content-between">
-                                <span><h5>BIRTHDAY</h5>{data.birthday}</span>
-                                <span><h5>GENDER</h5>{data.gender}</span>
-                                <span><h5>KNOWN FOR</h5>{data.known_for_department}</span>
-                                <span><h5>PLACE OF BIRTH</h5>{data.place_of_birth}</span>
-                                <span><h5>POPULARITY</h5>{data.popularity}</span>
-                                <span><h5>ALSO KNOWN AS</h5>{data.also_known_as}</span>
+                            <p>
+                                <b>ALSO KNOWN AS: </b>
+                                {data.also_known_as && data.also_known_as.map((item, idx) => {
+                                    if(idx !== data.also_known_as.length-1){
+                                        return(`${item}, `)
+                                    }
+                                    else{
+                                        return(item)
+                                    }
+                                })}
+                            </p>
+                            <div>
+                                {data.imdb_id && 
+                                    <a rel="noopener noreferrer" target="_blank" href={`https://www.imdb.com/name/${data.imdb_id}`} className="btn btn-dark ml-2 mr-2 web-btn">IMDB <i className="fa fa-imdb" aria-hidden="true"></i> </a>
+                                }
+                                {data.homepage && 
+                                    <a rel="noopener noreferrer" target="_blank" href={data.homepage} className="btn btn-dark ml-2 mr-2 web-btn">Website <i className="fa fa-link" aria-hidden="true"></i></a>
+                                }
                             </div>
                         </div>
                     </div>

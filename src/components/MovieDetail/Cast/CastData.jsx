@@ -1,6 +1,5 @@
 import {Link} from 'react-router-dom'
 const ReviewData = (props) => {
-    console.log(props)
     return(
         <center>
             <Link to={`/person/${props.data.id}`} className="cast-name">

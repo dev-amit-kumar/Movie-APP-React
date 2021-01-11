@@ -19,7 +19,6 @@ class KnownForMovie extends React.Component{
     }
 
     render(){
-        console.log(this.state.movie_list)
         return(
             <div className="container-fluid mt-4">
                 <h2 className="font-weight-bolder ml-4">Known For Movie</h2>
