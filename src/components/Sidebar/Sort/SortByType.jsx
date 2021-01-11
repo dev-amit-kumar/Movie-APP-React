@@ -8,11 +8,12 @@ class SortByType extends Component {
             method:"GET"
         })
         .then((res)=>res.json())
-        .then((data)=>this.setState({movieData:data.results}))
+        .then((data)=>this.props.SortData(data.results))
     }
     render() {
         return (
             <div>
+                <h6>ByType</h6>
                 <select className="btn btn-light" onChange={this.renderSort}>
                     <option value="release_date.desc">release_date.desc</option>
                     <option value="release_date.asc">release_date.asc</option>

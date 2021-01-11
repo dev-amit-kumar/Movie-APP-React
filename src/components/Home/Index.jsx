@@ -18,7 +18,7 @@ class Home extends Component {
                 <div className="row">
                     <div className="col-md-2">
                     <h4 className="">POPULAR MOVIES</h4>
-                        <Sidebar/>
+                        <Sidebar MovieData={(data)=>this.setState({movieData:data})} MovieList={this.state.movieData}/>
                     </div>
                     <div className="col-md-10 container my-5 d-flex flex-row flex-wrap justify-content-between">
                         {this.state.movieData && this.state.movieData.map((movie, idx) => {
