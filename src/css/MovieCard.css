@@ -1,9 +1,19 @@
 .movie-inner-card {
   margin: 30px 30px 30px 30px;
 }
+
 .movie-outer-card {
   width: 20%;
 }
+
+.movie-inner-card a {
+  text-decoration: none !important;
+}
+
+.movie-inner-card a:hover {
+  text-decoration: none !important;
+}
+
 .movie-card-text {
   display: flex;
   justify-content: center;
@@ -13,11 +23,8 @@
   background-color: #141518;
   color: white;
   height: 70px;
-  text-decoration: none;
 }
-.movie-inner-card:hover {
-  text-decoration: none;
-}
+
 .movie-inner-card img {
   width: 100%;
   border-radius: 10px 10px 0 0;
