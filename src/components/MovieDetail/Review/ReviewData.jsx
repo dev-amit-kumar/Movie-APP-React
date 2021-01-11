@@ -11,7 +11,6 @@ const ReviewData = (props) => {
             return `https://image.tmdb.org/t/p/w500${props.data.author_details.avatar_path}`
         }
     }
-    const ab = toString(props.data.author_details.rating)
     return(
         <>
             <div className="d-flex mb-4 mt-2 justify-content-center">
