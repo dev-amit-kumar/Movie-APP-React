@@ -18,17 +18,19 @@ const PersonData = (props)=>{
                                 <h6 className="mr-2 text-warning">{data.popularity}%</h6>
                             </div>
                             <p>{data.biography}</p>
-                            <p>
-                                <b>ALSO KNOWN AS: </b>
-                                {data.also_known_as && data.also_known_as.map((item, idx) => {
-                                    if(idx !== data.also_known_as.length-1){
-                                        return(`${item}, `)
-                                    }
-                                    else{
-                                        return(item)
-                                    }
-                                })}
-                            </p>
+                            {(data.also_known_as && data.also_known_as.length>1) &&
+                                <>
+                                    <b>ALSO KNOWN AS: </b>
+                                    {data.also_known_as.map((item, idx) => {
+                                        if(idx !== data.also_known_as.length-1){
+                                            return(`${item}, `)
+                                        }
+                                        else{
+                                            return(item)
+                                        }
+                                    })}
+                                </>
+                            }
                             <div>
                                 {data.imdb_id && 
                                     <a rel="noopener noreferrer" target="_blank" href={`https://www.imdb.com/name/${data.imdb_id}`} className="btn btn-dark ml-2 mr-2 web-btn">IMDB <i className="fa fa-imdb" aria-hidden="true"></i> </a>
