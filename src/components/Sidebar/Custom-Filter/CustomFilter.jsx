@@ -19,7 +19,7 @@ class CustomFilter extends Component {
             var str= `&sort_by=${this.state.type}&include_adult=false&include_video=false&page=1`
         }
         else{
-            str ="&sort_by=popularity_desc&include_adult=false&include_video=false&page=1"
+            str ="&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
         }
         if(this.state.year){
             str = str+`&primary_release_year=${this.state.year}`
