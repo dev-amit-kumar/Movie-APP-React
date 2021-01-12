@@ -11,19 +11,25 @@ class DiscoverMovie extends Component {
     }
     render() {
         return (
-            <div>
-                <h6>Discover Movie</h6>
+            <div className="card card-body">
+                <h6 className="text-center">Discover Movie</h6>
                 <div className="form-check">
-                    <input className="form-check-input" onClick={this.renderFilterMovie}  type="radio" name="discover_movie" value="top_rated" />
-                    <label className="form-check-label">TOP RATED</label>
+                    <label className="form-check-label">
+                        <input className="form-check-input" onClick={this.renderFilterMovie}  type="radio" name="discover_movie" value="top_rated" />
+                        TOP RATED
+                    </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" onClick={this.renderFilterMovie}  type="radio" name="discover_movie" value="popular"/>
-                    <label className="form-check-label">POPULAR</label>
+                    <label className="form-check-label">
+                        <input className="form-check-input" onClick={this.renderFilterMovie}  type="radio" name="discover_movie" value="popular"/>
+                        POPULAR
+                    </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" onClick={this.renderFilterMovie}  type="radio" name="discover_movie" value="upcoming"/>
-                    <label className="form-check-label">UPCOMING</label>
+                    <label className="form-check-label">
+                        <input className="form-check-input" onClick={this.renderFilterMovie}  type="radio" name="discover_movie" value="upcoming"/>
+                        UPCOMING
+                    </label>
                 </div>
             </div>
         )

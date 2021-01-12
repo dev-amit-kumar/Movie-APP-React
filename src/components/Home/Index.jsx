@@ -12,10 +12,9 @@ class Home extends Component {
     }
     render() {
         return (
-            <div className="container-fluid mt-4">    
+            <div className="container-fluid">    
                 <div className="row">
                     <div className="col-md-2">
-                        <h4>POPULAR MOVIES</h4>
                         <Sidebar MovieData={(data)=>this.setState({movieData:data})} MovieList={this.state.movieData}/>
                     </div>
                     <div className="col-md-10 container my-5 d-flex flex-row flex-wrap justify-content-between">
