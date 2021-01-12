@@ -48,3 +48,9 @@ code {
 .cast-name small {
   color: #000;
 }
+
+.vh_center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

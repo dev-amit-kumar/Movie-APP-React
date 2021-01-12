@@ -1,19 +1,13 @@
 .card-image img {
-  width: 100%;
+  width: 80%;
   border-radius: 15px;
-  box-shadow: 0px 0px 10px 10px #d5d2d29c;
 }
 
 .person-data {
+  box-shadow: 0px 0px 10px 10px #d5d2d29c;
   margin: 3vw auto;
   width: 80vw;
-  /* padding: 3vw; */
-}
-
-.person-text {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  padding: 3vw;
 }
 
 @media screen and (max-width: 900px) {

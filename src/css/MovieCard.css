@@ -31,15 +31,21 @@
   border-radius: 10px 10px 0 0;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
   .movie-inner-card {
-    margin: 15px;
+    margin: 20px;
   }
   .movie-card-text {
     font-size: 10px;
   }
   .movie-outer-card {
     width: 25%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .movie-inner-card img {
+    height: 250px;
   }
 }
 
