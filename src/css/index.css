@@ -27,3 +27,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.slick-next:before,
+.slick-prev:before {
+  color: black;
+}
+
+.review_container {
+  padding: 20px 30px 50px 30px;
+}
+
+.cast-name {
+  text-decoration: none !important;
+}
+
+.cast-name:hover {
+  text-decoration: none !important;
+}
+
+.cast-name small {
+  color: #000;
+}
+
+.vh_center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
