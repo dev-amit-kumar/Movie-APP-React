@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom'
 const ReviewData = (props) => {
+    console.log(props)
     const img_src = () => {
         if(props.data.profile_path === null){
             return 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'

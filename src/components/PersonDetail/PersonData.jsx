@@ -1,12 +1,20 @@
 import '../../css/PersonData.css'
 const PersonData = (props)=>{
     const renderData=(data)=>{
+        const img_src = () => {
+            if(props.data.profile_path === null){
+                return 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
+            }
+            else{
+                return `https://image.tmdb.org/t/p/w500${props.data.profile_path}`
+            }
+        }
         if(data){
             return(
                 <div className="container-fluid person-data">
                     <div className="row">
                         <div className="card-image col-md-4 col-12 vh_center">
-                            <img src={`https://image.tmdb.org/t/p/w500${data.profile_path}`} alt="actor"/>
+                            <img src={img_src()} alt="actor"/>
                         </div>
                         {/* <div className="col-md-1"></div> */}
                         <div className="col-md-8 person-text col-12 vh_center">
@@ -18,7 +26,7 @@ const PersonData = (props)=>{
                                 <h6 className="mr-2 text-warning">{data.popularity}%</h6>
                             </div>
                             <b>BIOGRAPHY: </b>
-                            <p>{data.biography}</p>
+                            <p>{data.biography ? data.biography : <i>No biography available</i>}</p>
                             {(data.also_known_as && data.also_known_as.length>1) &&
                                 <>
                                     <b>ALSO KNOWN AS: </b>
