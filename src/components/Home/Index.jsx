@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import MovieCard from "./MovieCard";
-import Sidebar from "../Sidebar/Sidebar";
+import MovieCard from "../MovieCard";
+import Sidebar from "./Sidebar/Index";
 const purl="https://api.themoviedb.org/3/movie/popular?api_key=911c65436dd290d171fc662603dac6b3&language=en-US&page=1";
-
-
 
 class Home extends Component {
     constructor(){
         super()
         this.state={
-            movieData:[],
+            movieData:[]
         }
     }
     render() {
@@ -17,12 +15,12 @@ class Home extends Component {
             <div className="container-fluid mt-4">    
                 <div className="row">
                     <div className="col-md-2">
-                    <h4 className="">POPULAR MOVIES</h4>
+                        <h4>POPULAR MOVIES</h4>
                         <Sidebar MovieData={(data)=>this.setState({movieData:data})} MovieList={this.state.movieData}/>
                     </div>
                     <div className="col-md-10 container my-5 d-flex flex-row flex-wrap justify-content-between">
                         {this.state.movieData && this.state.movieData.map((movie, idx) => {
-                            return <MovieCard data={movie} key={idx}/>
+                            return <MovieCard data={movie} key={idx} height_s='auto'/>
                         })}
                     </div>
                 </div>
@@ -39,5 +37,3 @@ class Home extends Component {
 }
 
 export default Home;
-
-

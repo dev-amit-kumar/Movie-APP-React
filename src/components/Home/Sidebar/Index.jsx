@@ -1,5 +1,5 @@
-import QuickFilter from "./Filter/QuickFilter";
-import CustomFilter from "./Custom-Filter/CustomFilter";
+import DiscoverMovie from "./DiscoverMovie";
+import SortFilter from "./SortFilter";
 
 const Sidebar=(props)=>{
     const transferToIndex=(data)=>{
@@ -9,13 +9,8 @@ const Sidebar=(props)=>{
         <div>
             <div  className="row" >
                 <div className="col-6 col-md-12 mb-5">
-                    <button className="btn btn-light" type="button" data-toggle="collapse" data-target="#filtername" aria-expanded="false" aria-controls="collapseExample">
-                        QUICK FILTER
-                    </button>
-                    <div className="collapse" id="filtername">
-                        <div className="card card-body">
-                            <QuickFilter FilterData={(data)=>transferToIndex(data)}/>
-                        </div>
+                    <div className="card card-body">
+                        <DiscoverMovie FilterData={(data)=>transferToIndex(data)}/>
                     </div>
                 </div>
                 <div className="col-6 col-md-12">
@@ -24,7 +19,7 @@ const Sidebar=(props)=>{
                     </button>
                     <div className="collapse" id="sortname">
                         <div className="card card-body">
-                            <CustomFilter CustomData={(data)=>transferToIndex(data)}/>
+                            <SortFilter CustomData={(data)=>transferToIndex(data)}/>
                         </div>
                     </div>    
                 </div>

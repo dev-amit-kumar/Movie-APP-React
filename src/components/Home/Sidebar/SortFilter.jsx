@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import GenreFilter from "./Custom-Components/GenreFilter";
-import SortByYear from "./Custom-Components/SortByYear";
-import SortByType from "./Custom-Components/SortByType";
-import SortByRating from "./Custom-Components/SortByRating";
+import GenreFilter from "./Filter/GenreFilter";
+import SortByYear from "./Sort/SortByYear";
+import SortByType from "./Sort/SortByType";
+import SortByRating from "./Sort/SortByRating";
 const url ="https://api.themoviedb.org/3/discover/movie?api_key=911c65436dd290d171fc662603dac6b3&language=en-US"
-class CustomFilter extends Component {
+
+class SortFilter extends Component {
     constructor(){
         super()
         this.state={
@@ -49,4 +50,4 @@ class CustomFilter extends Component {
     }
 }
 
-export default CustomFilter;
+export default SortFilter;
