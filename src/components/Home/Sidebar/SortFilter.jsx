@@ -6,8 +6,8 @@ import SortByType from "./Sort/Type";
 const url ="https://api.themoviedb.org/3/discover/movie?api_key=911c65436dd290d171fc662603dac6b3&language=en-US"
 
 class SortFilter extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
             genre:[],
             year:"",
@@ -41,8 +41,9 @@ class SortFilter extends Component {
 
     render() {
         return (
-            <div className="card card-body">
-                <h6 className="text-center">CUSTOM FILTER</h6>
+            <div className="filter-card">
+                <h6 className="text-center">Filter Movie List</h6>
+                <hr/>
                 <FilterGenre GenreData={(data)=>this.setState({genre:data})}/>
                 <FilterYear  YearData={(data)=>this.setState({year:data})}/>
                 <SortByType  TypeData={(data)=>this.setState({type:data})}/>

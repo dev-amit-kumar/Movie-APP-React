@@ -11,8 +11,9 @@ class DiscoverMovie extends Component {
     }
     render() {
         return (
-            <div className="card card-body">
+            <div className="filter-card">
                 <h6 className="text-center">Discover Movie</h6>
+                <hr/>
                 <div className="form-check">
                     <label className="form-check-label">
                         <input className="form-check-input" onClick={this.renderFilterMovie}  type="radio" name="discover_movie" value="top_rated" />

@@ -8,7 +8,6 @@ const Sidebar=(props)=>{
     return (
         <div className="row" >
             <div className="col-6 col-md-12 mb-4 mt-3">
-                <h5 className="text-center">POPULAR MOVIES</h5>
                 <DiscoverMovie FilterData={(data)=>transferToIndex(data)}/>
             </div>
             <div className="col-6 col-md-12">
