@@ -31,11 +31,15 @@ class Review extends React.Component{
             <div className="other_data container review_container">
                 <h1 className="text-center font-weight-bolder">Review</h1>
                 <hr/>
-                <Slider {...settings}>
-                    {this.state.data && this.state.data.results.map((review, idx) => {
-                        return(<ReviewData data={review} key={idx} active={idx===0 && 'active'}/>)
-                    })}
-                </Slider>
+                {this.state.data.total_results ?
+                    <Slider {...settings}>
+                        {this.state.data.results.map((review, idx) => {
+                            return(<ReviewData data={review} key={idx} active={idx===0 && 'active'}/>)
+                        })}
+                    </Slider>
+                    :
+                    <h1 className="text-center"><i>No reviews available</i></h1>
+                }
             </div>
         )
     }

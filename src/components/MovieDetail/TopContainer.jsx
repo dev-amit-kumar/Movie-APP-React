@@ -27,39 +27,64 @@ const TopContainer = (props) => {
         changeSrc(status ? props.data.videos.results[0].key : '')
     }
 
+    const img_src = () => {
+        if(props.data.poster_path === null){
+            return '../demo.png'
+        }
+        else{
+            return `https://image.tmdb.org/t/p/w500/${props.data.poster_path}`
+        }
+    }
+
     return(
         <div className="movie-detail" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${props.bg_path})`}}>
             <div className="overlay">
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-4 movie-image">
-                            <img src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`} alt="movie"/>
+                            <img src={img_src()} alt="movie"/>
                         </div>
                         <div className="col-md-7 movie-text-data">
-                            <h1>{props.title} ({props.year})</h1>
+                            <h1>{props.title} {props.year && <span>({props.year})</span>}</h1>
                             <h6><i>{props.tagline}</i></h6>
                             <h6 className="mt-2">
-                                <i className="fa fa-calendar-o pr-2" aria-hidden="true"></i>
-                                <span className="text-info" style={{fontWeight: '400'}}>
-                                    {props.data.release_date}
-                                </span>
-                                <i className="fa fa-film pr-2 pl-4" aria-hidden="true"></i>
-                                <span className="text-info" style={{fontWeight: '400'}}>
-                                    {
-                                        props.data.genres.map((item, idx) => {
-                                            if(idx !== props.data.genres.length-1){
-                                                return(`${item['name']}, `)
+                                {
+                                    props.data.release_date &&
+                                    <>
+                                        <i className="fa fa-calendar-o pr-2" aria-hidden="true"></i>
+                                        <span className="text-info" style={{fontWeight: '400'}}>
+                                            {props.data.release_date}
+                                        </span>
+                                    </>
+                                }
+                                {
+                                    props.data.genres &&
+                                    <>
+                                        <i className="fa fa-film pr-2 pl-4" aria-hidden="true"></i>
+                                        <span className="text-info" style={{fontWeight: '400'}}>
+                                            {
+                                                props.data.genres.map((item, idx) => {
+                                                    if(idx !== props.data.genres.length-1){
+                                                        return(`${item['name']}, `)
+                                                    }
+                                                    else{
+                                                        return(item['name'])
+                                                    }
+                                                })
                                             }
-                                            else{
-                                                return(item['name'])
-                                            }
-                                        })
-                                    }
-                                </span>
-                                <i className="fa fa-clock-o pr-2 pl-4" aria-hidden="true"></i>
-                                <span className="text-info" style={{fontWeight: '400'}}>
-                                    &nbsp;{`${parseInt(props.data.runtime/60)}h ${props.data.runtime%60}min`}
-                                </span>
+                                        </span>
+                                    </>
+                                }
+                                {
+                                    props.data.runtime ?
+                                    <>
+                                        <i className="fa fa-clock-o pr-2 pl-4" aria-hidden="true"></i>
+                                        <span className="text-info" style={{fontWeight: '400'}}>
+                                            &nbsp;{`${parseInt(props.data.runtime/60)}h ${props.data.runtime%60}min`}
+                                        </span>
+                                    </>
+                                    : ''
+                                }
                                 <button type="button" onClick={() => playVideo(true)} className="play-btn pl-4" data-toggle="modal" data-target="#staticBackdrop">
                                     <i className="fa fa-play" aria-hidden="true"></i> Play Trailer
                                 </button>
@@ -68,25 +93,25 @@ const TopContainer = (props) => {
                                 <h5>
                                     Vote Score : 
                                     <span className="text-warning" style={{fontWeight: '400'}}>
-                                        &nbsp;{props.data.vote_average}
+                                        &nbsp;{props.data.vote_average ? props.data.vote_average : <i>Not available</i>}
                                     </span>
                                 </h5> 
                                 <h5 className="ml-4">
                                     Budget : 
                                     <span className="text-warning" style={{fontWeight: '400'}}>
-                                        &nbsp;$ {fnum(props.data.budget)}
+                                        &nbsp; {fnum(props.data.budget ? `$${props.data.budget}` : <i>Not available</i>)}
                                     </span>
                                 </h5>
                                 <h5 className="ml-4">
                                     Revenue : 
                                     <span className="text-warning" style={{fontWeight: '400'}}>
-                                        &nbsp;$ {fnum(props.data.revenue)}
+                                        &nbsp; {fnum(props.data.revenue ? `$${props.data.revenue}` : <i>Not available</i>)}
                                     </span>
                                 </h5>
                             </div>
                             <h5 className="mt-2">Overview</h5>
                             <p>
-                                {props.data.overview}
+                                {props.data.overview ? props.data.overview : <i>Overview not available</i>}
                             </p>
                             <div className="d-flex flex-wrap justify-content-between col-10" style={{paddingLeft: 0}}>
                                 <div className="text-center col-6">

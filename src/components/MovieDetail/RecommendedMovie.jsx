@@ -16,16 +16,27 @@ class RecommendedMovie extends React.Component{
         .then(res => res.json())
         .then(res => this.setState({data: res}))
     }
-
+    renderData = (data) => {
+        if(data.total_results){
+            return(
+                    <div className="row text-center">
+                            {data.results.map((movie, idx) => {
+                                return(<MovieCard data={movie} key={idx}/>)
+                            })}
+                    </div>
+            )
+        }
+        else{
+            return(
+                <h1 className="text-center"><i>Sorry, no movies found</i></h1>
+            )
+        }
+    }
     render(){
         return(
             <div className="container-fluid mt-4">
                 <h2 className="font-weight-bolder ml-4">Recommended Movie</h2>
-                <div className="row text-center">
-                        {this.state.data && this.state.data.results.map((movie, idx) => {
-                            return(<MovieCard data={movie} key={idx}/>)
-                        })}
-                </div>
+                {this.renderData(this.state.data)}
             </div>
         )
     }

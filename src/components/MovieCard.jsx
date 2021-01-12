@@ -1,14 +1,24 @@
 import { Link } from 'react-router-dom'
 import '../css/MovieCard.css'
 const MovieCard = (props) => {
+    const img_src = () => {
+        if(props.data.poster_path === null){
+            return '../demo.png'
+        }
+        else{
+            return `https://image.tmdb.org/t/p/w500/${props.data.poster_path}`
+        }
+    }
     return(
-        <div className="col-6 text-center col-md-3">
-            <Link to={`/movie/${props.data.id}`}>
-                <div className="movie-card">
-                    <img src={`https://image.tmdb.org/t/p/w500/${props.data.poster_path}`} alt="movie"/>
-                    <h6>{props.data.title}</h6>
-                </div>
-            </Link>
+        <div className="movie-outer-card text-center">
+            <div className="movie-inner-card">
+                <Link to={`/movie/${props.data.id}`}>
+                    <img src={img_src()} alt="movie"/>
+                    <div className="movie-card-text">
+                        <h6>{props.data.title}</h6>
+                    </div>
+                </Link>
+            </div>
         </div>
     )
 }

@@ -1,26 +1,62 @@
-.movie-card {
-  margin: 1rem 2rem;
+.movie-inner-card {
+  margin: 30px 30px 30px 30px;
 }
-.movie-card h6 {
-  padding: 10px;
+
+.movie-outer-card {
+  width: 20%;
+}
+
+.movie-inner-card a {
+  text-decoration: none !important;
+}
+
+.movie-inner-card a:hover {
+  text-decoration: none !important;
+}
+
+.movie-card-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
   border-radius: 0 0 10px 10px;
   background-color: #141518;
   color: white;
-  text-decoration: none;
+  height: 70px;
 }
-.movie-card:hover {
-  text-decoration: none;
-}
-.movie-card img {
+
+.movie-inner-card img {
   width: 100%;
+  height: 350px;
   border-radius: 10px 10px 0 0;
 }
 
-@media only screen and (max-width: 600px) {
-  .movie-card {
-    margin: 0.1rem 0.1rem;
+@media screen and (max-width: 1200px) {
+  .movie-inner-card {
+    margin: 20px;
   }
-  .movie-card h6 {
-    font-size: 0.8rem;
+  .movie-card-text {
+    font-size: 10px;
+  }
+  .movie-outer-card {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .movie-inner-card img {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .movie-inner-card {
+    margin: 15px;
+  }
+  .movie-card-text {
+    font-size: 10px;
+  }
+  .movie-outer-card {
+    width: 50%;
   }
 }
