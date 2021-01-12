@@ -6,11 +6,11 @@ const Sidebar=(props)=>{
         props.MovieData(data)
     }
     return (
-        <div className="row" >
-            <div className="col-6 col-md-12 mb-4 mt-3">
+        <div className="row">
+            <div className="col-12 col-md-12 mt-3">
                 <DiscoverMovie FilterData={(data)=>transferToIndex(data)}/>
             </div>
-            <div className="col-6 col-md-12">
+            <div className="col-12 col-md-12 mt-3">
                 <SortFilter CustomData={(data)=>transferToIndex(data)}/>
             </div>
         </div>

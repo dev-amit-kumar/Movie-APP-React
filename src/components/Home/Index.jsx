@@ -14,10 +14,10 @@ class Home extends Component {
         return (
             <div className="container-fluid">    
                 <div className="row">
-                    <div className="col-md-2">
+                    <div className="col-md-2 col-12" id="accordion">
                         <Sidebar MovieData={(data)=>this.setState({movieData:data})} MovieList={this.state.movieData}/>
                     </div>
-                    <div className="col-md-10 container d-flex flex-row flex-wrap justify-content-between">
+                    <div className="col-md-10 col-12 container d-flex flex-row flex-wrap justify-content-between">
                         {this.state.movieData && this.state.movieData.map((movie, idx) => {
                             return <MovieCard data={movie} key={idx} height_s='250px'/>
                         })}
