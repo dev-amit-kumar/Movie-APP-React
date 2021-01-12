@@ -40,17 +40,46 @@ class SortFilter extends Component {
     }
 
     render() {
+        const filterOption = () => {
+            return(
+                <>  
+                    <div className="col-12">
+                        <hr/>
+                    </div>
+                    <div className="col-6 col-md-12">
+                        <FilterGenre GenreData={(data)=>this.setState({genre:data})}/>
+                    </div>
+                    <div className="col-6 col-md-12">
+                        <FilterYear  YearData={(data)=>this.setState({year:data})}/>
+                    </div>
+                    <div className="col-6 col-md-12">
+                        <SortByType  TypeData={(data)=>this.setState({type:data})}/>
+                    </div>
+                    <div className="col-6 col-md-12">
+                        <FilterRating RatingData={(data)=>this.setState({rating:data})}/>
+                    </div>
+                    <div className="col-md-12">
+                        <button onClick={this.sendData} className="btn btn-outline-dark btn-block mt-4">Submit</button>
+                    </div>
+                </>
+            )
+        }
         return (
             <div className="filter-card">
-                <h6 className="text-center">Filter Movie List</h6>
-                <hr/>
-                <FilterGenre GenreData={(data)=>this.setState({genre:data})}/>
-                <FilterYear  YearData={(data)=>this.setState({year:data})}/>
-                <SortByType  TypeData={(data)=>this.setState({type:data})}/>
-                <FilterRating RatingData={(data)=>this.setState({rating:data})}/>
-                <center>
-                    <button onClick={this.sendData} className="btn btn-dark mt-4">Submit</button>
-                </center>
+                <div className="show_on_mobile">
+                    <a className="cast-name collapsed text-dark" href="#collapseOne" role="button"  data-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
+                        <h6 className="text-center">Filter Movie List</h6>
+                    </a>
+                    <div id="collapseOne" className="row collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        {filterOption()}
+                    </div>
+                </div>
+                <div className="hide_on_mobile">
+                    <h6 className="text-center">Filter Movie List</h6>
+                    <div className="row">
+                        {filterOption()}
+                    </div>
+                </div>
             </div>
         )
     }

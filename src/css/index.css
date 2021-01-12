@@ -60,3 +60,23 @@ code {
   padding: 20px;
   border-radius: 10px;
 }
+
+.show_on_mobile {
+  display: none;
+}
+
+.hide_on_mobile {
+  display: block;
+}
+
+@media screen and (max-width: 1000px) {
+  .filter-card {
+    padding: 10px 20px 10px 20px;
+  }
+  .show_on_mobile {
+    display: block;
+  }
+  .hide_on_mobile {
+    display: none;
+  }
+}
