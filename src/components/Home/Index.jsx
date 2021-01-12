@@ -19,7 +19,7 @@ class Home extends Component {
                     </div>
                     <div className="col-md-10 container d-flex flex-row flex-wrap justify-content-between">
                         {this.state.movieData && this.state.movieData.map((movie, idx) => {
-                            return <MovieCard data={movie} key={idx} height_s='auto'/>
+                            return <MovieCard data={movie} key={idx} height_s='250px'/>
                         })}
                     </div>
                 </div>
