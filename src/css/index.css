@@ -54,3 +54,9 @@ code {
   justify-content: center;
   flex-direction: column;
 }
+
+.filter-card {
+  box-shadow: 0px 0px 5px 5px #e1dfdf;
+  padding: 20px;
+  border-radius: 10px;
+}
