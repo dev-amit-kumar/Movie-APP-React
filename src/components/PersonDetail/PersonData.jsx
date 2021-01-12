@@ -13,7 +13,7 @@ const PersonData = (props)=>{
             return(
                 <div className="container-fluid person-data">
                     <div className="row">
-                        <div className="card-image col-md-4 col-12 vh_center">
+                        <div className="card-image col-md-4 col-12 vh_center align-items-center">
                             <img src={img_src()} alt="actor"/>
                         </div>
                         {/* <div className="col-md-1"></div> */}
