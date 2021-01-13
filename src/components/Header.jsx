@@ -14,11 +14,6 @@ const Header = () => {
                         </div>
                     </div>
                 </form>
-                <button className="navbar-toggler order-0" type="button" data-toggle="collapse" data-target="#navbar7">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div className="navbar-collapse collapse flex-shrink-1 flex-grow-0 order-last" id="navbar7">
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li className="nav-item dropdown">
                         <button className="setting_btn" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -29,7 +24,7 @@ const Header = () => {
                             <a className="dropdown-item" href="#">Profile</a>
                             <a className="dropdown-item" href="#">View wishlist</a>
                             <a className="dropdown-item" href="#">View history</a>
-                            <a className="dropdown-item" href="#">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                            <a className="dropdown-item" href="#">Logout <i className="fa fa-sign-out" aria-hidden="true"></i></a>
                         </div>
                     </li>
                 </ul>
