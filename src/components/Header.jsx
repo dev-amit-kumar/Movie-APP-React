@@ -21,7 +21,7 @@ const Header = () => {
             <div className="navbar-collapse collapse flex-shrink-1 flex-grow-0 order-last" id="navbar7">
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li className="nav-item dropdown">
-                        <a className="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a className="setting_btn nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i className="fa fa-user-circle" aria-hidden="true"></i>
                         </a>
                         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">

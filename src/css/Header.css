@@ -10,6 +10,8 @@
   background-color: black;
 }
 
-/* .navbar input {
-  border: 1px solid black;
-} */
+.setting_btn {
+  color: white !important;
+  font-size: 25px;
+  padding: 0;
+}

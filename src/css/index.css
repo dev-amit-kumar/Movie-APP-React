@@ -62,11 +62,11 @@ code {
 }
 
 .show_on_mobile {
-  display: none !important;
+  display: none;
 }
 
 .hide_on_mobile {
-  display: block !important;
+  display: block;
 }
 
 @media screen and (max-width: 1000px) {
