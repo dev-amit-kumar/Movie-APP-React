@@ -12,6 +12,15 @@
 
 .setting_btn {
   color: white !important;
+  background-color: #fff0;
+  border: none;
+  outline: none;
   font-size: 25px;
   padding: 0;
+}
+
+.setting_btn:hover,
+.setting_btn:focus {
+  outline: none;
+  border: none;
 }
