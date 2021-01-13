@@ -45,7 +45,7 @@ const PersonData = (props)=>{
                                     <a rel="noopener noreferrer" 
                                         target="_blank" 
                                         href={`https://www.imdb.com/name/${data.imdb_id}`} 
-                                        className="btn btn-dark ml-2 mr-2 web-btn">IMDB 
+                                        className="btn btn-warning ml-2 mr-2 font-bold font-weight-bold">IMDB&nbsp;
                                         <i className="fa fa-imdb" aria-hidden="true"></i> 
                                     </a>
                                 }
@@ -53,7 +53,7 @@ const PersonData = (props)=>{
                                     <a rel="noopener noreferrer" 
                                         target="_blank" 
                                         href={data.homepage} 
-                                        className="btn btn-dark ml-2 mr-2 web-btn">Website 
+                                        className="btn btn-danger ml-2 mr-2 font-bold font-weight-bold">Website&nbsp;
                                         <i className="fa fa-link" aria-hidden="true"></i>
                                     </a>
                                 }

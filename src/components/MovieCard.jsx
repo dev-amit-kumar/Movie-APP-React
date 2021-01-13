@@ -13,7 +13,6 @@ const MovieCard = (props) => {
     const style = {
         height: props.height_s
     }
-    console.log(props.data)
     return(
         <div className="movie-outer-card text-center">
             <div className="movie-inner-card">

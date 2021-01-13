@@ -5,7 +5,7 @@ const Header = () => {
     return(
         <nav className="navbar navbar-expand-lg navbar-dark sticky-top fixed-top">
             <div className="d-flex flex-grow-1">
-                <Link to="/"><span className="navbar-brand"><img src="./logo.png" alt="logo" width="55"/></span></Link>
+                <Link to="/"><span className="navbar-brand"><img src="https://dl.dropboxusercontent.com/s/vx8n6h25qj5dgwn/logo.png?dl=0" alt="logo" width="55"/></span></Link>
                 <form className="mr-2 my-auto w-100 d-inline-block">
                     <div className="input-group">
                         <input type="search" className="form-control" placeholder="Search movie/actor" aria-label="Search movie/acto" aria-describedby="button-addon2"/>
@@ -15,7 +15,7 @@ const Header = () => {
                     </div>
                 </form>
                 <ul className="navbar-nav mr-auto mt-lg-0">
-                    <li className="nav-item dropdown">
+                    <li className="nav-item dropdown mt-1">
                         <button className="setting_btn" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i className="fa fa-user-circle" aria-hidden="true"></i>
                         </button>
