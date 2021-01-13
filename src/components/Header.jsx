@@ -14,7 +14,7 @@ const Header = () => {
                         </div>
                     </div>
                 </form>
-                <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                <ul className="navbar-nav mr-auto mt-lg-0">
                     <li className="nav-item dropdown">
                         <button className="setting_btn" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i className="fa fa-user-circle" aria-hidden="true"></i>
