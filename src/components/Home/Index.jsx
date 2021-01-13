@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom"
 import MovieCard from "./MovieCard";
 import Sidebar from "../Sidebar/Sidebar";
 const purl="https://api.themoviedb.org/3/movie/popular?api_key=911c65436dd290d171fc662603dac6b3&language=en-US&page=1";
@@ -12,9 +13,19 @@ class Home extends Component {
             movieData:[],
         }
     }
+    renderSearch=(data)=>{
+        if(data){
+            return data.map((val)=>{
+                return(
+                    <Link>{val.title}</Link>
+                )
+            })
+        }
+    }
     render() {
         return (
-            <div className="container-fluid mt-4">    
+            <div className="container-fluid mt-4">
+                <div className="col-md-2">{this.renderSearch(this.props.SearchList)}</div>
                 <div className="row">
                     <div className="col-md-2">
                     <h4 className="">POPULAR MOVIES</h4>
