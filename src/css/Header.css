@@ -28,3 +28,8 @@
 .navbar-nav .dropdown-menu {
   position: absolute;
 }
+
+.logout_btn {
+  color: white !important;
+  background-color: red !important;
+}
