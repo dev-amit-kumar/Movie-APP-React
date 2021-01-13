@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+.navbar-brand {
+  font-family: "Righteous", cursive;
+  padding: 5px 15px;
+  border-radius: 7px;
+}
+
+.navbar {
+  background-color: black;
+}
+
+.setting_btn {
+  color: white !important;
+  background-color: #fff0;
+  border: none;
+  outline: none;
+  font-size: 25px;
+  padding: 0;
+}
+
+.setting_btn:hover,
+.setting_btn:focus {
+  outline: none;
+  border: none;
+}
+
+.navbar-nav .dropdown-menu {
+  position: absolute;
+}
