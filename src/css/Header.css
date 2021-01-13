@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+.navbar-brand {
+  font-family: "Righteous", cursive;
+  padding: 5px 15px;
+  border-radius: 7px;
+}
+
+.navbar {
+  background-color: black;
+}
+
+/* .navbar input {
+  border: 1px solid black;
+} */
