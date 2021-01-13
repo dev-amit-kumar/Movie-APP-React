@@ -74,6 +74,13 @@ code {
   display: block;
 }
 
+.full-cover {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 1300px) {
   .cast-name img {
     width: 90px;
