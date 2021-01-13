@@ -11,7 +11,7 @@ const ReviewData = (props) => {
     return(
         <center>
             <Link to={`/person/${props.data.id}`} className="cast-name">
-                <img src={img_src()} alt="cast" width="100" height="100" className="rounded-circle"/>
+                <img src={img_src()} alt="cast" className="rounded-circle"/>
                 <small>{props.data.name}</small>
             </Link>
         </center>

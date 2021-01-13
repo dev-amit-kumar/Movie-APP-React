@@ -40,14 +40,14 @@ const TopContainer = (props) => {
         <div className="movie-detail" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${props.bg_path})`}}>
             <div className="overlay">
                 <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-md-4 movie-image">
+                    <div className="row justify-content-center">
+                        <div className="movie-image">
                             <img src={img_src()} alt="movie"/>
                         </div>
-                        <div className="col-md-7 movie-text-data">
-                            <h1>{props.title} {props.year && <span>({props.year})</span>}</h1>
-                            <h6><i>{props.tagline}</i></h6>
-                            <h6 className="mt-2">
+                        <div className="movie-text-data">
+                            <h1 className="center_on_mobile">{props.title} {props.year && <span>({props.year})</span>}</h1>
+                            <h6 className="center_on_mobile"><i>{props.tagline}</i></h6>
+                            <h6 className="mt-2 center_on_mobile">
                                 {
                                     props.data.release_date &&
                                     <>
@@ -89,7 +89,7 @@ const TopContainer = (props) => {
                                     <i className="fa fa-play" aria-hidden="true"></i> Play Trailer
                                 </button>
                             </h6>
-                            <div className="d-flex flex-row flex-wrap mt-3">
+                            <div className="d-flex flex-row flex-wrap mt-3 center_on_mobile">
                                 <h5>
                                     Vote Score : 
                                     <span className="text-warning" style={{fontWeight: '400'}}>
@@ -113,7 +113,7 @@ const TopContainer = (props) => {
                             <p>
                                 {props.data.overview ? props.data.overview : <i>Overview not available</i>}
                             </p>
-                            <div className="d-flex flex-wrap justify-content-between col-10" style={{paddingLeft: 0}}>
+                            <div className="d-flex flex-wrap justify-content-between col-12" style={{paddingLeft: 0}}>
                                 <div className="text-center col-6">
                                     <h5>Origin Country</h5>
                                     <h6 style={{fontWeight: '400', color: '#07B4E1'}}>
