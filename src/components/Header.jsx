@@ -5,7 +5,7 @@ const Header = () => {
     return(
         <nav className="navbar navbar-expand-lg navbar-dark sticky-top fixed-top">
             <div className="d-flex flex-grow-1">
-                <Link to="/"><span className="navbar-brand">Home</span></Link>
+                <Link to="/"><span className="navbar-brand"><img src="./logo.png" alt="logo" width="55"/></span></Link>
                 <form className="mr-2 my-auto w-100 d-inline-block">
                     <div className="input-group">
                         <input type="search" className="form-control" placeholder="Search movie/actor" aria-label="Search movie/acto" aria-describedby="button-addon2"/>
