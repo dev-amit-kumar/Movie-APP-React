@@ -20,11 +20,11 @@ const Header = () => {
                             <i className="fa fa-user-circle" aria-hidden="true"></i>
                         </button>
                         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a className="dropdown-item" href="/">Change theme</a>
-                            <a className="dropdown-item" href="/">Profile</a>
-                            <a className="dropdown-item" href="/">View wishlist</a>
-                            <a className="dropdown-item" href="/">View history</a>
-                            <a className="dropdown-item text-danger font-weight-bold" href="/">Logout <i className="fa fa-sign-out" aria-hidden="true"></i></a>
+                            <Link className="dropdown-item" to="/setting/theme">Change theme</Link>
+                            <Link className="dropdown-item" to="/setting/profile">Profile</Link>
+                            <Link className="dropdown-item" to="/setting/wishlist">View wishlist</Link>
+                            <Link className="dropdown-item" to="/setting/history">View history</Link>
+                            <button className="dropdown-item logout_btn font-weight-bold" href="/">Logout <i className="fa fa-sign-out" aria-hidden="true"></i></button>
                         </div>
                     </li>
                 </ul>

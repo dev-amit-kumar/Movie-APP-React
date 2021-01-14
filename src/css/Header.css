@@ -30,6 +30,5 @@
 }
 
 .logout_btn {
-  color: var(--secondary_text) !important;
-  background-color: red !important;
+  color: var(--primary_text) !important;
 }

@@ -1,0 +1,26 @@
+.setting_card .card-header {
+  border-radius: 10px 10px 0 0;
+  padding-left: 40px;
+  background-color: #01b4e4;
+  color: var(--secondary_text);
+}
+
+.setting {
+  width: 90%;
+  margin-top: 50px;
+}
+
+.setting_card {
+  border: none;
+}
+
+.setting_card p a {
+  color: black !important;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.setting_card .card-body {
+  border-radius: 0 0 10px 10px;
+  border: 1px solid #01b4e4 !important;
+}
