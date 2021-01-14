@@ -17,22 +17,12 @@ const MovieCard = (props) => {
     return(
         <div className="movie-outer-card text-center">
             <div className="movie-inner-card">
-                <Link to={`/movie/${props.data.id}`}>
-                    <div className="position-relative card-shadow">
+                <div className="position-relative card-shadow">
+                    <Link to={`/movie/${props.data.id}`}>
                         <img src={img_src()} alt="movie" style={style}/>
                         <div className="movie-card-text">
                             <h6>{props.data.title}</h6>
                         </div>
-                        {props.show_wishlist && 
-                            <div className="wishlist_show">
-                                <i className="fa fa-heart text-danger" aria-hidden="true"></i>
-                            </div>
-                        }
-                        {props.show_delete && 
-                            <div className="wishlist_show">
-                                <i className="fa fa-trash text-danger" aria-hidden="true"></i>
-                            </div>
-                        }
                         <div className="d-flex justify-content-center" data-tip={`Rating based on ${props.data.vote_count} votes`}>
                             <ReactStars
                                 count={5}
@@ -48,8 +38,18 @@ const MovieCard = (props) => {
                             />
                         </div>
                         <ReactTooltip place="bottom" border={true} borderColor='#000' backgroundColor='#fff' textColor="#000" effect="solid"/>
-                    </div>
-                </Link>
+                    </Link>
+                    {props.show_wishlist && 
+                        <div className="wishlist_show">
+                            <i className="fa fa-heart text-danger" aria-hidden="true"></i>
+                        </div>
+                    }
+                    {props.show_delete && 
+                        <div className="wishlist_show">
+                            <i className="fa fa-trash text-danger" aria-hidden="true"></i>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     )
