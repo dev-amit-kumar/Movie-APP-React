@@ -84,6 +84,11 @@ code {
   background-color: var(--primary);
 }
 
+.filter-card .card-header a h6 {
+  color: var(--secondary_text);
+  background-color: var(--primary);
+}
+
 .filter-card button {
   background-color: var(--primary);
   color: var(--secondary_text);

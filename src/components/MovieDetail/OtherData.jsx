@@ -6,10 +6,11 @@ const OtherData = (props) => {
             <p><b className="heading_color">Vote Count: </b>{props.vote_count}</p>
             <p><b className="heading_color">Popularity: </b>{props.popularity}</p>
             <p><b className="heading_color">Status: </b>{props.status}</p>
-            <center>
-                <a rel="noopener noreferrer" target="_blank" href={`https://www.imdb.com/title/${props.imdb}`} className="btn btn-warning ml-2 mr-2 font-bold font-weight-bold">IMDB <i className="fa fa-imdb" aria-hidden="true"></i> </a>
-                <a rel="noopener noreferrer" target="_blank" href={props.website} className="btn btn-danger ml-2 mr-2 font-weight-bold">Website <i className="fa fa-link" aria-hidden="true"></i></a>
-            </center>
+            <p>
+                <b className="heading_color">External links: </b>
+                <a rel="noopener noreferrer" target="_blank" href={`https://www.imdb.com/title/${props.imdb}`} className="btn btn-warning font-bold font-weight-bold">IMDB</a>
+                <a rel="noopener noreferrer" target="_blank" href={props.website} className="btn btn-danger font-weight-bold ml-1">Website</a>
+            </p>
         </div>
     )
 }
