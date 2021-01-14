@@ -1,7 +1,9 @@
 const Wishlist = () => {
     return(
-        <div>
-            Wishlist
+        <div className="card setting_common_card">
+            <h2 className="card-header">Wishlist</h2>
+            <div className="card-body">
+            </div>
         </div>
     )
 }
