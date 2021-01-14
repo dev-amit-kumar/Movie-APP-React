@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from 'react-router-dom'
 import '../css/Header.css'
 
 const Header = () => {
@@ -20,11 +20,11 @@ const Header = () => {
                             <i className="fa fa-user-circle" aria-hidden="true"></i>
                         </button>
                         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <Link className="dropdown-item" to="/setting/theme">Change theme</Link>
-                            <Link className="dropdown-item" to="/setting/profile">Profile</Link>
-                            <Link className="dropdown-item" to="/setting/wishlist">View wishlist</Link>
-                            <Link className="dropdown-item" to="/setting/history">View history</Link>
-                            <button className="dropdown-item logout_btn font-weight-bold" href="/">Logout <i className="fa fa-sign-out" aria-hidden="true"></i></button>
+                            <NavLink className="dropdown-item" to="/setting/profile" activeClassName="navlink_active">Profile Details</NavLink>
+                            <NavLink className="dropdown-item" to="/setting/theme" activeClassName="navlink_active">Change Theme</NavLink>
+                            <NavLink className="dropdown-item" to="/setting/history" activeClassName="navlink_active">View History</NavLink>
+                            <NavLink className="dropdown-item" to="/setting/wishlist" activeClassName="navlink_active">View Wishlist</NavLink>
+                            <NavLink className="dropdown-item logout_btn font-weight-bold" to="/setting/logout">Log out <i className="fa fa-sign-out" aria-hidden="true"></i></NavLink>
                         </div>
                     </li>
                 </ul>

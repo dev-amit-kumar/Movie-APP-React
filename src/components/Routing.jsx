@@ -5,7 +5,7 @@ import MovieDetail from './MovieDetail/Index'
 import PersonDetail from './PersonDetail/Index';
 import Header from './Header';
 import Footer from './Footer';
-import Setting from './Setting'
+import Setting from './Setting/Index'
 
 const Routing = () => {
     return(
