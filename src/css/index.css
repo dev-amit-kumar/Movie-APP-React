@@ -10,13 +10,7 @@
 .heading_color {
   color: var(--primary_text);
 }
-/*
-#032541
-#805BE7
-#D27701
-#D40242
-#EA148C
-*/
+
 html {
   height: 100%;
   box-sizing: border-box;

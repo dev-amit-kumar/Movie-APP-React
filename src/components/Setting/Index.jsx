@@ -10,7 +10,7 @@ const Setting = (props) => {
     return(
         <div className="container-fluid setting">
             <div className="row">
-                <div className="col-2">
+                <div className="col-12 col-md-2 hide_on_mobile">
                     <div className="card setting_card">
                         <div className="card-header">
                             <h5>Settings</h5>
@@ -24,7 +24,7 @@ const Setting = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="col-10">
+                <div className="col-12 col-md-10">
                     {props.match.params.type === 'theme' && <Theme/>}
                     {props.match.params.type === 'history' && <History/>}
                     {props.match.params.type === 'profile' && <Profile/>}
