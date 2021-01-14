@@ -27,7 +27,7 @@ const Year=(props)=>{
 
     return (
         <div>
-            <h6>Select Year</h6>
+            <h6>Select min. year</h6>
             <input className="form-control" onChange={sendData} type="number" minLength="4" maxLength="4" min="1900" max={curr_year} step="1" value={year}/>
             {isError && <label><span className="text-danger">Year should be between 1900 - {curr_year}</span></label> }
         </div>

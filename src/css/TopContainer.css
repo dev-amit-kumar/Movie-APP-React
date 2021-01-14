@@ -40,7 +40,7 @@
   width: 70%;
   margin: 2rem 0 2rem 5%;
   text-shadow: 2px 2px 1px #00000087;
-  color: #e5e5e5;
+  color: var(--secondary_text);
   transition: transform 2s;
 }
 
@@ -53,9 +53,9 @@
 }
 
 .play-btn {
-  background-color: #fff0;
+  background-color: var(--transparent);
   border: none;
-  color: #fff;
+  color: var(--secondary_text);
   font-weight: 700;
   padding: 5px;
   outline: none;

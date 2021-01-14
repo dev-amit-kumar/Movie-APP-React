@@ -33,13 +33,13 @@ const ReviewData = (props) => {
                     </div>
                 </div>
             </div>
-            <span style={{fontSize: '20px'}}><i className="fa fa-quote-left" aria-hidden="true"></i></span>
+            <span style={{fontSize: '20px'}}><i className="fa fa-quote-left heading_color" aria-hidden="true"></i></span>
             <div className="d-flex justify-content-center align-items-center">
                 <p style={{maxHeight: '150px', overflowY: 'hidden', width:'95%'}} className="text-center">
                     &emsp;{props.data.content}&emsp;
                 </p>
             </div>
-            <span style={{fontSize: '20px', float:'right'}}><i className="fa fa-quote-right" aria-hidden="true"></i></span>
+            <span style={{fontSize: '20px', float:'right'}}><i className="fa fa-quote-right heading_color" aria-hidden="true"></i></span>
         </>
     )
 }

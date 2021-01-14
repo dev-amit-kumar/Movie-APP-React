@@ -13,7 +13,6 @@ class DiscoverMovie extends Component {
         const discoverOption = () => {
             return(
                 <>
-                    <hr/>
                     <div className="form-check">
                         <label className="form-check-label">
                             <input className="form-check-input" onClick={this.renderFilterMovie}  type="radio" name="discover_movie" value="top_rated" />
@@ -37,17 +36,23 @@ class DiscoverMovie extends Component {
         }
         return (
             <div className="filter-card">
-                <div className="show_on_mobile">
-                    <a className="cast-name collapsed text-dark" href="#collapseTwo" role="button"  data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
-                        <h6 className="text-center">Discover Movie</h6>
-                    </a>
-                    <div id="collapseTwo" className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div className="show_on_mobile card">
+                    <div className="card-header">
+                        <a className="cast-name collapsed text-dark " href="#collapseTwo" role="button"  data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                            <h6 className="text-center" style={{margin: 0}}>Discover Movie</h6>
+                        </a>
+                    </div>
+                    <div id="collapseTwo" className="collapse card-body" aria-labelledby="headingOne" data-parent="#accordion">
                         {discoverOption()}
                     </div>
                 </div>
-                <div className="hide_on_mobile">
-                    <h6 className="text-center">Discover Movie</h6>
-                    {discoverOption()}
+                <div className="hide_on_mobile card">
+                    <div className="card-header">
+                        <h6 className="text-center">Discover Movie</h6>
+                    </div>
+                    <div className="card-body">
+                        {discoverOption()}
+                    </div>
                 </div>
             </div>
         )

@@ -7,12 +7,12 @@
 }
 
 .navbar {
-  background-color: black;
+  background-color: var(--primary);
 }
 
 .setting_btn {
-  color: white !important;
-  background-color: #fff0;
+  color: var(--secondary_text) !important;
+  background-color: var(--transparent);
   border: none;
   outline: none;
   font-size: 25px;
@@ -30,6 +30,6 @@
 }
 
 .logout_btn {
-  color: white !important;
+  color: var(--secondary_text) !important;
   background-color: red !important;
 }

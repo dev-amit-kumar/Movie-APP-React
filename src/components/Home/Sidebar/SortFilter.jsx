@@ -43,9 +43,6 @@ class SortFilter extends Component {
         const filterOption = () => {
             return(
                 <>  
-                    <div className="col-12">
-                        <hr/>
-                    </div>
                     <div className="col-6 col-md-12">
                         <FilterGenre GenreData={(data)=>this.setState({genre:data})}/>
                     </div>
@@ -59,24 +56,28 @@ class SortFilter extends Component {
                         <FilterRating RatingData={(data)=>this.setState({rating:data})}/>
                     </div>
                     <div className="col-md-12">
-                        <button onClick={this.sendData} className="btn btn-outline-dark btn-block mt-4">Submit</button>
+                        <button onClick={this.sendData} className="btn btn-block mt-4">Submit</button>
                     </div>
                 </>
             )
         }
         return (
             <div className="filter-card">
-                <div className="show_on_mobile">
-                    <a className="cast-name collapsed text-dark" href="#collapseOne" role="button"  data-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
-                        <h6 className="text-center">Filter Movie List</h6>
-                    </a>
-                    <div id="collapseOne" className="row collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div className="show_on_mobile card">
+                    <div className="card-header">
+                        <a className="cast-name collapsed text-dark" href="#collapseOne" role="button"  data-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
+                            <h6 className="text-center" style={{margin: 0}}>Filter Movie List</h6>
+                        </a>
+                    </div>
+                    <div id="collapseOne" className="row collapse card-body" aria-labelledby="headingOne" data-parent="#accordion">
                         {filterOption()}
                     </div>
                 </div>
-                <div className="hide_on_mobile">
-                    <h6 className="text-center">Filter Movie List</h6>
-                    <div className="row">
+                <div className="hide_on_mobile card">
+                    <div className="card-header">
+                        <h6 className="text-center">Filter Movie List</h6>
+                    </div>
+                    <div className="row card-body">
                         {filterOption()}
                     </div>
                 </div>

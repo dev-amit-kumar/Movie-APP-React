@@ -10,7 +10,7 @@ const Type=(props)=>{
     
     return (
         <div>
-            <h6>Select Type</h6>
+            <h6>Select sort type</h6>
             <select className="form-control" onChange={SendSort} value={type}>
                 <option value="">Choose Type</option>
                 <option value="popularity.desc">Popularity desc</option>
