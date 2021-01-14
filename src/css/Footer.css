@@ -10,6 +10,7 @@ footer {
   left: 0;
 }
 footer span {
+  background-color: var(--primary);
   border-radius: 5px;
   padding: 5px 20px;
 }

@@ -15,7 +15,7 @@ const Genre=(props)=>{
     
     return (
         <div>
-            <h6>Choose Genre</h6>
+            <h6>Choose genre</h6>
             <select className="form-control" value={genre} onChange={genreSelect}>
                 <option value="">Select Genre</option>
                 {genreList.map((genre, idx) => {return(<option key={idx} value={genre.id}>{genre.name}</option>)})}

@@ -22,7 +22,7 @@ const MovieCard = (props) => {
                         <div className="movie-card-text">
                             <h6>{props.data.title}</h6>
                         </div>
-                        <div className="rating_show bg-dark" data-tip={`Rating based on ${props.data.vote_count} votes`}>
+                        <div className="rating_show" data-tip={`Rating based on ${props.data.vote_count} votes`}>
                             <p>{props.data.vote_average} <i className="fa fa-star text-warning" aria-hidden="true"></i></p>
                         </div>
                         <ReactTooltip place="right" border={true} borderColor='#000' backgroundColor='#fff' textColor="#000" effect="solid"/>
