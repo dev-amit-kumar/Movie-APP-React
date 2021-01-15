@@ -4,6 +4,9 @@ import History from "./History";
 import Profile from "./Profile";
 import Wishlist from "./Wishlist";
 import Logout from "./Logout";
+import LoginForm from "./Login";
+import SignupForm from "./Signup";
+import ForgetPassword from "./ForgetPassword";
 
 import '../../css/Setting.css'
 const Setting = (props) => {
@@ -36,4 +39,4 @@ const Setting = (props) => {
     )
 }
 
-export default Setting
+export default Setting;
