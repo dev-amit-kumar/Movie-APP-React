@@ -4,14 +4,45 @@
 
 .searchResult {
   position: absolute;
-  text-align: center;
-  border-radius: 2%;
-  background-color:white;
-  top:100%;
+  border-radius: 0 0 10px 10px;
+  background-color: #000000d9;
+  top: 100%;
   z-index: 99;
-  color: black;
   left: 0%;
-  right: 25%;
-  overflow-y:scroll;
+  right: 40px;
+  padding: 10px 30px;
 }
- 
+
+.searchResult div {
+  color: white;
+  cursor: pointer;
+}
+
+.search-option {
+  margin: 20px auto 10px auto;
+  width: 95%;
+}
+
+.search-option button {
+  width: 150px;
+  margin: 0 15px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.search-option button:hover,
+.search-option button:focus {
+  outline: none;
+}
+
+.btn-active {
+  background-color: #28a745;
+  border: 1px solid #28a745;
+  color: white;
+}
+
+.btn-inactive {
+  background-color: white;
+  border: 2px solid #dc3545;
+  color: #dc3545;
+}
