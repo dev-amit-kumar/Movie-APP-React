@@ -1,0 +1,17 @@
+.searchBox {
+  position: relative;
+}
+
+.searchResult {
+  position: absolute;
+  text-align: center;
+  border-radius: 2%;
+  background-color:white;
+  top:100%;
+  z-index: 99;
+  color: black;
+  left: 0%;
+  right: 25%;
+  overflow-y:scroll;
+}
+ 

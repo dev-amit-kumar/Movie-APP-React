@@ -1,20 +1,25 @@
-import React, { Component } from 'react'
-import MovieSearch from "./MovieSearch";
-import ActorSearch from "./ActorSearch";
+import React, { Component } from 'react';
+import SearchCard from "./SearchCard";
 const url="https://api.themoviedb.org/3/search/multi?api_key=911c65436dd290d171fc662603dac6b3&language=en-US";
 class SearchPage extends Component {
     constructor(){
         super()
         this.state={
-            people:[]
+            searchData:[],
+            value:"1"
         }
+    }
+    setValue=(e)=>{
+        this.setState({value:e.target.value})
     }
     render() {
         return (
             <div>
-                <input type="radio" name="list" value="1"/>
-                <input type="radio" name="list" value="2"/>
-                <MovieSearch list={this.state.people}/>
+                <div className="d-flex flex-row container my-5 col-md-2 justify-content-between">
+                    <button onClick={this.setValue} className="btn btn-success" value="1">Movies</button>
+                    <button onClick={this.setValue} className="btn btn-info" value="2">Actor</button>
+                </div>
+                <SearchCard list={this.state.searchData} value={this.state.value}/>
             </div>
         )
     }
@@ -23,7 +28,7 @@ class SearchPage extends Component {
             method:"GET"
         })
         .then((res)=>res.json())
-        .then((data)=>this.setState({people:data.results}))
+        .then((data)=>this.setState({searchData:data.results}))
     }
 }
 
