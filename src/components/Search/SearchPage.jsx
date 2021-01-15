@@ -6,7 +6,7 @@ class SearchPage extends Component {
         super()
         this.state={
             searchData:[],
-            value:"1"
+            value:"movie"
         }
     }
     setValue=(e)=>{
@@ -16,10 +16,10 @@ class SearchPage extends Component {
         return (
             <div>
                 <div className="d-flex flex-row container my-5 col-md-2 justify-content-between">
-                    <button onClick={this.setValue} className="btn btn-success" value="1">Movies</button>
-                    <button onClick={this.setValue} className="btn btn-info" value="2">Actor</button>
+                    <button onClick={this.setValue} className="btn btn-success" value="movie">Movies</button>
+                    <button onClick={this.setValue} className="btn btn-info" value="person">Actor</button>
                 </div>
-                <SearchCard list={this.state.searchData} value={this.state.value}/>
+                <SearchCard list={this.state.searchData} type={this.state.value}/>
             </div>
         )
     }

@@ -18,18 +18,18 @@ class SearchBar extends React.Component{
             .then(res=> {this.setState({suggestion: res.results})})
         }
         else{
-            this.setState({suggestion: [],key: ''})
+            this.setState({suggestion: []})
         }
     }
     redirect=(e)=>{
         e.preventDefault()
         if(this.state.key){
-            this.setState({suggestion: [],key: ''})
+            this.setState({suggestion: []})
             this.props.history.push(`/search/${this.state.key}`)
         }
     }
     redirectMovie = (e) =>{
-        this.setState({suggestion: [],key: ''})
+        this.setState({suggestion: []})
         this.props.history.push(`/movie/${e.target.id}`)
     }
     renderSearchResults = () => {
