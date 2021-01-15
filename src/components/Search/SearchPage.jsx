@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom'
 import SearchCard from "./SearchCard";
 const url="https://api.themoviedb.org/3/search/multi?api_key=911c65436dd290d171fc662603dac6b3&language=en-US";
 class SearchPage extends Component {
@@ -6,7 +7,7 @@ class SearchPage extends Component {
         super()
         this.state={
             searchData:[],
-            value:"1"
+            value:"movie"
         }
     }
     setValue=(e)=>{
@@ -14,12 +15,13 @@ class SearchPage extends Component {
     }
     render() {
         return (
-            <div>
-                <div className="d-flex flex-row container my-5 col-md-2 justify-content-between">
-                    <button onClick={this.setValue} className="btn btn-success" value="1">Movies</button>
-                    <button onClick={this.setValue} className="btn btn-info" value="2">Actor</button>
+            <div className="container-fluid">
+                <div className="search-option">
+                    <h2>Search type</h2>
+                    <button onClick={this.setValue} className={this.state.value==="movie"?'btn-active':'btn-inactive'} value="movie">Movies</button>
+                    <button onClick={this.setValue} className={this.state.value==="person"?'btn-active':'btn-inactive'} value="person">Actor</button>
                 </div>
-                <SearchCard list={this.state.searchData} value={this.state.value}/>
+                <SearchCard list={this.state.searchData} type={this.state.value}/>
             </div>
         )
     }
@@ -32,4 +34,4 @@ class SearchPage extends Component {
     }
 }
 
-export default SearchPage;
+export default withRouter(SearchPage);

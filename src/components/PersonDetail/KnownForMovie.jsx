@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieCard from '../MovieCard'
+import MovieCard from '../Common/MovieCard'
 const url = "https://api.themoviedb.org/3/person";
 
 class KnownForMovie extends React.Component{
@@ -21,12 +21,16 @@ class KnownForMovie extends React.Component{
     render(){
         return(
             <div className="container-fluid mt-4">
-                <h2 className="font-weight-bolder ml-4 heading_color">Known For Movie</h2>
-                <div className="row text-center">
-                        {this.state.movie_list && this.state.movie_list.map((movie, idx) => {
-                            return(<MovieCard data={movie} key={idx}/>)
-                        })}
-                </div>
+                {this.state.movie_list.length>0 &&
+                    <>
+                        <h2 className="font-weight-bolder ml-4 heading_color">Known For Movie</h2>
+                        <div className="row text-center">
+                                {this.state.movie_list.map((movie, idx) => {
+                                    return(<MovieCard data={movie} key={idx}/>)
+                                })}
+                        </div>
+                    </>
+                }
             </div>
         )
     }

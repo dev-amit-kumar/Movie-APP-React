@@ -3,9 +3,9 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Home from './Home/Index';
 import MovieDetail from './MovieDetail/Index'
 import PersonDetail from './PersonDetail/Index';
-import Header from './Header';
-import Footer from './Footer';
-import SearchPage from "./Search/SearchPage";
+import Header from './Common/Header';
+import Footer from './Common/Footer';
+import SearchPage from "./Search/Index";
 import Setting from './Setting/Index'
 
 const Routing = () => {

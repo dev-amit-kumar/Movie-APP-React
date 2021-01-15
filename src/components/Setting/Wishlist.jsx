@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieCard from '../MovieCard'
+import MovieCard from '../Common/MovieCard'
 const url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=911c65436dd290d171fc662603dac6b3&language=en-US&page=1'
 class Wishlist extends React.Component {
     constructor(){

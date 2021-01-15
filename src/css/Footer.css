@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Rubik&display=swap");
 
 .Footer {
-    overflow: hidden;
-    margin-top: 50px;
-    background-color: var(--primary);
-    color: var(--secondary_text) 
+  overflow: hidden;
+  margin-top: 50px;
+  background-color: var(--primary);
+  color: var(--secondary_text);
 }
-
-
