@@ -1,5 +1,5 @@
 .movie-inner-card {
-  margin: 30px 30px 30px 30px;
+  margin: 20px;
 }
 
 .movie-outer-card {
@@ -16,19 +16,37 @@
 
 .movie-card-text {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 5px;
   border-radius: 0 0 10px 10px;
-  background-color: #141518;
-  color: white;
+  background-color: var(--primary);
+  color: var(--secondary_text);
   height: 70px;
 }
 
 .movie-inner-card img {
   width: 100%;
-  height: 350px;
+  height: 300px;
   border-radius: 10px 10px 0 0;
+}
+
+.card-shadow {
+  box-shadow: 0px 0px 10px 4px #43414157;
+  border-radius: 10px;
+}
+
+.wishlist_show {
+  padding: 10px;
+  position: absolute;
+  top: 7px;
+  text-align: center;
+  right: 7px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 7px 3px #00000073;
+  font-size: 15px;
+  background-color: #fff;
 }
 
 @media screen and (max-width: 1200px) {

@@ -1,8 +1,7 @@
-import  React from "react";
-import { Link } from "react-router-dom";
-import {withRouter} from "react-router-dom";
+import {withRouter, Link, NavLink} from "react-router-dom";
 import SearchSuggestion from './SearchSuggestion';
 import "../css/searchFunction.css";
+import '../css/Header.css'
 const url="https://api.themoviedb.org/3/search/multi?api_key=911c65436dd290d171fc662603dac6b3&language=en-US";
 class Header extends React.Component{
     constructor(){
@@ -23,41 +22,41 @@ class Header extends React.Component{
     }
     
     render(){
-        return(
-            <>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <Link className="navbar-brand" to="/">Navbar</Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-div="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-                <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li className="nav-item active">
-                        <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/movie/464052">Movie</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/person/12">Person</Link>
-                    </li>
-                    </ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                    <form  className="form-inline my-2 my-lg-0 searchBox">
-                        <input  id="myInput" onChange={(e) => this.handleChange(e.target.value)} className="form-control mr-sm-2" type="search" placeholder="Search"/>
-                        <button onClick={this.redirect} className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        <div className="searchResult">
-                                {this.state.suggestion && this.state.suggestion.map((suggestion, idx) => {
-                                    return(<SearchSuggestion suggestionList={suggestion} key={idx}/>)
-                                })}
-                        </div>
-                    </form>
-                </div>
-            </nav>
-            
-            </>
-        )
+          return(
+              <nav className="navbar navbar-expand-lg navbar-dark sticky-top fixed-top">
+                  <div className="d-flex flex-grow-1">
+                      <Link to="/"><span className="navbar-brand"><img src="https://dl.dropboxusercontent.com/s/vx8n6h25qj5dgwn/logo.png?dl=0" alt="logo" width="55"/></span></Link>
+                      <form className="mr-2 my-auto w-100 d-inline-block searchBox">
+                          <div className="input-group">
+                              <input type="search" id="myInput" onChange={(e) => this.handleChange(e.target.value)} className="form-control" placeholder="Search movie/actor" aria-label="Search movie/acto" aria-describedby="button-addon2"/>
+                              <div className="input-group-append">
+                                  <button onClick={this.redirect} className="btn btn-outline-light" type="submit"><i className="fa fa-search" aria-hidden="true"></i></button>
+                              </div>
+                              <div className="searchResult">
+                                  {this.state.suggestion && this.state.suggestion.map((suggestion, idx) => {
+                                      return(<SearchSuggestion suggestionList={suggestion} key={idx}/>)
+                                  })}
+                              </div>
+                          </div>
+                      </form>
+                        
+                      <ul className="navbar-nav mr-auto mt-lg-0">
+                          <li className="nav-item dropdown mt-1">
+                              <button className="setting_btn" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i className="fa fa-user-circle" aria-hidden="true"></i>
+                              </button>
+                              <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                  <NavLink className="dropdown-item" to="/setting/profile" activeClassName="navlink_active">Profile Details</NavLink>
+                                  <NavLink className="dropdown-item" to="/setting/theme" activeClassName="navlink_active">Change Theme</NavLink>
+                                  <NavLink className="dropdown-item" to="/setting/history" activeClassName="navlink_active">View History</NavLink>
+                                  <NavLink className="dropdown-item" to="/setting/wishlist" activeClassName="navlink_active">View Wishlist</NavLink>
+                                  <NavLink className="dropdown-item logout_btn font-weight-bold" to="/setting/logout">Log out <i className="fa fa-sign-out" aria-hidden="true"></i></NavLink>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+              </nav>
+          )
     }
+    export default withRouter(Header);
 }
-
-export default withRouter(Header);

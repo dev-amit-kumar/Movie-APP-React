@@ -52,7 +52,7 @@ class AllCast extends React.Component{
         };
         return(
           <div className="other_data">
-            <h2>Movie Cast</h2>
+            <h2 className="heading_color">Movie Cast</h2>
             <Slider {...settings}>
                 {this.state.data && this.state.data.map((cast, idx) => {
                   return(<CastData data={cast} key={idx}/>)

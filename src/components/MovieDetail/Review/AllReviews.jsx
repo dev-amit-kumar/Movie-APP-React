@@ -29,7 +29,7 @@ class Review extends React.Component{
         };
         return(
             <div className="other_data container review_container">
-                <h1 className="text-center font-weight-bolder">Review</h1>
+                <h1 className="text-center font-weight-bolder heading_color">Review</h1>
                 <hr/>
                 {this.state.data.total_results ?
                     <Slider {...settings}>

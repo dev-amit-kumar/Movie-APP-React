@@ -35,7 +35,7 @@ class RecommendedMovie extends React.Component{
     render(){
         return(
             <div className="container-fluid mt-4">
-                <h2 className="font-weight-bolder ml-4">Recommended Movie</h2>
+                <h2 className="font-weight-bolder ml-4 heading_color">Recommended Movie</h2>
                 {this.renderData(this.state.data)}
             </div>
         )
