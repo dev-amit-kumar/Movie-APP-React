@@ -17,3 +17,32 @@
   color: white;
   cursor: pointer;
 }
+
+.search-option {
+  margin: 20px auto 10px auto;
+  width: 95%;
+}
+
+.search-option button {
+  width: 150px;
+  margin: 0 15px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.search-option button:hover,
+.search-option button:focus {
+  outline: none;
+}
+
+.btn-active {
+  background-color: #28a745;
+  border: 1px solid #28a745;
+  color: white;
+}
+
+.btn-inactive {
+  background-color: white;
+  border: 2px solid #dc3545;
+  color: #dc3545;
+}

@@ -21,7 +21,7 @@ const SearchCard=(props)=>{
         )
     }
     return(
-        <div className="container col-md-11 d-flex flex-row flex-wrap">
+        <div className="row col-md-12" style={{margin: '0 auto'}}>
             {searchdata(props.list)}
         </div>
     )

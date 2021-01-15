@@ -14,10 +14,11 @@ class SearchPage extends Component {
     }
     render() {
         return (
-            <div>
-                <div className="d-flex flex-row container my-5 col-md-2 justify-content-between">
-                    <button onClick={this.setValue} className="btn btn-success" value="movie">Movies</button>
-                    <button onClick={this.setValue} className="btn btn-info" value="person">Actor</button>
+            <div className="container-fluid">
+                <div className="row search-option">
+                    <h2>Search type</h2>
+                    <button onClick={this.setValue} className={this.state.value==="movie"?'btn-active':'btn-inactive'} value="movie">Movies</button>
+                    <button onClick={this.setValue} className={this.state.value==="person"?'btn-active':'btn-inactive'} value="person">Actor</button>
                 </div>
                 <SearchCard list={this.state.searchData} type={this.state.value}/>
             </div>
