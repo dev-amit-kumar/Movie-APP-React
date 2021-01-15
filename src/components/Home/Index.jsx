@@ -27,8 +27,8 @@ class Home extends Component {
     render() {
         return (
             <div className="container-fluid">    
-              <div className="row">
-                    <div className="col-md-2">{this.renderSearch(this.props.SearchList)}</div>  
+                <div className="col-md-2">{this.renderSearch(this.props.SearchList)}</div>  
+                <div className="row">
                     <div className="col-md-2 col-12" id="accordion">
                         <Sidebar MovieData={(data)=>this.setState({movieData:data})} MovieList={this.state.movieData}/>
                     </div>
