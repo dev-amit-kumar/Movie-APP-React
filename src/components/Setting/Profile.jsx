@@ -26,12 +26,12 @@ const Profile = () => {
             genreList.map((genre) => {
                 if(selectedGenreList.includes(genre.id)){
                     return (
-                        <input type="button" className="btn m-2 btn-danger" key={genre.id} id={genre.id} value={genre.name} onClick={genreHandler}/>
+                        <input type="button" className="btn m-2 active_genre" key={genre.id} id={genre.id} value={genre.name} onClick={genreHandler}/>
                     )
                 }
                 else{
                     return (
-                        <input type="button" className="btn m-2 btn-outline-danger" key={genre.id} id={genre.id} value={genre.name} onClick={genreHandler}/>
+                        <input type="button" className="btn m-2 inactive_genre" key={genre.id} id={genre.id} value={genre.name} onClick={genreHandler}/>
                     )
                 }
             })

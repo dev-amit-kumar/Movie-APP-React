@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import ReactStars from "react-rating-stars-component";
 import '../../css/TopContainer.css'
 const TopContainer = (props) => {
     const [videoSrc, changeSrc] = useState('')
@@ -43,10 +44,36 @@ const TopContainer = (props) => {
                     <div className="row justify-content-center">
                         <div className="movie-image">
                             <img src={img_src()} alt="movie"/>
+                            {props.data.vote_average && 
+                                <ReactStars
+                                count={5}
+                                value={props.data.vote_average/2}
+                                edit={false}
+                                size={25}
+                                isHalf={true}
+                                emptyIcon={<i className="fa fa-star-o"></i>}
+                                halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                fullIcon={<i className="fa fa-star"></i>}
+                                activeColor="#ffd700"
+                                />}
                         </div>
                         <div className="movie-text-data">
                             <h1 className="center_on_mobile">{props.title} {props.year && <span>({props.year})</span>}</h1>
                             <h6 className="center_on_mobile"><i>{props.tagline}</i></h6>
+                            <div className="d-flex justify-content-center hide_rating">
+                                {props.data.vote_average && 
+                                    <ReactStars
+                                    count={5}
+                                    value={props.data.vote_average/2}
+                                    edit={false}
+                                    size={25}
+                                    isHalf={true}
+                                    emptyIcon={<i className="fa fa-star-o"></i>}
+                                    halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                    fullIcon={<i className="fa fa-star"></i>}
+                                    activeColor="#ffd700"
+                                />}
+                            </div>
                             <h6 className="mt-2 center_on_mobile">
                                 {
                                     props.data.release_date &&
@@ -89,23 +116,17 @@ const TopContainer = (props) => {
                                     <i className="fa fa-play" aria-hidden="true"></i> Play Trailer
                                 </button>
                             </h6>
-                            <div className="d-flex flex-row flex-wrap mt-3 center_on_mobile">
+                            <div className="d-flex flex-row flex-wrap mt-2 center_on_mobile">
                                 <h5>
-                                    Vote Score : 
-                                    <span className="text-warning" style={{fontWeight: '400'}}>
-                                        &nbsp;{props.data.vote_average ? props.data.vote_average : <i>Not available</i>}
-                                    </span>
-                                </h5> 
-                                <h5 className="ml-4">
                                     Budget : 
                                     <span className="text-warning" style={{fontWeight: '400'}}>
-                                        &nbsp; {fnum(props.data.budget ? `$${props.data.budget}` : <i>Not available</i>)}
+                                        &nbsp; {props.data.budget ? `$${fnum(props.data.budget)}` : <i>Not available</i>}
                                     </span>
                                 </h5>
                                 <h5 className="ml-4">
                                     Revenue : 
                                     <span className="text-warning" style={{fontWeight: '400'}}>
-                                        &nbsp; {fnum(props.data.revenue ? `$${props.data.revenue}` : <i>Not available</i>)}
+                                        &nbsp; {props.data.revenue ? `$${fnum(props.data.revenue)}` : <i>Not available</i>}
                                     </span>
                                 </h5>
                             </div>
