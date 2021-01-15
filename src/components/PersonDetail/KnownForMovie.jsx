@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieCard from '../MovieCard'
+import MovieCard from '../Common/MovieCard'
 const url = "https://api.themoviedb.org/3/person";
 
 class KnownForMovie extends React.Component{

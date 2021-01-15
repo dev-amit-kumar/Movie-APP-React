@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import ReactTooltip from 'react-tooltip';
 import ReactStars from "react-rating-stars-component";
-import '../css/MovieCard.css'
+import '../../css/MovieCard.css'
 const MovieCard = (props) => {
     const img_src = () => {
         if(props.data.poster_path === null){

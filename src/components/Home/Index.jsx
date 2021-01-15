@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom"
-import MovieCard from "../MovieCard";
+import MovieCard from "../Common/MovieCard";
 import Sidebar from "./Sidebar/Index";
 
 const purl="https://api.themoviedb.org/3/movie/popular?api_key=911c65436dd290d171fc662603dac6b3&language=en-US&page=1";

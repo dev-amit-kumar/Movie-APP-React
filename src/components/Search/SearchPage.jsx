@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom'
 import SearchCard from "./SearchCard";
 const url="https://api.themoviedb.org/3/search/multi?api_key=911c65436dd290d171fc662603dac6b3&language=en-US";
 class SearchPage extends Component {
@@ -15,7 +16,7 @@ class SearchPage extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <div className="row search-option">
+                <div className="search-option">
                     <h2>Search type</h2>
                     <button onClick={this.setValue} className={this.state.value==="movie"?'btn-active':'btn-inactive'} value="movie">Movies</button>
                     <button onClick={this.setValue} className={this.state.value==="person"?'btn-active':'btn-inactive'} value="person">Actor</button>
@@ -33,4 +34,4 @@ class SearchPage extends Component {
     }
 }
 
-export default SearchPage;
+export default withRouter(SearchPage);

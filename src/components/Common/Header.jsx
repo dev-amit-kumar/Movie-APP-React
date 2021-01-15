@@ -1,6 +1,6 @@
 import {Link, NavLink} from "react-router-dom";
-import SearchBar from './Search/SearchBar'
-import '../css/Header.css'
+import SearchBar from './SearchBar'
+import '../../css/Header.css'
 const Header =() => {
     return(
         <nav className="navbar navbar-expand-lg navbar-dark sticky-top fixed-top">

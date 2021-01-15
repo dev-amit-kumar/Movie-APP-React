@@ -19,6 +19,8 @@
 }
 
 .search-option {
+  display: flex;
+  flex-flow: row wrap;
   margin: 20px auto 10px auto;
   width: 95%;
 }
@@ -28,6 +30,7 @@
   margin: 0 15px;
   font-weight: 600;
   border-radius: 5px;
+  height: 50px;
 }
 
 .search-option button:hover,
@@ -45,4 +48,19 @@
   background-color: white;
   border: 2px solid #dc3545;
   color: #dc3545;
+}
+
+@media screen and (max-width: 650px) {
+  .search-option {
+    width: 100%;
+    justify-content: center;
+  }
+  .search-option h2 {
+    width: 100%;
+    text-align: center;
+  }
+  .search-option button {
+    width: 40%;
+    height: 35px;
+  }
 }

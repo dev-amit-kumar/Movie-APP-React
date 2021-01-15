@@ -1,5 +1,5 @@
-import MovieCard from '../MovieCard'
-import PersonCard from '../PersonCard'
+import MovieCard from '../Common/MovieCard'
+import PersonCard from '../Common/PersonCard'
 const SearchCard=(props)=>{
     const searchdata=(data) => {
         return( 
@@ -21,7 +21,7 @@ const SearchCard=(props)=>{
         )
     }
     return(
-        <div className="row col-md-12" style={{margin: '0 auto'}}>
+        <div className="row" style={{margin: '0 auto'}}>
             {searchdata(props.list)}
         </div>
     )

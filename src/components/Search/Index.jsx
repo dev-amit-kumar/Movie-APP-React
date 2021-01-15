@@ -1,12 +1,10 @@
 import React from 'react'
-import MainPage from './MainPage'
-
+import SearchPage from './SearchPage'
 const Index = (props) => {
     return(
-        <React.Fragment key={props.match.params.id}>
-            <MainPage/>
+        <React.Fragment key={props.match.params.str}>
+            <SearchPage/>
         </React.Fragment>
     )
 }
-
 export default Index

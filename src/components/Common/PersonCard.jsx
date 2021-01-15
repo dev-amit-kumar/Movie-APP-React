@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import '../css/MovieCard.css'
-import '../css/PersonCard.css'
+import '../../css/MovieCard.css'
+import '../../css/PersonCard.css'
 const PersonCard = (props) => {
     const img_src = () => {
         if(props.data.profile_path === null){
