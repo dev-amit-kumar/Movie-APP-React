@@ -27,7 +27,7 @@ const Footer = () => {
                         <p className="mb-1 text-white">List of all movies and actors so that you can choose what to watch</p>
                     </div>
                 </div>
-                <div className="row inner-footer mt-5">
+                <div className="row inner-footer mt-3">
                     <div className="col-md-6 social_icon_hide_on_mobile">
                         <p className="social mb-0 pb-0 "> <span className="mx-2"><i className="fa fa-facebook" aria-hidden="true"></i></span> <span className="mx-2"><i className="fa fa-linkedin-square" aria-hidden="true"></i></span> <span className="mx-2"><i className="fa fa-twitter" aria-hidden="true"></i></span> <span className="mx-2"><i className="fa fa-instagram" aria-hidden="true"></i></span> </p><small className="rights"><span>&#174;</span> MovieTime All Rights Reserved.</small>
                     </div>
