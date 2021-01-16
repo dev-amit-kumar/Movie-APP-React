@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Fade from 'react-reveal/Fade';
 import ReactTooltip from 'react-tooltip';
 import ReactStars from "react-rating-stars-component";
 import '../../css/MovieCard.css'
@@ -15,7 +16,8 @@ const MovieCard = (props) => {
         height: props.height_s
     }
     return(
-        <div className="movie-outer-card text-center">
+        <Fade bottom>
+            <div className="movie-outer-card text-center">
             <div className="movie-inner-card">
                 <div className="position-relative card-shadow">
                     <Link to={`/movie/${props.data.id}`}>
@@ -52,6 +54,7 @@ const MovieCard = (props) => {
                 </div>
             </div>
         </div>
+        </Fade>
     )
 }
 

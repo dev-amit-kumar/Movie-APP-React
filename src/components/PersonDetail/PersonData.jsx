@@ -1,3 +1,4 @@
+import Fade from 'react-reveal/Fade';
 import '../../css/PersonData.css'
 const PersonData = (props)=>{
     const renderLinks =(data) => {
@@ -77,9 +78,9 @@ const PersonData = (props)=>{
         }
     }
     return(
-        <div>
+        <Fade left>
             {renderData(props.data)} 
-        </div>
+        </Fade>
     )
 }
 export default PersonData;
