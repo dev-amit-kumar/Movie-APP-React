@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Fade from 'react-reveal/Fade';
 import {Link} from "react-router-dom"
 import MovieCard from "../Common/MovieCard";
 import Sidebar from "./Sidebar/Index";
@@ -28,14 +29,16 @@ class Home extends Component {
         return (
             <div className="container-fluid">    
                 <div className="row">
-                    <div className="col-md-2 col-12" id="accordion">
-                        <Sidebar MovieData={(data)=>this.setState({movieData:data})} MovieList={this.state.movieData}/>
-                    </div>
-                    <div className="col-md-10 col-12 container d-flex flex-row flex-wrap justify-content-between">
-                        {this.state.movieData && this.state.movieData.map((movie, idx) => {
-                            return <MovieCard data={movie} key={idx} height_s='250px' show_wishlist={true}/>
-                        })}
-                    </div>
+                    <Fade left>
+                        <div className="col-md-2 col-12" id="accordion">
+                            <Sidebar MovieData={(data)=>this.setState({movieData:data})} MovieList={this.state.movieData}/>
+                        </div>
+                    </Fade>
+                        <div className="col-md-10 col-12 container d-flex flex-row flex-wrap justify-content-between">
+                            {this.state.movieData && this.state.movieData.map((movie, idx) => {
+                                return <MovieCard data={movie} key={idx} height_s='250px' show_wishlist={true}/>
+                            })}
+                        </div>
                 </div>
             </div>
         )
