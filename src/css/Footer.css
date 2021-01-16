@@ -1,25 +1,11 @@
-footer {
-  display: flex;
-  margin-top: 10px;
-  justify-content: space-evenly;
-  margin-bottom: 10px;
-  align-items: flex-end;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-footer span {
-  background-color: var(--primary);
-  border-radius: 5px;
-  padding: 5px 20px;
-}
+@import url("https://fonts.googleapis.com/css?family=Rubik&display=swap");
 
-@media only screen and (max-width: 700px) {
-  footer span {
-    padding: 2px 13px;
-    font-size: 13px;
-    text-align: center;
-    margin: 10px;
-  }
+.Footer {
+  overflow: hidden;
+  margin-top: 50px;
+  background-color: var(--primary);
+  color: var(--secondary_text);
+}
+.logoItem{
+  padding:8vh 2vh ;
 }
