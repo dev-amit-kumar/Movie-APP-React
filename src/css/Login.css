@@ -1,0 +1,33 @@
+.mainConatiner{
+    background-color: var(--primary);
+    display: flex;
+    flex-direction: row;
+    margin-top: 8vh;
+    padding: 20vh;
+}
+.register-form{
+    color: var(--secondary_text);
+    text-align: right;
+    margin-top: 10%;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    padding: 8vh;
+    border-radius: 2%;
+    z-index: 99;
+    box-shadow:  30px 60px  rgba(255, 8, 8, 0.3);
+}
+@media only screen and (max-width: 600px) {
+    .mainConatiner{
+        flex-direction: column;
+        padding: 5vh;
+    }
+  }
+  @media only screen and (max-width: 330px) {
+    .mainConatiner{
+        padding: 1vh;
+    }
+  }
