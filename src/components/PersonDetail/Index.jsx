@@ -13,7 +13,7 @@ class Index extends Component {
     }
     render() {
         return (
-            <>  
+            <>
                 <PersonData data={this.state.person_data}/>
                 <KnownForMovie person_id={this.props.match.params.id}/>
             </>

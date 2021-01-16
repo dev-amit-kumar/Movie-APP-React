@@ -46,23 +46,6 @@
   border: 1px solid var(--primary) !important;
 }
 
-.active_genre {
-  background-color: var(--primary);
-  color: white;
-}
-
-.active_genre:hover {
-  color: white;
-}
-
-.active_genre:focus,
-.inactive_genre:focus {
-  outline: none;
-}
-
-.inactive_genre {
-  border: 1px solid var(--primary);
-}
 @media screen and (max-width: 650px) {
   .setting {
     margin-top: 20px;
