@@ -32,7 +32,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   position: relative;
-  padding-bottom: 4rem;
+  padding-bottom: 20rem;
   min-height: 100%;
 }
 
@@ -142,9 +142,39 @@ code {
   }
 }
 
+@media screen and (max-width: 900px) {
+  body {
+    padding-bottom: 23rem;
+  }
+}
+
 @media screen and (max-width: 850px) {
   .cast-name img {
     width: 90px;
     height: 90px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  body {
+    padding-bottom: 28rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    padding-bottom: 30rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    padding-bottom: 32rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  body {
+    padding-bottom: 35rem;
   }
 }
