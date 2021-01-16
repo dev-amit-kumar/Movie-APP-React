@@ -1,33 +1,48 @@
-.mainConatiner{
-    background-color: var(--primary);
-    display: flex;
-    flex-direction: row;
-    margin-top: 8vh;
-    padding: 20vh;
+.login-outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
 }
-.register-form{
-    color: var(--secondary_text);
-    text-align: right;
-    margin-top: 10%;
+.mainConatiner {
+  display: flex;
+  flex-flow: row;
+  width: 50%;
 }
-.login-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: white;
-    padding: 8vh;
-    border-radius: 2%;
-    z-index: 99;
-    box-shadow:  30px 60px  rgba(255, 8, 8, 0.3);
+.register-form {
+  text-align: right;
+  margin-top: 10%;
+}
+.login-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20vw;
+  box-shadow: 0px 0px 5px 3px #0000002b;
+  border-radius: 10px;
+}
+.login-form .card {
+  border: none !important;
+}
+.login-inner .card-header {
+  border-radius: 10px 10px 0 0;
+  background-color: var(--primary);
+  color: var(--secondary_text);
+  text-align: center;
+}
+.login-form {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 30px 60px var(--primary);
 }
 @media only screen and (max-width: 600px) {
-    .mainConatiner{
-        flex-direction: column;
-        padding: 5vh;
-    }
+  .mainConatiner {
+    flex-direction: column;
+    padding: 5vh;
   }
-  @media only screen and (max-width: 330px) {
-    .mainConatiner{
-        padding: 1vh;
-    }
+}
+@media only screen and (max-width: 330px) {
+  .mainConatiner {
+    padding: 1vh;
   }
+}
