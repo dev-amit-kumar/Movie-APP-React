@@ -93,6 +93,9 @@ code {
   background-color: var(--primary);
   color: var(--secondary_text);
 }
+.filter-card button:hover {
+  color: var(--secondary_text);
+}
 
 .show_on_mobile {
   display: none;

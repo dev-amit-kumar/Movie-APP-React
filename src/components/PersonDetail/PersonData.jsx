@@ -1,3 +1,4 @@
+import Zoom from 'react-reveal/Zoom';
 import '../../css/PersonData.css'
 const PersonData = (props)=>{
     const renderLinks =(data) => {
@@ -77,9 +78,9 @@ const PersonData = (props)=>{
         }
     }
     return(
-        <div>
+        <Zoom>
             {renderData(props.data)} 
-        </div>
+        </Zoom>
     )
 }
 export default PersonData;

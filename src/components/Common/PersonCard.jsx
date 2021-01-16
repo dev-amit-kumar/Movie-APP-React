@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Fade from 'react-reveal/Fade';
 import '../../css/MovieCard.css'
 import '../../css/PersonCard.css'
 const PersonCard = (props) => {
@@ -14,28 +15,30 @@ const PersonCard = (props) => {
         height: props.height_s
     }
     return(
-        <div className="movie-outer-card text-center">
-            <div className="movie-inner-card">
-                <div className="person-card-shadow">
-                    <Link to={`/person/${props.data.id}`}>
-                        <img src={img_src()} alt="movie" style={style}/>
-                        <div className="movie-card-text" style={{height: '50px'}}>
-                            <h6 className="mr-2">{props.data.name}</h6>
-                        </div>
-                        <div className="p-1 d-flex justify-content-around">
-                            <div className="person-other-data">
-                                <span className="heading_color font-weight-bold">Gender</span>
-                                <span className="text-dark">{props.data.gender===2 ? 'Male': 'Female'}</span>
+        <Fade bottom>
+            <div className="movie-outer-card text-center">
+                <div className="movie-inner-card">
+                    <div className="person-card-shadow">
+                        <Link to={`/person/${props.data.id}`}>
+                            <img src={img_src()} alt="movie" style={style}/>
+                            <div className="movie-card-text" style={{height: '50px'}}>
+                                <h6 className="mr-2">{props.data.name}</h6>
                             </div>
-                            <div className="person-other-data">
-                                <span className="heading_color font-weight-bold">Department</span>
-                                <span className="text-dark">{props.data.known_for_department}</span>
+                            <div className="p-1 d-flex justify-content-around">
+                                <div className="person-other-data">
+                                    <span className="heading_color font-weight-bold">Gender</span>
+                                    <span className="text-dark">{props.data.gender===2 ? 'Male': 'Female'}</span>
+                                </div>
+                                <div className="person-other-data">
+                                    <span className="heading_color font-weight-bold">Department</span>
+                                    <span className="text-dark">{props.data.known_for_department}</span>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Fade>
     )
 }
 

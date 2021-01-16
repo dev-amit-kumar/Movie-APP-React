@@ -20,9 +20,9 @@ class RecommendedMovie extends React.Component{
         if(data.total_results){
             return(
                     <div className="row text-center">
-                            {data.results.map((movie, idx) => {
-                                return(<MovieCard data={movie} key={idx}/>)
-                            })}
+                        {data.results.map((movie, idx) => {
+                            return(<MovieCard data={movie} key={idx} show_wishlist={true}/>)
+                        })}
                     </div>
             )
         }

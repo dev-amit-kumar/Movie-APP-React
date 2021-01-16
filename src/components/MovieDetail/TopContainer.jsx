@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import Fade from 'react-reveal/Fade';
+import ReactStars from "react-rating-stars-component";
 import '../../css/TopContainer.css'
 const TopContainer = (props) => {
     const [videoSrc, changeSrc] = useState('')
@@ -41,30 +43,108 @@ const TopContainer = (props) => {
             <div className="overlay">
                 <div className="container-fluid">
                     <div className="row justify-content-center">
-                        <div className="movie-image">
-                            <img src={img_src()} alt="movie"/>
-                        </div>
-                        <div className="movie-text-data">
-                            <h1 className="center_on_mobile">{props.title} {props.year && <span>({props.year})</span>}</h1>
-                            <h6 className="center_on_mobile"><i>{props.tagline}</i></h6>
-                            <h6 className="mt-2 center_on_mobile">
-                                {
-                                    props.data.release_date &&
-                                    <>
-                                        <i className="fa fa-calendar-o pr-2" aria-hidden="true"></i>
-                                        <span className="text-info" style={{fontWeight: '400'}}>
-                                            {props.data.release_date}
+                        <Fade Left>
+                            <div className="movie-image">
+                                <img src={img_src()} alt="movie"/>
+                                {props.data.vote_average && 
+                                    <ReactStars
+                                    count={5}
+                                    value={props.data.vote_average/2}
+                                    edit={false}
+                                    size={25}
+                                    isHalf={true}
+                                    emptyIcon={<i className="fa fa-star-o"></i>}
+                                    halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                    fullIcon={<i className="fa fa-star"></i>}
+                                    activeColor="#ffd700"
+                                    />}
+                            </div>
+                        </Fade>
+                        <Fade>
+                            <div className="movie-text-data">
+                                <h1 className="center_on_mobile">{props.title} {props.year && <span>({props.year})</span>}</h1>
+                                <h6 className="center_on_mobile"><i>{props.tagline}</i></h6>
+                                <div className="d-flex justify-content-center hide_rating">
+                                    {props.data.vote_average && 
+                                        <ReactStars
+                                        count={5}
+                                        value={props.data.vote_average/2}
+                                        edit={false}
+                                        size={25}
+                                        isHalf={true}
+                                        emptyIcon={<i className="fa fa-star-o"></i>}
+                                        halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                        fullIcon={<i className="fa fa-star"></i>}
+                                        activeColor="#ffd700"
+                                    />}
+                                </div>
+                                <h6 className="mt-2 center_on_mobile">
+                                    {
+                                        props.data.release_date &&
+                                        <>
+                                            <i className="fa fa-calendar-o pr-2" aria-hidden="true"></i>
+                                            <span className="text-info" style={{fontWeight: '400'}}>
+                                                {props.data.release_date}
+                                            </span>
+                                        </>
+                                    }
+                                    {
+                                        props.data.genres &&
+                                        <>
+                                            <i className="fa fa-film pr-2 pl-4" aria-hidden="true"></i>
+                                            <span className="text-info" style={{fontWeight: '400'}}>
+                                                {
+                                                    props.data.genres.map((item, idx) => {
+                                                        if(idx !== props.data.genres.length-1){
+                                                            return(`${item['name']}, `)
+                                                        }
+                                                        else{
+                                                            return(item['name'])
+                                                        }
+                                                    })
+                                                }
+                                            </span>
+                                        </>
+                                    }
+                                    {
+                                        props.data.runtime ?
+                                        <>
+                                            <i className="fa fa-clock-o pr-2 pl-4" aria-hidden="true"></i>
+                                            <span className="text-info" style={{fontWeight: '400'}}>
+                                                &nbsp;{`${parseInt(props.data.runtime/60)}h ${props.data.runtime%60}min`}
+                                            </span>
+                                        </>
+                                        : ''
+                                    }
+                                    <button type="button" onClick={() => playVideo(true)} className="play-btn pl-4" data-toggle="modal" data-target="#staticBackdrop">
+                                        <i className="fa fa-play" aria-hidden="true"></i> Play Trailer
+                                    </button>
+                                </h6>
+                                <div className="d-flex flex-row flex-wrap mt-2 center_on_mobile">
+                                    <h5>
+                                        Budget : 
+                                        <span className="text-warning" style={{fontWeight: '400'}}>
+                                            &nbsp; {props.data.budget ? `$${fnum(props.data.budget)}` : <i>Not available</i>}
                                         </span>
-                                    </>
-                                }
-                                {
-                                    props.data.genres &&
-                                    <>
-                                        <i className="fa fa-film pr-2 pl-4" aria-hidden="true"></i>
-                                        <span className="text-info" style={{fontWeight: '400'}}>
+                                    </h5>
+                                    <h5 className="ml-4">
+                                        Revenue : 
+                                        <span className="text-warning" style={{fontWeight: '400'}}>
+                                            &nbsp; {props.data.revenue ? `$${fnum(props.data.revenue)}` : <i>Not available</i>}
+                                        </span>
+                                    </h5>
+                                </div>
+                                <h5 className="mt-2">Overview</h5>
+                                <p>
+                                    {props.data.overview ? props.data.overview : <i>Overview not available</i>}
+                                </p>
+                                <div className="d-flex flex-wrap justify-content-between col-12" style={{paddingLeft: 0}}>
+                                    <div className="text-center col-6">
+                                        <h5>Origin Country</h5>
+                                        <h6 style={{fontWeight: '400', color: '#07B4E1'}}>
                                             {
-                                                props.data.genres.map((item, idx) => {
-                                                    if(idx !== props.data.genres.length-1){
+                                                props.data.production_countries.map((item, idx) => {
+                                                    if(idx !== props.data.production_countries.length-1){
                                                         return(`${item['name']}, `)
                                                     }
                                                     else{
@@ -72,80 +152,26 @@ const TopContainer = (props) => {
                                                     }
                                                 })
                                             }
-                                        </span>
-                                    </>
-                                }
-                                {
-                                    props.data.runtime ?
-                                    <>
-                                        <i className="fa fa-clock-o pr-2 pl-4" aria-hidden="true"></i>
-                                        <span className="text-info" style={{fontWeight: '400'}}>
-                                            &nbsp;{`${parseInt(props.data.runtime/60)}h ${props.data.runtime%60}min`}
-                                        </span>
-                                    </>
-                                    : ''
-                                }
-                                <button type="button" onClick={() => playVideo(true)} className="play-btn pl-4" data-toggle="modal" data-target="#staticBackdrop">
-                                    <i className="fa fa-play" aria-hidden="true"></i> Play Trailer
-                                </button>
-                            </h6>
-                            <div className="d-flex flex-row flex-wrap mt-3 center_on_mobile">
-                                <h5>
-                                    Vote Score : 
-                                    <span className="text-warning" style={{fontWeight: '400'}}>
-                                        &nbsp;{props.data.vote_average ? props.data.vote_average : <i>Not available</i>}
-                                    </span>
-                                </h5> 
-                                <h5 className="ml-4">
-                                    Budget : 
-                                    <span className="text-warning" style={{fontWeight: '400'}}>
-                                        &nbsp; {fnum(props.data.budget ? `$${props.data.budget}` : <i>Not available</i>)}
-                                    </span>
-                                </h5>
-                                <h5 className="ml-4">
-                                    Revenue : 
-                                    <span className="text-warning" style={{fontWeight: '400'}}>
-                                        &nbsp; {fnum(props.data.revenue ? `$${props.data.revenue}` : <i>Not available</i>)}
-                                    </span>
-                                </h5>
-                            </div>
-                            <h5 className="mt-2">Overview</h5>
-                            <p>
-                                {props.data.overview ? props.data.overview : <i>Overview not available</i>}
-                            </p>
-                            <div className="d-flex flex-wrap justify-content-between col-12" style={{paddingLeft: 0}}>
-                                <div className="text-center col-6">
-                                    <h5>Origin Country</h5>
-                                    <h6 style={{fontWeight: '400', color: '#07B4E1'}}>
-                                        {
-                                            props.data.production_countries.map((item, idx) => {
-                                                if(idx !== props.data.production_countries.length-1){
-                                                    return(`${item['name']}, `)
-                                                }
-                                                else{
-                                                    return(item['name'])
-                                                }
-                                            })
-                                        }
-                                    </h6>
-                                </div>
-                                <div className="text-center col-6">
-                                    <h5>Language</h5>
-                                    <h6 style={{fontWeight: '400', color: '#62C6B8'}}>
-                                        {
-                                            props.data.spoken_languages.map((item, idx) => {
-                                                if(idx !== props.data.spoken_languages.length-1){
-                                                    return(`${item['english_name']}, `)
-                                                }
-                                                else{
-                                                    return(item['english_name'])
-                                                }
-                                            })
-                                        }
-                                    </h6>
+                                        </h6>
+                                    </div>
+                                    <div className="text-center col-6">
+                                        <h5>Language</h5>
+                                        <h6 style={{fontWeight: '400', color: '#62C6B8'}}>
+                                            {
+                                                props.data.spoken_languages.map((item, idx) => {
+                                                    if(idx !== props.data.spoken_languages.length-1){
+                                                        return(`${item['english_name']}, `)
+                                                    }
+                                                    else{
+                                                        return(item['english_name'])
+                                                    }
+                                                })
+                                            }
+                                        </h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Fade>
                     </div>
                 </div>
             </div>

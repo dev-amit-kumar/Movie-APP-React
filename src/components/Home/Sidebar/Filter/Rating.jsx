@@ -13,16 +13,11 @@ const Rating=(props)=>{
             <h6>Select min. rating</h6>
             <select className="form-control" onChange={sendRate} value={rating}>
                 <option value="">Choose Rating</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
+                <option value="2">&#9733;&#9734;&#9734;&#9734;&#9734;</option>
+                <option value="4">&#9733;&#9733;&#9734;&#9734;&#9734;</option>
+                <option value="6">&#9733;&#9733;&#9733;&#9734;&#9734;</option>
+                <option value="8">&#9733;&#9733;&#9733;&#9733;&#9734;</option>
+                <option value="10">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
             </select>
         </div>
     )
