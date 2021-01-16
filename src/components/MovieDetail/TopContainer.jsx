@@ -43,7 +43,7 @@ const TopContainer = (props) => {
             <div className="overlay">
                 <div className="container-fluid">
                     <div className="row justify-content-center">
-                        <Fade bottom>
+                        <Fade Left>
                             <div className="movie-image">
                                 <img src={img_src()} alt="movie"/>
                                 {props.data.vote_average && 
@@ -60,7 +60,7 @@ const TopContainer = (props) => {
                                     />}
                             </div>
                         </Fade>
-                        <Fade right>
+                        <Fade>
                             <div className="movie-text-data">
                                 <h1 className="center_on_mobile">{props.title} {props.year && <span>({props.year})</span>}</h1>
                                 <h6 className="center_on_mobile"><i>{props.tagline}</i></h6>

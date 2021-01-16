@@ -1,4 +1,4 @@
-import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 import '../../css/PersonData.css'
 const PersonData = (props)=>{
     const renderLinks =(data) => {
@@ -78,9 +78,9 @@ const PersonData = (props)=>{
         }
     }
     return(
-        <Fade left>
+        <Zoom>
             {renderData(props.data)} 
-        </Fade>
+        </Zoom>
     )
 }
 export default PersonData;

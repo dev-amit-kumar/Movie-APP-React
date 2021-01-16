@@ -39,10 +39,10 @@ const Profile = () => {
         )
     }
     return(
-        <Zoom>
-            <div className="card setting_common_card">
-                <h2 className="card-header">Profile details</h2>
-                <div className="card-body">
+        <div className="card setting_common_card">
+            <h2 className="card-header">Profile details</h2>
+            <div className="card-body">
+                <Zoom>
                     <form className="row">
                         <div className="col-12">
                             <h4>Personal Details</h4>
@@ -70,9 +70,9 @@ const Profile = () => {
                             {renderGenre()}
                         </div>
                     </form>
-                </div>
+                </Zoom>
             </div>
-        </Zoom>
+        </div>
     )
 }
 
