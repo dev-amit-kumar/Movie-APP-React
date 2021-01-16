@@ -22,7 +22,7 @@ const Setting = (props) => {
                                 <p><NavLink to="/setting/theme" activeClassName="navlink_active">Change Theme</NavLink></p>
                                 <p><NavLink to="/setting/history" activeClassName="navlink_active">View History</NavLink></p>
                                 <p><NavLink to="/setting/wishlist" activeClassName="navlink_active">View Wishlist</NavLink></p>
-                                <p><NavLink to="/setting/logout" activeClassName="navlink_active">Log out <i className="fa fa-sign-out" aria-hidden="true"></i></NavLink></p>
+                                <p><NavLink to="/auth/logout" activeClassName="navlink_active">Log out <i className="fa fa-sign-out" aria-hidden="true"></i></NavLink></p>
                             </div>
                         </div>
                     </div>
