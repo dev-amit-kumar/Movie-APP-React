@@ -1,6 +1,5 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import Fade from 'react-reveal/Fade';
 import TopContainer from './TopContainer'
 import AllReviews from './Review/AllReviews'
 import RecommendedMovie from './RecommendedMovie'
@@ -42,22 +41,18 @@ class MainPage extends React.Component{
                                 <AllCast movie_id={this.props.match.params.id}/>
                             </div>
                             <div className="col-md-3">
-                                <Fade bottom>
-                                    <OtherData 
-                                        original_title={this.state.data.original_title}
-                                        vote_count={this.state.data.vote_count}
-                                        popularity={this.state.data.popularity}
-                                        status={this.state.data.status}
-                                        imdb={this.state.data.imdb_id}
-                                        website={this.state.data.homepage}
-                                        movie_id={this.props.match.params.id}
-                                        />
-                                </Fade>
+                                <OtherData 
+                                    original_title={this.state.data.original_title}
+                                    vote_count={this.state.data.vote_count}
+                                    popularity={this.state.data.popularity}
+                                    status={this.state.data.status}
+                                    imdb={this.state.data.imdb_id}
+                                    website={this.state.data.homepage}
+                                    movie_id={this.props.match.params.id}
+                                />
                             </div>
                             <div className="col-md-12">
-                                <Fade bottom>
-                                    <AllReviews movie_id={this.props.match.params.id}/>
-                                </Fade>
+                                <AllReviews movie_id={this.props.match.params.id}/>
                             </div>
                         </div>
                     </div>

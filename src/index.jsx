@@ -6,10 +6,10 @@ import Routing from './components/Routing';
 import './css/index.css';
 
 ReactDOM.render(
-  <React.Fragment>
+  <React.StrictMode>
     {/* <Provider store={store}> */}
       <Routing />
     {/* </Provider> */}
-  </React.Fragment>,
+  </React.StrictMode>,
   document.getElementById('root')
 );
