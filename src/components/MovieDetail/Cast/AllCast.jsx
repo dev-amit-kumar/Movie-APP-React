@@ -11,12 +11,11 @@ class AllCast extends React.Component{
     }   
     
     componentDidMount(){
-        const movie_id = this.props.movie_id
-        const url = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=911c65436dd290d171fc662603dac6b3&language=en-US`
-        fetch(url)
-        .then(res => res.json())
-        .then(res => this.setState({data: res.cast}))
-
+      const movie_id = this.props.movie_id
+      const url = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=911c65436dd290d171fc662603dac6b3&language=en-US`
+      fetch(url)
+      .then(res => res.json())
+      .then(res => this.setState({data: res.cast}))
     }
 
     render(){
