@@ -21,7 +21,7 @@ const LoginForm=()=>{
                                 <input type="password" className="form-control" placeholder="Enter password" id="exampleInputPassword1"/>
                             </div>
                             <div className="form-group text-center">
-                                <button type="submit" className="pl-5 pr-5 btn btn-primary">Submit</button>
+                                <button type="submit" className="pl-5 pr-5 btn btn-primary">Login</button>
                             </div>
                             <hr/>
                             <div className="form-group">
