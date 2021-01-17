@@ -1,1 +1,2 @@
-/* All actions are contained in this file */
+export * from './DiscoverMovie'
+export * from './IndividualMovieDetail'

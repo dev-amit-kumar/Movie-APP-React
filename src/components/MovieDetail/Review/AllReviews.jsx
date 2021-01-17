@@ -1,39 +1,33 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import ReviewData from './ReviewData'
 import Slider from "react-slick";
+import { connect } from 'react-redux';
+import LoadingSpinner from '../../Common/LoadingSpinner'
+import DataNotFound from '../../Common/DataNotFound'
+import {fetchReviewsList} from '../../../redux/actions'
 
-class Review extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            data: ''
-        }
-    }   
-    
-    componentDidMount(){
-        const movie_id = this.props.movie_id
-        const url = `https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=911c65436dd290d171fc662603dac6b3&language=en-US&page=1`
-        fetch(url)
-        .then(res => res.json())
-        .then(res => this.setState({data: res}))
-    }
+const Review = ({movie_id, fetchReviewsList, reviewsList, isLoadingReviewsList}) => {  
 
-    render(){
-        var settings = {
-            cssEase: "linear",
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            dots: true
-        };
+    useEffect (() => {
+        fetchReviewsList(movie_id)
+    },[])
+
+    var settings = {
+        cssEase: "linear",
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true
+    };
+    if(reviewsList){
         return(
             <div className="other_data container review_container">
                 <h1 className="text-center font-weight-bolder heading_color">Review</h1>
                 <hr/>
-                {this.state.data.total_results ?
+                {reviewsList.total_results ?
                     <Slider {...settings}>
-                        {this.state.data.results.map((review, idx) => {
+                        {reviewsList.results.map((review, idx) => {
                             return(<ReviewData data={review} key={idx} active={idx===0 && 'active'}/>)
                         })}
                     </Slider>
@@ -43,5 +37,23 @@ class Review extends React.Component{
             </div>
         )
     }
+    else if(isLoadingReviewsList){
+        return(
+            <LoadingSpinner/>
+        )
+    }
+    else{
+        return(
+            <DataNotFound/>
+        )
+    }
 }
-export default Review
+
+const mapStateToProps = (state) => {
+    return{
+        reviewsList: state.IndividualMovieDetail.reviewsList,
+        isLoadingReviewsList: state.IndividualMovieDetail.isLoadingReviewsList
+    }
+}
+
+export default connect(mapStateToProps, {fetchReviewsList})(Review);
