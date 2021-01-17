@@ -17,7 +17,8 @@ const Header =() => {
                             <NavLink className="dropdown-item" to="/setting/theme" activeClassName="navlink_active">Change Theme</NavLink>
                             <NavLink className="dropdown-item" to="/setting/history" activeClassName="navlink_active">View History</NavLink>
                             <NavLink className="dropdown-item" to="/setting/wishlist" activeClassName="navlink_active">View Wishlist</NavLink>
-                            <NavLink className="dropdown-item logout_btn font-weight-bold" to="/auth/logout">Log out <i className="fa fa-sign-out" aria-hidden="true"></i></NavLink>
+                            <NavLink className="dropdown-item logout_btn font-weight-bold" to="/auth/login">Login/Signup <i className="fa fa-sign-in" aria-hidden="true"></i></NavLink>
+                            {/* <NavLink className="dropdown-item logout_btn font-weight-bold" to="/auth/logout">Log out <i className="fa fa-sign-out" aria-hidden="true"></i></NavLink> */}
                         </div>
                     </li>
                 </ul>
