@@ -1,2 +1,2 @@
 export * from './DiscoverMovie'
-export * from './MovieDetail'
+export * from './IndividualMovieDetail'
