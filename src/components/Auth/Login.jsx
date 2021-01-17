@@ -12,20 +12,35 @@ const LoginForm=()=>{
                         </div>
                         <div className="card-body">
                         <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputEmail1">Email address</label>
+                                <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email address" aria-describedby="emailHelp"/>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1"/>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPassword1">Password</label>
+                                <input type="password" className="form-control" placeholder="Enter password" id="exampleInputPassword1"/>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div className="form-group text-center">
+                                <button type="submit" className="pl-5 pr-5 btn btn-primary">Login</button>
+                            </div>
+                            <hr/>
+                            <div className="form-group">
+                                <h5>
+                                    <span className="heading_color">Social Login </span>
+                                    <i className="fa fa-facebook-official login-fb" aria-hidden="true"></i>
+                                    <i className="fa fa-google-plus-square login-goggle" aria-hidden="true"></i>
+                                </h5>
+                            </div>
+                            <div className="form-group register-option-mobile">
+                                <hr/>
+                                <h6>Don't have an account? <Link className="" to="/auth/signup">Register</Link></h6>
+                            </div>
+
                         </form>
                         </div>
                     </div>
                 </div>
-                <div className="container register-form ">
+                <div className="container register-option">
                     <h2>Don't have an account?</h2>
                     <Link className="btn btn-danger" to="/auth/signup">Register</Link>
                 </div>
