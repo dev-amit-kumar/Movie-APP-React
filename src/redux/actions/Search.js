@@ -1,4 +1,4 @@
-/* All Movie Details actions are contained in this file */
+/* All Search actions are contained in this file */
 
 import axios from "axios"
 import {apiKey} from '../config'

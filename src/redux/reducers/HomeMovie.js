@@ -7,7 +7,7 @@ const initialState = {
 }
 
 const HomeMovie = (state = initialState, action) => {
-    const {type, payload,status} = action;
+    const {type, payload} = action;
     switch(type){
         case "GET_DISCOVER_MOVIE_LIST":
             return {...state, movieList: payload.movieList, type: payload.type, parameters: payload.parameters}

@@ -1,3 +1,5 @@
+/* All Person/Actor Details actions are contained in this file */
+
 import axios from "axios"
 import {apiKey} from '../config'
 const api_key = `api_key=${apiKey}`

@@ -5,7 +5,6 @@ import FilterRating from "./Filter/Rating";
 import SortByType from "./Sort/Type";
 import { connect } from 'react-redux';
 import {fetchFilterMovieList} from "../../../redux/actions"
-const url ="https://api.themoviedb.org/3/discover/movie?api_key=911c65436dd290d171fc662603dac6b3&language=en-US"
 
 class SortFilter extends Component {
     constructor(props){

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
-import {Link} from "react-router-dom"
 import MovieCard from "../Common/MovieCard";
 import Sidebar from "./Sidebar/Index";
 import { fetchDiscoverMovieList} from '../../redux/actions'
@@ -14,21 +13,20 @@ const Home=(props)=>{
     },[])
     const renderMovieList = ({movieList, isLoadingMovieList}) => {
         if(movieList){
-            console.log(movieList, props)
-                if(movieList.length > 0){
-                    return(
-                        movieList.map((movie, idx) => {
-                            return <MovieCard data={movie} key={idx} height_s='250px' show_wishlist={true}/>
-                        })
-                    )
-                }
-                else{
-                    return(
-                        <div>
-                            <h1>No movies found for this filter options</h1>
-                        </div>
-                    )
-                }
+            if(movieList.length > 0){
+                return(
+                    movieList.map((movie, idx) => {
+                        return <MovieCard data={movie} key={idx} height_s='250px' show_wishlist={true}/>
+                    })
+                )
+            }
+            else{
+                return(
+                    <div>
+                        <h1>No movies found for this filter options</h1>
+                    </div>
+                )
+            }
         }
         else if(isLoadingMovieList){
             return(
