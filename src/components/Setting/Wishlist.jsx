@@ -24,7 +24,7 @@ class Wishlist extends React.Component {
                     this.props.user ?
                     <div className="card-body d-flex flex-row flex-wrap justify-content-between" style={{padding: 0}}>
                         {this.state.list.map(movie => {
-                            return(<MovieCard key={movie.id} data={movie} show_wishlist={true}/>)
+                            return(<MovieCard key={movie.id} data={movie} show_wishlist={true}  height_s="250px"/>)
                         })}
                     </div>
                     :
