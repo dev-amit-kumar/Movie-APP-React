@@ -1,10 +1,22 @@
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import Zoom from 'react-reveal/Zoom';
 import "../../css/Login.css"
+import {connect} from 'react-redux'
+import {loginUser} from '../../redux/actions'
+import React, { useState } from "react";
 
-const LoginForm=()=>{
-    return(
-        <div className="login-outer-container">
+const LoginForm=(props)=>{
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        props.loginUser(email, password)
+        props.history.push('/')
+    };
+    if(!props.user){
+        return(
+            <div className="login-outer-container">
                 <div className="mainConatiner">
                     <Zoom>
                         <div className="login-form">
@@ -13,14 +25,14 @@ const LoginForm=()=>{
                                     <h2>LOGIN</h2>
                                 </div>
                                 <div className="card-body">
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     <div className="form-group">
                                         <label htmlFor="exampleInputEmail1">Email address</label>
-                                        <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email address" aria-describedby="emailHelp"/>
+                                        <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} className="form-control" id="exampleInputEmail1" placeholder="Enter email address" aria-describedby="emailHelp"/>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="exampleInputPassword1">Password</label>
-                                        <input type="password" className="form-control" placeholder="Enter password" id="exampleInputPassword1"/>
+                                        <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} className="form-control" placeholder="Enter password" id="exampleInputPassword1"/>
                                     </div>
                                     <div className="form-group text-center">
                                         <button type="submit" className="pl-5 pr-5 btn btn-primary">Login</button>
@@ -37,7 +49,6 @@ const LoginForm=()=>{
                                         <hr/>
                                         <h6>Don't have an account? <Link className="" to="/auth/signup">Register</Link></h6>
                                     </div>
-
                                 </form>
                                 </div>
                             </div>
@@ -49,6 +60,18 @@ const LoginForm=()=>{
                     </div>
                 </div>
             </div>
-    )
+        )
+    }
+    else{
+        return(
+            <Redirect to="/"></Redirect>
+        )
+    }
 }
-export default LoginForm;
+const mapStateToProps = (state) => {
+    return{
+        user: state.UserAuth.user,
+    }
+}
+
+export default connect(mapStateToProps, {loginUser})(LoginForm);

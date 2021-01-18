@@ -1,13 +1,18 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import Fade from 'react-reveal/Fade';
 import Theme from "./Theme";
 import History from "./History";
 import Profile from "./Profile";
 import Wishlist from "./Wishlist";
-import Logout from "./Logout";
+import {connect} from 'react-redux'
+import {logoutUser} from '../../redux/actions'
 
 import '../../css/Setting.css'
 const Setting = (props) => {
+    const handleLogout = () => {
+        props.logoutUser()
+        props.history.push("/")
+    }
     return(
         <div className="container-fluid setting">
             <div className="row">
@@ -18,11 +23,11 @@ const Setting = (props) => {
                                 <h5>Settings</h5>
                             </div>
                             <div className="card-body">
-                                <p><NavLink to="/setting/profile" activeClassName="navlink_active">Profile Details</NavLink></p>
+                                {props.user && <p><NavLink to="/setting/profile" activeClassName="navlink_active">Profile Details</NavLink></p>}
                                 <p><NavLink to="/setting/theme" activeClassName="navlink_active">Change Theme</NavLink></p>
                                 <p><NavLink to="/setting/history" activeClassName="navlink_active">View History</NavLink></p>
                                 <p><NavLink to="/setting/wishlist" activeClassName="navlink_active">View Wishlist</NavLink></p>
-                                <p><NavLink to="/auth/logout" activeClassName="navlink_active">Log out <i className="fa fa-sign-out" aria-hidden="true"></i></NavLink></p>
+                                {props.user && <button className="dropdown-item logout_btn font-weight-bold" onClick={handleLogout}>Log out <i className="fa fa-sign-out" aria-hidden="true"></i></button>}
                             </div>
                         </div>
                     </div>
@@ -32,11 +37,15 @@ const Setting = (props) => {
                     {props.match.params.type === 'history' && <History/>}
                     {props.match.params.type === 'profile' && <Profile/>}
                     {props.match.params.type === 'wishlist' && <Wishlist/>}
-                    {props.match.params.type === 'logout' && <Logout/>}
                 </div>
             </div>
         </div>
     )
 }
+const mapStateToProps = (state) => {
+    return{
+        user: state.UserAuth.user
+    }
+}
 
-export default Setting
+export default withRouter(connect(mapStateToProps, {logoutUser})(Setting))

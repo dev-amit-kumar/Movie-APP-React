@@ -10,24 +10,37 @@ import Setting from './Setting/Index'
 import ForgetPassword from './Auth/ForgetPassword'
 import Login from './Auth/Login'
 import SignUp from './Auth/Signup'
-import Logout from './Auth/Logout'
+import {auth} from '../redux/Firebase'
+import {connect} from 'react-redux'
+import {setUser, getUserData} from '../redux/actions'
 
-const Routing = () => {
-    return (
-        <BrowserRouter>
-            <Header />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/movie/:id" component={MovieDetail} />
-            <Route exact path="/person/:id" component={PersonDetail} />
-            <Route path="/search/:str" component={SearchPage} />
-            <Route exact path="/setting/:type" component={Setting} />
-            <Route exact path="/auth/logout" component={Logout} />
-            <Route exact path="/auth/login" component={Login} />
-            <Route exact path="/auth/signup" component={SignUp} />
-            <Route exact path="/auth/forget-password" component={ForgetPassword} />
-            <Footer />
-        </BrowserRouter>
-    )
+class Routing extends React.Component {
+    componentDidMount() {
+        auth.onAuthStateChanged((user) => {
+          if (user) {
+            this.props.setUser(user);
+            this.props.getUserData(user)
+          } else {
+            this.props.setUser(null);
+          }
+        });
+      }
+    render(){
+        return (
+            <BrowserRouter>
+                <Header />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/movie/:id" component={MovieDetail} />
+                <Route exact path="/person/:id" component={PersonDetail} />
+                <Route path="/search/:str" component={SearchPage} />
+                <Route exact path="/setting/:type" component={Setting} />
+                <Route exact path="/auth/login" component={Login} />
+                <Route exact path="/auth/signup" component={SignUp} />
+                <Route exact path="/auth/forget-password" component={ForgetPassword} />
+                <Footer />
+            </BrowserRouter>
+        )
+    }
 }
 
-export default Routing;
+export default connect(null, {setUser, getUserData})(Routing);
