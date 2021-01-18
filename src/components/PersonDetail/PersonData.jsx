@@ -9,49 +9,44 @@ const PersonData = ({data,fetchPersonDetail,PersonDetail,isLoadingPersonDetail})
     useEffect (() => {
         fetchPersonDetail(data)
     },[])
-    const renderLinks =(PersonDetail) => {
-        if(PersonDetail.imdb_id && PersonDetail.homepage){
-            return(
-                <>
-                    <b className="heading_color">EXTERNAL LINKS: </b>
-                    {PersonDetail.imdb_id && 
-                        <a rel="noopener noreferrer" 
-                            target="_blank" 
-                            href={`https://www.imdb.com/name/${PersonDetail.imdb_id}`} 
-                            className="btn btn-warning ml-2 mr-2 font-bold font-weight-bold">IMDB&nbsp;
-                            <i className="fa fa-imdb" aria-hidden="true"></i> 
-                        </a>
-                    }
-                    {PersonDetail.homepage && 
-                        <a rel="noopener noreferrer" 
-                            target="_blank" 
-                            href={PersonDetail.homepage} 
-                            className="btn btn-danger ml-2 mr-2 font-bold font-weight-bold">Website&nbsp;
-                            <i className="fa fa-link" aria-hidden="true"></i>
-                        </a>
-                    }
-                </>
-            )
+    const renderLinks =(imdb_id, homepage) => {
+        return(
+            <>
+                <b className="heading_color">EXTERNAL LINKS: </b>
+                {imdb_id && 
+                    <a rel="noopener noreferrer" 
+                        target="_blank" 
+                        href={`https://www.imdb.com/name/${imdb_id}`} 
+                        className="btn btn-warning ml-2 mr-2 font-bold font-weight-bold">IMDB&nbsp;
+                        <i className="fa fa-imdb" aria-hidden="true"></i> 
+                    </a>
+                }
+                {homepage && 
+                    <a rel="noopener noreferrer" 
+                        target="_blank" 
+                        href={homepage} 
+                        className="btn btn-danger ml-2 mr-2 font-bold font-weight-bold">Website&nbsp;
+                        <i className="fa fa-link" aria-hidden="true"></i>
+                    </a>
+                }
+            </>
+        )
+    }
+    const img_src = (img_url) => {
+        if(img_url === null){
+            return 'https://dl.dropboxusercontent.com/s/yes3bkjzwczt5cz/actor.png?dl=0'
         }
         else{
-            return(<></>)
+            return `https://image.tmdb.org/t/p/w500${img_url}`
         }
     }
-    const renderData=(PersonDetail)=>{
-        const img_src = () => {
-            if(PersonDetail.profile_path === null){
-                return 'https://dl.dropboxusercontent.com/s/yes3bkjzwczt5cz/actor.png?dl=0'
-            }
-            else{
-                return `https://image.tmdb.org/t/p/w500${PersonDetail.profile_path}`
-            }
-        }
-        if(PersonDetail){
-            return(
-                <div className="container-fluid person-PersonDetail">
+    if(PersonDetail){
+        return(
+            <Zoom>
+                <div className="container-fluid person-data">
                     <div className="row">
                         <div className="card-image col-md-4 col-12 vh_center align-items-center">
-                            <img src={img_src()} alt="actor"/>
+                            <img src={img_src(PersonDetail.profile_path)} alt="actor"/>
                         </div>
                         <div className="col-md-8 person-text col-12 vh_center">
                             <h1 className="heading_color">{PersonDetail.name}</h1>
@@ -77,18 +72,11 @@ const PersonData = ({data,fetchPersonDetail,PersonDetail,isLoadingPersonDetail})
                                 </>
                             }
                             <div className="mt-2">
-                                {renderLinks(PersonDetail)}
+                                {renderLinks(PersonDetail.imdb_id, PersonDetail.homepage)}
                             </div>
                         </div>
                     </div>
                 </div>
-            )
-        }
-    }
-    if(PersonDetail){
-        return(
-            <Zoom>
-                {renderData(PersonDetail)} 
             </Zoom>
         )
     }
