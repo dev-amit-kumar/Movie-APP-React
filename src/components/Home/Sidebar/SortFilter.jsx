@@ -4,7 +4,7 @@ import FilterYear from "./Filter/Year";
 import FilterRating from "./Filter/Rating";
 import SortByType from "./Sort/Type";
 import { connect } from 'react-redux';
-import {fetchFilterMovie} from "../../../redux/actions"
+import {fetchFilterMovieList} from "../../../redux/actions"
 const url ="https://api.themoviedb.org/3/discover/movie?api_key=911c65436dd290d171fc662603dac6b3&language=en-US"
 
 class SortFilter extends Component {
@@ -34,8 +34,7 @@ class SortFilter extends Component {
         if(this.state.rating){
             str=`${str}&vote_average.gte=${this.state.rating}`
         }
-        this.props.fetchFilterMovie(str,1)
-        this.props.send("filter")
+        this.props.fetchFilterMovieList(str,1)
     }
 
     render() {
@@ -85,4 +84,4 @@ class SortFilter extends Component {
     }
 }
 
-export default connect(null,{fetchFilterMovie})(SortFilter);
+export default connect(null,{fetchFilterMovieList})(SortFilter);

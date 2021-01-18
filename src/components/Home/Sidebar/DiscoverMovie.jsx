@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import {fetchDiscoverMovie} from "../../../redux/actions";
-const DiscoverMovie=({send,fetchDiscoverMovie})=>{
+import { fetchDiscoverMovieList} from "../../../redux/actions";
+const DiscoverMovie=({fetchDiscoverMovieList})=>{
     const renderFilterMovie=(e)=>{
-        fetchDiscoverMovie(e.target.value,1)
-        send(e.target.value)
+        fetchDiscoverMovieList(e.target.value,1)
 
     }
         const discoverOption = () => {
@@ -55,4 +54,4 @@ const DiscoverMovie=({send,fetchDiscoverMovie})=>{
         )
 }
 
-export default connect(null,{fetchDiscoverMovie})(DiscoverMovie);
+export default connect(null,{fetchDiscoverMovieList})(DiscoverMovie);

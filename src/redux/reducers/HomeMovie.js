@@ -1,28 +1,21 @@
 const initialState = {
-    discoverMovie: null,
-    filterMovie: null,
+    movieList: null,
+    type: null,
+    parameters: [],
 
-    stat:null,
-
-    isLoadingdiscoverMovie: false,
-    isLoadingfilterMovie: false
+    isLoadingMovieList: false
 }
 
 const HomeMovie = (state = initialState, action) => {
     const {type, payload,status} = action;
     switch(type){
-        case "GET_DISCOVER_MOVIE":
-            return {...state, discoverMovie: payload}
-        case "GET_FILTER_MOVIE":
-            return {...state, filterMovie: payload}
+        case "GET_DISCOVER_MOVIE_LIST":
+            return {...state, movieList: payload.movieList, type: payload.type, parameters: payload.parameters}
+        case "GET_FILTER_MOVIE_LIST":
+            return {...state, movieList: payload.movieList, type: payload.type, parameters: payload.parameters}
         
-        case "TOGGLE_IS_LOADING_DISCOVER_MOVIE":
-            return {...state, isLoadingdiscoverMovie: !state.isLoadingdiscoverMovie}
-        case "TOGGLE_IS_LOADING_FILTER_MOVIE":
-            return {...state, isLoadingfilterMovie: !state.isLoadingfilterMovie}
-
-        case "SET_TYPE":
-            return {...state,stat:status}
+        case "TOGGLE_IS_LOADING_MOVIE_LIST":
+            return {...state, isLoadingMovieList: !state.isLoadingMovieList}
         
         default:
             return state;
