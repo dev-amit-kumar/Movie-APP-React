@@ -1,12 +1,12 @@
 import {combineReducers} from 'redux';
-import DiscoverMovie from './DiscoverMovie'
 import IndividualMovieDetail from './IndividualMovieDetail'
 import Search from './Search'
+import HomeMovie from "./HomeMovie";
 
 const rootReducer = combineReducers({
-    DiscoverMovie,
     IndividualMovieDetail,
-    Search
+    Search,
+    HomeMovie
 });
 
 export default rootReducer;

@@ -1,33 +1,30 @@
 import React, { Component } from 'react'
-const url="https://api.themoviedb.org/3/movie";
+import { connect } from 'react-redux';
+import {fetchDiscoverMovie} from "../../../redux/actions";
+const DiscoverMovie=({send,fetchDiscoverMovie})=>{
+    const renderFilterMovie=(e)=>{
+        fetchDiscoverMovie(e.target.value,1)
+        send(e.target.value)
 
-class DiscoverMovie extends Component {
-    renderFilterMovie=(e)=>{
-        fetch(`${url}/${e.target.value}?api_key=911c65436dd290d171fc662603dac6b3&language=en-US&page=1`,{
-            method:"GET"
-        })  
-        .then((res)=>res.json())
-        .then((data)=>this.props.FilterData(data.results))
     }
-    render() {
         const discoverOption = () => {
             return(
                 <>
                     <div className="form-check">
                         <label className="form-check-label">
-                            <input className="form-check-input" onClick={this.renderFilterMovie}  type="radio" name="discover_movie" value="top_rated" />
+                            <input className="form-check-input" onClick={renderFilterMovie}  type="radio" name="discover_movie" value="top_rated" />
                             TOP RATED
                         </label>
                     </div>
                     <div className="form-check">
                         <label className="form-check-label">
-                            <input className="form-check-input" onClick={this.renderFilterMovie}  type="radio" name="discover_movie" value="popular"/>
+                            <input className="form-check-input" onClick={renderFilterMovie}  type="radio" name="discover_movie" value="popular"/>
                             POPULAR
                         </label>
                     </div>
                     <div className="form-check">
                         <label className="form-check-label">
-                            <input className="form-check-input" onClick={this.renderFilterMovie}  type="radio" name="discover_movie" value="upcoming"/>
+                            <input className="form-check-input" onClick={renderFilterMovie}  type="radio" name="discover_movie" value="upcoming"/>
                             UPCOMING
                         </label>
                     </div>
@@ -56,7 +53,6 @@ class DiscoverMovie extends Component {
                 </div>
             </div>
         )
-    }
 }
 
-export default DiscoverMovie;
+export default connect(null,{fetchDiscoverMovie})(DiscoverMovie);

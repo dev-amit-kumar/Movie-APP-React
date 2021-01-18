@@ -3,16 +3,16 @@ import Fade from 'react-reveal/Fade';
 import {Link} from "react-router-dom"
 import MovieCard from "../Common/MovieCard";
 import Sidebar from "./Sidebar/Index";
-import { Upcoming } from '../../redux/actions'
+import { fetchDiscoverMovie,fetchFilterMovie } from '../../redux/actions'
 import { connect } from 'react-redux';
-
-// const purl="https://api.themoviedb.org/3/movie/popular?api_key=911c65436dd290d171fc662603dac6b3&language=en-US&page=1";
+import LoadingSpinner from '../Common/LoadingSpinner'
+import DataNotFound from '../Common/DataNotFound'
 
 class Home extends Component {
     constructor(props){
         super(props)
         this.state={
-            movieData:[]
+            movieData:""
         }
     }
     renderSearch=(data)=>{
@@ -28,16 +28,18 @@ class Home extends Component {
         this.setState({movieData:data})
     }
     render() {
+        console.log(this.state.movieData,"state")
+        if(this.props.discoverMovie){
         return (
             <div className="container-fluid">    
                 <div className="row">
                     <Fade left>
                         <div className="col-md-2 col-12" id="accordion">
-                            <Sidebar MovieData={(data)=>this.setState({movieData:data})} MovieList={this.state.movieData}/>
+                            <Sidebar send={(data)=>this.saveState(data)} MovieList={this.state.movieData}/>
                         </div>
                     </Fade>
                     <div className="col-md-10 col-12 container d-flex flex-row flex-wrap justify-content-between">
-                        {this.props.list !== null && this.props.list.results.map((movie, idx) => {
+                        {this.props.discoverMovie !== null && this.props.discoverMovie.map((movie, idx) => {
                             return <MovieCard data={movie} key={idx} height_s='250px' show_wishlist={true}/>
                         })}
                     </div>
@@ -45,15 +47,27 @@ class Home extends Component {
             </div>
         )
     }
-    componentDidMount = async () => {
-        await this.props.Upcoming(1);
+    else if(this.props.isLoadingdiscoverMovie){
+        return(
+            <LoadingSpinner/>
+        )
+    }
+    else{
+        return(
+            <DataNotFound/>
+        )
+    }
+    }
+    componentDidMount(){
+        this.props.fetchDiscoverMovie("popular",1)
     }
 }
-
 const mapStateToProps = (state) => {
     return{
-        list: state.DiscoverMovie.list
+        discoverMovie:state.HomeMovie.discoverMovie,
+        isLoadingdiscoverMovie:state.HomeMovie.isLoadingdiscoverMovie,
+        stat:state.HomeMovie.stat
     }
 }
 
-export default connect(mapStateToProps, {Upcoming})(Home);
+export default connect(mapStateToProps,{fetchDiscoverMovie,fetchFilterMovie})(Home);
