@@ -29,7 +29,6 @@ class Wishlist extends React.Component {
 		});
 	};
 	render() {
-		console.log(this.state.list);
 		return (
 			<div className="card setting_common_card">
 				<h2 className="card-header">Wishlist</h2>

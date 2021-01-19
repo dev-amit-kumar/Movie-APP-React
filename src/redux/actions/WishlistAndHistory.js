@@ -10,3 +10,14 @@ export const updateWishlist = (user, newList) => (dispatch) => {
 		dispatch({ type: 'TOGGLE_IS_UPDATING_USER_DATA' });
 	}
 };
+
+export const updateHistory = (user, newList) => (dispatch) => {
+	try {
+		dispatch({ type: 'TOGGLE_IS_UPDATING_USER_DATA' });
+		db.collection('users')
+			.doc(user.uid)
+			.set({ history: newList }, { merge: true });
+	} finally {
+		dispatch({ type: 'TOGGLE_IS_UPDATING_USER_DATA' });
+	}
+};
