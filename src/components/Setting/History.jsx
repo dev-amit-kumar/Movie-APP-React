@@ -30,24 +30,33 @@ class History extends React.Component {
 	};
 	render() {
 		return (
-			<div className="card setting_common_card">
+			<div className="card setting_common_card mb-5">
 				<h2 className="card-header">History</h2>
 				{this.props.user ? (
-					<div
-						className="card-body d-flex flex-row flex-wrap justify-content-start"
-						style={{ padding: 0 }}
-					>
-						{this.state.list.map((movie) => {
-							return (
-								<MovieCard
-									key={movie.id}
-									data={movie}
-									show_delete={true}
-									height_s="250px"
-								/>
-							);
-						})}
-					</div>
+					this.state.list.length > 0 ? (
+						<div
+							className="card-body d-flex flex-row flex-wrap justify-content-start"
+							style={{ padding: 0 }}
+						>
+							{this.state.list.map((movie) => {
+								return (
+									<MovieCard
+										key={movie.id}
+										data={movie}
+										show_delete={true}
+										height_s="250px"
+									/>
+								);
+							})}
+						</div>
+					) : (
+						<div
+							className="card-body d-flex flex-row flex-wrap justify-content-center align-items-center"
+							style={{ padding: 0, height: '200px' }}
+						>
+							<h1>No history found</h1>
+						</div>
+					)
 				) : (
 					<div
 						className="card-body d-flex flex-column justify-content-center align-items-center"

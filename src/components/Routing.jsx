@@ -12,7 +12,7 @@ import Login from './Auth/Login';
 import SignUp from './Auth/Signup';
 import { auth } from '../redux/Firebase';
 import { connect } from 'react-redux';
-import { setUser, getUserData } from '../redux/actions';
+import { setUser, getUserData, removeUserData } from '../redux/actions';
 
 class Routing extends React.Component {
 	componentDidMount() {
@@ -22,6 +22,7 @@ class Routing extends React.Component {
 				this.props.getUserData(user);
 			} else {
 				this.props.setUser(null);
+				this.props.removeUserData();
 			}
 		});
 	}
@@ -53,4 +54,8 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { setUser, getUserData })(Routing);
+export default connect(mapStateToProps, {
+	setUser,
+	getUserData,
+	removeUserData,
+})(Routing);
