@@ -7,3 +7,4 @@ export * from './HomeMovie';
 export * from './Person';
 export * from './userAuth';
 export * from './userData';
+export * from './Wishlist';
