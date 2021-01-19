@@ -52,9 +52,9 @@ const SignupForm=(props)=>{
                                             <input type="password" onChange={(e) => setRepeatPassword(e.target.value)} value={repeatPassword} className="form-control" placeholder="Repeat password" id="repeat_password"/>
                                         </div>
                                     </div>
-                                    {props.error && <small className="text-danger">{props.error.message}</small>}
+                                    {props.registerError && <small className="text-danger">{props.registerError.message}</small>}
                                     <div className="form-group text-center">
-                                        <button type="submit" className="pl-5 pr-5 btn btn-primary">Create Account</button>
+                                        <button type="submit" className="pl-3 pr-3 btn btn-primary">Create Account</button>
                                     </div>
                                     <hr/>
                                     <div className="form-group">
@@ -66,7 +66,7 @@ const SignupForm=(props)=>{
                                     </div>
                                     <div className="form-group register-option-mobile">
                                         <hr/>
-                                        <h6>Already have an account? <Link className="" to="/auth/login">Login</Link></h6>
+                                        <h6>Already have an account ?<Link className="" to="/auth/login">Login</Link></h6>
                                     </div>
                                 </form>
                                 </div>
@@ -74,7 +74,7 @@ const SignupForm=(props)=>{
                         </div>
                     </Zoom>
                     <div className="container register-option">
-                        <h2>Already have an account</h2>
+                        <h2>Already have an account ?</h2>
                         <Link className="btn btn-danger" to="/auth/login">Login</Link>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ const SignupForm=(props)=>{
 const mapStateToProps = (state) => {
     return{
         user: state.UserAuth.user,
-        error: state.UserAuth.error,
+        registerError: state.UserAuth.registerError,
         isLoadingUserAuth: state.UserAuth.isLoadingUserAuth
     }
 }

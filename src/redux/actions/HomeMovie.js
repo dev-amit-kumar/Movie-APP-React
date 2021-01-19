@@ -55,3 +55,9 @@ export const fetchFilterMovieList= (query,page_no) => async (dispatch) => {
         dispatch({ type: "TOGGLE_IS_LOADING_MOVIE_LIST" });
     }
 };
+
+// export const fetchGenresList = () => async (dispatch) => {
+//     try{
+//         // dispatch({type: "GET_GENRES_LIST", payload: null})
+//     }
+// }

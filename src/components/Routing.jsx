@@ -26,7 +26,6 @@ class Routing extends React.Component {
         });
       }
     render(){
-      console.log(this.props.user, this.props.userDetail)
       // if(this.props.user && this.props.userDetail.fav_genres.length === 0){
       //   return(<Redirect to="/setting/profile"></Redirect>)
       // }

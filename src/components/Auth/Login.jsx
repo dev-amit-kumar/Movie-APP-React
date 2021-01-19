@@ -35,9 +35,9 @@ const LoginForm=(props)=>{
                                         <label htmlFor="exampleInputPassword1">Password</label>
                                         <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} className="form-control" placeholder="Enter password" id="exampleInputPassword1"/>
                                     </div>
-                                    {props.error && <small className="text-danger">{props.error.message}</small>}
+                                    {props.loginError && <small className="text-danger">{props.loginError.message}</small>}
                                     <div className="form-group text-center">
-                                        <button type="submit" className="pl-5 pr-5 btn btn-primary">Login</button>
+                                        <button type="submit" className="pl-3 pr-3 btn btn-primary">Login</button>
                                     </div>
                                     <hr/>
                                     <div className="form-group">
@@ -49,7 +49,7 @@ const LoginForm=(props)=>{
                                     </div>
                                     <div className="form-group register-option-mobile">
                                         <hr/>
-                                        <h6>Don't have an account? <Link className="" to="/auth/signup">Register</Link></h6>
+                                        <h6>Don't have an account ? <Link className="" to="/auth/signup">Register</Link></h6>
                                     </div>
                                 </form>
                                 </div>
@@ -57,7 +57,7 @@ const LoginForm=(props)=>{
                         </div>
                     </Zoom>
                     <div className="container register-option">
-                        <h2>Don't have an account?</h2>
+                        <h2>Don't have an account ? </h2>
                         <Link className="btn btn-danger" to="/auth/signup">Register</Link>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ const LoginForm=(props)=>{
 const mapStateToProps = (state) => {
     return{
         user: state.UserAuth.user,
-        error: state.UserAuth.error,
+        loginError: state.UserAuth.loginError,
         isLoadingUserAuth: state.UserAuth.isLoadingUserAuth
     }
 }
