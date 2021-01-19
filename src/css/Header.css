@@ -1,34 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 .navbar-brand {
-  font-family: "Righteous", cursive;
-  padding: 5px 15px;
-  border-radius: 7px;
+	font-family: 'Righteous', cursive;
+	padding: 5px 15px;
+	border-radius: 7px;
 }
 
 .navbar {
-  background-color: var(--primary);
+	background-color: var(--primary);
 }
 
 .setting_btn {
-  color: var(--secondary_text) !important;
-  background-color: var(--transparent);
-  border: none;
-  outline: none;
-  font-size: 25px;
-  padding: 0;
+	color: var(--secondary_text) !important;
+	background-color: var(--transparent);
+	border: none;
+	outline: none;
+	font-size: 25px;
+	padding: 0;
 }
 
 .setting_btn:hover,
 .setting_btn:focus {
-  outline: none;
-  border: none;
+	outline: none;
+	border: none;
 }
 
 .navbar-nav .dropdown-menu {
-  position: absolute;
+	position: absolute;
 }
 
 .logout_btn {
-  color: var(--primary_text) !important;
+	color: var(--primary_text) !important;
 }

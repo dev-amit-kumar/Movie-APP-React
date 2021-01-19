@@ -1,9 +1,9 @@
-const DataNotFound = () =>{
-    return(
-        <div className="full-cover">
-            <h1>Data not found</h1>
-        </div>
-    )
-}
+const DataNotFound = () => {
+	return (
+		<div className="full-cover">
+			<h1>Data not found</h1>
+		</div>
+	);
+};
 
-export default DataNotFound
+export default DataNotFound;
