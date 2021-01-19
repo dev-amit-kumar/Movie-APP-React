@@ -6,7 +6,7 @@ import { fetchDiscoverMovieList} from '../../redux/actions'
 import { connect } from 'react-redux';
 import LoadingSpinner from '../Common/LoadingSpinner'
 import DataNotFound from '../Common/DataNotFound' 
-import Pagination from "./Pagination/Pagination";
+import DisplayPagination from "./Pagination/DisplayPagination";
 
 const Home=(props)=>{
     useEffect (() => {
@@ -52,8 +52,8 @@ const Home=(props)=>{
                 <div className="col-md-10 col-12 container d-flex flex-row flex-wrap justify-content-between">
                     {renderMovieList(props)}
                 </div>
-                <div className="container-fluid">
-                    <Pagination/>
+                <div className="col-md-12 d-flex flex-row justify-content-center mt-1">
+                    <DisplayPagination/>
                 </div>
             </div>
         </div>

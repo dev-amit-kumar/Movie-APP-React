@@ -11,7 +11,7 @@ const DisplayPagination=(props)=>{
         }
     }
     return(
-        <div className="row">            
+        <div>            
              <Paagination
           className="red"
           total={props.total_pages}
@@ -53,7 +53,7 @@ const DisplayPagination=(props)=>{
               {pages.map(page => {
                 let activePage = null;
                 if (currentPage === page) {
-                  activePage = { backgroundColor: '#fdce09' };
+                  activePage = { backgroundColor: '#388f2b',color:"#0237f7" };
                 }
                 return (
                   <button className="btn btn-light border border-primary"
