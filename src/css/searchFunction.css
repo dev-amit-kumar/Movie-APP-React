@@ -1,66 +1,66 @@
 .searchBox {
-  position: relative;
+	position: relative;
 }
 
 .searchResult {
-  position: absolute;
-  border-radius: 0 0 10px 10px;
-  background-color: #000000d9;
-  top: 100%;
-  z-index: 99;
-  left: 0%;
-  right: 40px;
-  padding: 10px 30px;
+	position: absolute;
+	border-radius: 0 0 10px 10px;
+	background-color: #000000d9;
+	top: 100%;
+	z-index: 99;
+	left: 0%;
+	right: 40px;
+	padding: 10px 30px;
 }
 
 .searchResult div {
-  color: white;
-  cursor: pointer;
+	color: white;
+	cursor: pointer;
 }
 
 .search-option {
-  display: flex;
-  flex-flow: row wrap;
-  margin: 20px auto 10px auto;
-  width: 95%;
+	display: flex;
+	flex-flow: row wrap;
+	margin: 20px auto 10px auto;
+	width: 95%;
 }
 
 .search-option button {
-  width: 150px;
-  margin: 0 15px;
-  font-weight: 600;
-  border-radius: 5px;
-  height: 50px;
+	width: 150px;
+	margin: 0 15px;
+	font-weight: 600;
+	border-radius: 5px;
+	height: 50px;
 }
 
 .search-option button:hover,
 .search-option button:focus {
-  outline: none;
+	outline: none;
 }
 
 .btn-active {
-  background-color: #28a745;
-  border: 1px solid #28a745;
-  color: white;
+	background-color: #28a745;
+	border: 1px solid #28a745;
+	color: white;
 }
 
 .btn-inactive {
-  background-color: white;
-  border: 2px solid #dc3545;
-  color: #dc3545;
+	background-color: white;
+	border: 2px solid #dc3545;
+	color: #dc3545;
 }
 
 @media screen and (max-width: 650px) {
-  .search-option {
-    width: 100%;
-    justify-content: center;
-  }
-  .search-option h2 {
-    width: 100%;
-    text-align: center;
-  }
-  .search-option button {
-    width: 40%;
-    height: 35px;
-  }
+	.search-option {
+		width: 100%;
+		justify-content: center;
+	}
+	.search-option h2 {
+		width: 100%;
+		text-align: center;
+	}
+	.search-option button {
+		width: 40%;
+		height: 35px;
+	}
 }
