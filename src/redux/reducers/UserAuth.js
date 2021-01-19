@@ -17,9 +17,9 @@ const UserAuth = (state = initialState, action) => {
 		case 'GET_USER_DATA':
 			return { ...state, userDetail: payload };
 		case 'LOGIN_ERROR':
-			return { ...state, error: payload };
+			return { ...state, loginError: payload };
 		case 'REGISTER_ERROR':
-			return { ...state, error: payload };
+			return { ...state, registerError: payload };
 
 		case 'TOGGLE_IS_LOADING_USER_DATA':
 			return {

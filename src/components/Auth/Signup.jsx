@@ -5,22 +5,25 @@ import '../../css/Login.css';
 import { registerUser } from '../../redux/actions';
 import LoadingSpinner from '../Common/LoadingSpinner';
 import { connect } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignupForm = (props) => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [repeatPassword, setRepeatPassword] = useState('');
+	const [passwordError, setPasswordError] = useState(false);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (password === repeatPassword) {
+			setPasswordError(false);
 			props.registerUser(name, email, password);
 		} else {
-			alert('Password should match repeat password');
+			setPasswordError(true);
 		}
 	};
-
 	if (!props.user) {
 		return (
 			<div className="signup-form login-outer-container">
@@ -100,12 +103,21 @@ const SignupForm = (props) => {
 													id="repeat_password"
 												/>
 											</div>
+											{passwordError && (
+												<label className="text-danger col-12 text-center">
+													Repeat password should be
+													same as password
+												</label>
+											)}
+											{props.registerError && (
+												<label className="text-danger col-12 text-center">
+													{
+														props.registerError
+															.message
+													}
+												</label>
+											)}
 										</div>
-										{props.registerError && (
-											<small className="text-danger">
-												{props.registerError.message}
-											</small>
-										)}
 										<div className="form-group text-center">
 											<button
 												type="submit"
@@ -154,6 +166,7 @@ const SignupForm = (props) => {
 						</Link>
 					</div>
 				</div>
+				<ToastContainer />
 			</div>
 		);
 	} else if (props.isLoadingUserAuth) {

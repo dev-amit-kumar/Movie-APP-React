@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 import ReactTooltip from 'react-tooltip';
 import ReactStars from 'react-rating-stars-component';
@@ -17,10 +17,14 @@ const MovieCard = (props) => {
 		height: props.height_s,
 	};
 	const addWishlist = () => {
-		props.updateWishlist(props.user, [
-			...props.userDetail.wishlist,
-			props.data.id,
-		]);
+		if (props.user) {
+			props.updateWishlist(props.user, [
+				...props.userDetail.wishlist,
+				props.data.id,
+			]);
+		} else {
+			props.history.push('/auth/login');
+		}
 	};
 	const removeWishlist = () => {
 		let newList = props.userDetail.wishlist.filter(
@@ -146,6 +150,6 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { updateWishlist, updateHistory })(
-	MovieCard,
+export default withRouter(
+	connect(mapStateToProps, { updateWishlist, updateHistory })(MovieCard),
 );
