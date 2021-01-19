@@ -4,9 +4,9 @@ const initialState = {
     curr_page:null,
     type: null,
     parameters: [],
-
-    isLoadingMovieList: false
-}
+  
+	  isLoadingMovieList: false,
+};
 
 const HomeMovie = (state = initialState, action) => {
     const {type, payload} = action;
@@ -32,7 +32,7 @@ const HomeMovie = (state = initialState, action) => {
         
         case "TOGGLE_IS_LOADING_MOVIE_LIST":
             return {...state, isLoadingMovieList: !state.isLoadingMovieList}
-        
+
         default:
             return state;
     }   

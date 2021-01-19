@@ -1,10 +1,10 @@
 /* All home movie actions are contained in this file */
 
-import axios from "axios"
-import {apiKey} from '../config'
-const api_key = `api_key=${apiKey}`
-const discover_movie_url="https://api.themoviedb.org/3/movie";
-const filter_movie_url = "https://api.themoviedb.org/3/discover/movie"
+import axios from 'axios';
+import { apiKey } from '../config';
+const api_key = `api_key=${apiKey}`;
+const discover_movie_url = 'https://api.themoviedb.org/3/movie';
+const filter_movie_url = 'https://api.themoviedb.org/3/discover/movie';
 
 export const fetchDiscoverMovieList = (type,page_no) => async (dispatch) => {
     try {
