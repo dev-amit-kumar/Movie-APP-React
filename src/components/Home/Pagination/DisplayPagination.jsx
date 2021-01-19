@@ -1,42 +1,103 @@
 import {connect} from "react-redux";
-import Slider from 'react-slick';
+import Paagination from 'react-paginating';
 import {fetchDiscoverMovieList,fetchFilterMovieList} from "../../../redux/actions";
 const DisplayPagination=(props)=>{
-    const dispatchFunction=(e)=>{
+    const handlePageChange=(data)=>{
         if(props.type==="DISCOVER_MOVIE"){
-            props.fetchDiscoverMovieList(props.parameters.discover_type,e.target.value)
+            props.fetchDiscoverMovieList(props.parameters.discover_type,data)
         }
         else{
-            props.fetchFilterMovieList(props.parameters.filter_query,e.target.value)
+            props.fetchFilterMovieList(props.parameters.filter_query,data)
         }
     }
-    const renderButton=(data)=>{
-        return data.map((res)=>{
-            return(
-                <button value={res} onClick={dispatchFunction} className="btn btn-light">{res}</button>
-            )
-        })        
-    }
-    var settings = {
-        cssEase: "linear",
-        speed: 500,
-        slidesToShow: 10,
-        slidesToScroll: 10,
-        arrows: true,
-      }; 
     return(
         <div className="row">            
-            <button value={1} onClick={dispatchFunction} className="btn btn-light col-1">First</button>
-            <Slider className="col-8"  {...settings}>
-            {renderButton(props.index)}
-            </Slider>
-            <button value={props.total_pages} onClick={dispatchFunction} className="ml-4 btn btn-light col-1">Last</button>
+             <Paagination
+          className="red"
+          total={props.total_pages}
+          limit={1}
+          pageCount={10}
+          currentPage={props.curr_page}
+        >
+          {({
+            pages,
+            currentPage,
+            hasNextPage,
+            hasPreviousPage,
+            previousPage,
+            nextPage,
+            totalPages,
+            getPageItemProps
+          }) => (
+            <div>
+              <button className="btn btn-light border border-primary"
+                {...getPageItemProps({
+                  pageValue: 1,
+                  onPageChange: handlePageChange
+                })}
+              >
+                first
+              </button>
+ 
+              {hasPreviousPage && (
+                <button className="btn btn-light border border-primary"
+                  {...getPageItemProps({
+                    pageValue: previousPage,
+                    onPageChange: handlePageChange
+                  })}
+                >
+                  {'<'}
+                </button>
+              )}
+ 
+              {pages.map(page => {
+                let activePage = null;
+                if (currentPage === page) {
+                  activePage = { backgroundColor: '#fdce09' };
+                }
+                return (
+                  <button className="btn btn-light border border-primary"
+                    {...getPageItemProps({
+                      pageValue: page,
+                      key: page,
+                      style: activePage,
+                      onPageChange: handlePageChange
+                    })}
+                  >
+                    {page}
+                  </button>
+                );
+              })}
+ 
+              {hasNextPage && (
+                <button className="btn btn-light border border-primary"
+                  {...getPageItemProps({
+                    pageValue: nextPage,
+                    onPageChange: handlePageChange
+                  })}
+                >
+                  {'>'}
+                </button>
+              )}
+ 
+              <button className="btn btn-light border border-primary"
+                {...getPageItemProps({
+                  pageValue: totalPages,
+                  onPageChange: handlePageChange
+                })}
+              >
+                last
+              </button>
+            </div>
+          )}
+        </Paagination>
         </div>
     )
 }
 const mapStateToProps=(state)=>{
     return{
         total_pages:state.HomeMovie.total_pages,
+        curr_page:state.HomeMovie.curr_page,
         type:state.HomeMovie.type,
         parameters:state.HomeMovie.parameters
     }

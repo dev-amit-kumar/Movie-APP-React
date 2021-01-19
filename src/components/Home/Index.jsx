@@ -52,7 +52,7 @@ const Home=(props)=>{
                 <div className="col-md-10 col-12 container d-flex flex-row flex-wrap justify-content-between">
                     {renderMovieList(props)}
                 </div>
-                <div className="container">
+                <div className="container-fluid">
                     <Pagination/>
                 </div>
             </div>
