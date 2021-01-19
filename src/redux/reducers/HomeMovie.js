@@ -1,5 +1,6 @@
 const initialState = {
     movieList: null,
+    total_pages:null,
     type: null,
     parameters: [],
 
@@ -10,9 +11,9 @@ const HomeMovie = (state = initialState, action) => {
     const {type, payload} = action;
     switch(type){
         case "GET_DISCOVER_MOVIE_LIST":
-            return {...state, movieList: payload.movieList, type: payload.type, parameters: payload.parameters}
+            return {...state, movieList: payload.movieList, type: payload.type, parameters: payload.parameters, total_pages:payload.total_pages}
         case "GET_FILTER_MOVIE_LIST":
-            return {...state, movieList: payload.movieList, type: payload.type, parameters: payload.parameters}
+            return {...state, movieList: payload.movieList, type: payload.type, parameters: payload.parameters, total_pages:payload.total_pages}
         
         case "TOGGLE_IS_LOADING_MOVIE_LIST":
             return {...state, isLoadingMovieList: !state.isLoadingMovieList}

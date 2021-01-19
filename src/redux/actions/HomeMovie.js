@@ -10,6 +10,7 @@ export const fetchDiscoverMovieList = (type,page_no) => async (dispatch) => {
     try {
         dispatch({ type: "GET_DISCOVER_MOVIE_LIST", payload: {
             movieList:  null,
+            total_pages:null,
             type: null,
             parameters: null
             }
@@ -19,6 +20,7 @@ export const fetchDiscoverMovieList = (type,page_no) => async (dispatch) => {
         const { data } = await axios.get(`${discover_movie_url}/${type}?${api_key}&language=en-US&page=${page_no}`)
         dispatch({ type: "GET_DISCOVER_MOVIE_LIST", payload: {
             movieList:  data.results,
+            total_pages:data.total_pages,
             type: 'DISCOVER_MOVIE',
             parameters: {
                 discover_type: type,
@@ -36,6 +38,7 @@ export const fetchFilterMovieList= (query,page_no) => async (dispatch) => {
     try {
         dispatch({ type: "GET_FILTER_MOVIE_LIST", payload: {
             movieList:  null,
+            total_pages:null,
             type: null,
             parameters: null
             }
@@ -44,6 +47,7 @@ export const fetchFilterMovieList= (query,page_no) => async (dispatch) => {
         const { data } = await axios.get(`${filter_movie_url}?${api_key}&language=en-US${query}&page=${page_no}`)
         dispatch({ type: "GET_FILTER_MOVIE_LIST", payload: {
             movieList:  data.results,
+            total_pages:data.total_pages,
             type: 'FILTER_MOVIE',
             parameters: {
                 filter_query:query,
