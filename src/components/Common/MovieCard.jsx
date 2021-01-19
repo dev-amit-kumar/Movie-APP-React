@@ -3,7 +3,7 @@ import Fade from 'react-reveal/Fade';
 import ReactTooltip from 'react-tooltip';
 import ReactStars from 'react-rating-stars-component';
 import { connect } from 'react-redux';
-import { updateWishlist } from '../../redux/actions';
+import { updateWishlist, updateHistory } from '../../redux/actions';
 import '../../css/MovieCard.css';
 const MovieCard = (props) => {
 	const img_src = () => {
@@ -27,6 +27,12 @@ const MovieCard = (props) => {
 			(item) => item !== props.data.id,
 		);
 		props.updateWishlist(props.user, newList);
+	};
+	const removeHistory = () => {
+		let newList = props.userDetail.history.filter(
+			(item) => item !== props.data.id,
+		);
+		props.updateHistory(props.user, newList);
 	};
 	const renderWishlistOption = () => {
 		if (
@@ -114,7 +120,12 @@ const MovieCard = (props) => {
 						</Link>
 						{props.show_wishlist && renderWishlistOption()}
 						{props.show_delete && (
-							<div className="wishlist_show">
+							<div
+								className="wishlist_show"
+								onClick={removeHistory}
+								data-tip="Remove movie from history"
+								data-for="wishlist"
+							>
 								<i
 									className="fa fa-trash text-danger"
 									aria-hidden="true"
@@ -135,4 +146,6 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { updateWishlist })(MovieCard);
+export default connect(mapStateToProps, { updateWishlist, updateHistory })(
+	MovieCard,
+);

@@ -5,10 +5,12 @@ import { updateHistory } from '../../redux/actions';
 
 const Index = (props) => {
 	if (props.userDetail) {
-		if (!props.userDetail.history.includes(props.match.params.id)) {
+		if (
+			!props.userDetail.history.includes(parseInt(props.match.params.id))
+		) {
 			props.updateHistory(props.user, [
 				...props.userDetail.history,
-				props.match.params.id,
+				parseInt(props.match.params.id),
 			]);
 		}
 	}
