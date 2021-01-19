@@ -3,6 +3,8 @@ import Zoom from 'react-reveal/Zoom';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { updateProfileData } from '../../redux/actions';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const url =
 	'https://api.themoviedb.org/3/genre/movie/list?api_key=911c65436dd290d171fc662603dac6b3&language=en-US';
 
@@ -29,7 +31,15 @@ const Profile = (props) => {
 	const genreHandler = (e) => {
 		let id = parseInt(e.target.id);
 		if (selectedGenreList.length === 1 && selectedGenreList.includes(id)) {
-			alert('Atleast one genre should be selected');
+			toast.error('Alteast one genre should be selected', {
+				position: 'bottom-left',
+				autoClose: 4000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
 		} else if (
 			selectedGenreList.length < 3 &&
 			!selectedGenreList.includes(id)
@@ -49,6 +59,15 @@ const Profile = (props) => {
 		props.updateProfileData(props.user, name, selectedGenreList);
 		setLoading(true);
 		closeLoaderIn5Seconds();
+		toast.dark('Profile details updated', {
+			position: 'bottom-left',
+			autoClose: 4000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+		});
 	};
 
 	const closeLoaderIn5Seconds = () => {
@@ -86,7 +105,18 @@ const Profile = (props) => {
 	};
 	if (props.user) {
 		return (
-			<div className="card setting_common_card">
+			<div className="card setting_common_card mb-5">
+				<ToastContainer
+					position="bottom-left"
+					autoClose={5000}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+				/>
 				<h2 className="card-header">Profile details</h2>
 				<div className="card-body">
 					<Zoom>

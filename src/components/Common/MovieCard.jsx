@@ -5,6 +5,9 @@ import ReactStars from 'react-rating-stars-component';
 import { connect } from 'react-redux';
 import { updateWishlist, updateHistory } from '../../redux/actions';
 import '../../css/MovieCard.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const MovieCard = (props) => {
 	const img_src = () => {
 		if (props.data.poster_path === null) {
@@ -22,6 +25,15 @@ const MovieCard = (props) => {
 				...props.userDetail.wishlist,
 				props.data.id,
 			]);
+			toast.dark('Movie added to wishlist', {
+				position: 'bottom-left',
+				autoClose: 4000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
 		} else {
 			props.history.push('/auth/login');
 		}
@@ -31,12 +43,30 @@ const MovieCard = (props) => {
 			(item) => item !== props.data.id,
 		);
 		props.updateWishlist(props.user, newList);
+		toast.error('Movie removed from wishlist', {
+			position: 'bottom-left',
+			autoClose: 4000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+		});
 	};
 	const removeHistory = () => {
 		let newList = props.userDetail.history.filter(
 			(item) => item !== props.data.id,
 		);
 		props.updateHistory(props.user, newList);
+		toast.dark('Movie removed from history', {
+			position: 'bottom-left',
+			autoClose: 4000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+		});
 	};
 	const renderWishlistOption = () => {
 		if (
@@ -75,6 +105,7 @@ const MovieCard = (props) => {
 	};
 	return (
 		<Fade bottom>
+			<ToastContainer />
 			<div className="movie-outer-card text-center">
 				<div className="movie-inner-card">
 					<div className="position-relative card-shadow">

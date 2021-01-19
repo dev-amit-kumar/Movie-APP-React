@@ -30,7 +30,7 @@ class History extends React.Component {
 	};
 	render() {
 		return (
-			<div className="card setting_common_card">
+			<div className="card setting_common_card mb-5">
 				<h2 className="card-header">History</h2>
 				{this.props.user ? (
 					this.state.list.length > 0 ? (

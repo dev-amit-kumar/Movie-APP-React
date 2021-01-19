@@ -7,6 +7,13 @@ export const setUser = (user) => {
 	};
 };
 
+export const removeUserData = () => {
+	return {
+		type: 'REMOVE_USER_DATA',
+		payload: null,
+	};
+};
+
 export const ChangeColor = (themeColor) => {
 	document.body.style.setProperty('--primary', themeColor);
 	document.body.style.setProperty('--primary_text', themeColor);
