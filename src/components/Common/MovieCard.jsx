@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 import ReactTooltip from 'react-tooltip';
 import ReactStars from 'react-rating-stars-component';
+import { connect } from 'react-redux';
+import { updateWishlist, updateHistory } from '../../redux/actions';
 import '../../css/MovieCard.css';
 const MovieCard = (props) => {
 	const img_src = () => {
@@ -13,6 +15,59 @@ const MovieCard = (props) => {
 	};
 	const style = {
 		height: props.height_s,
+	};
+	const addWishlist = () => {
+		props.updateWishlist(props.user, [
+			...props.userDetail.wishlist,
+			props.data.id,
+		]);
+	};
+	const removeWishlist = () => {
+		let newList = props.userDetail.wishlist.filter(
+			(item) => item !== props.data.id,
+		);
+		props.updateWishlist(props.user, newList);
+	};
+	const removeHistory = () => {
+		let newList = props.userDetail.history.filter(
+			(item) => item !== props.data.id,
+		);
+		props.updateHistory(props.user, newList);
+	};
+	const renderWishlistOption = () => {
+		if (
+			props.userDetail &&
+			props.userDetail.wishlist.includes(props.data.id)
+		) {
+			return (
+				<div
+					className="wishlist_show"
+					data-tip="Remove movie from wishlist"
+					data-for="wishlist"
+					onClick={removeWishlist}
+				>
+					<i
+						className="fa fa-heart text-danger"
+						aria-hidden="true"
+					></i>
+				</div>
+			);
+		} else {
+			return (
+				<div
+					className="wishlist_show"
+					onClick={addWishlist}
+					data-tip="Add movie to wishlist"
+					data-for="wishlist"
+				>
+					<i
+						className="fa fa-heart-o text-danger"
+						aria-hidden="true"
+						style={{ fontWeight: '800' }}
+					></i>
+				</div>
+			);
+		}
 	};
 	return (
 		<Fade bottom>
@@ -27,6 +82,7 @@ const MovieCard = (props) => {
 							<div
 								className="d-flex justify-content-center"
 								data-tip={`Rating based on ${props.data.vote_count} votes`}
+								data-for="rating"
 							>
 								<ReactStars
 									count={5}
@@ -44,6 +100,7 @@ const MovieCard = (props) => {
 								/>
 							</div>
 							<ReactTooltip
+								id="rating"
 								place="bottom"
 								border={true}
 								borderColor="#000"
@@ -51,17 +108,24 @@ const MovieCard = (props) => {
 								textColor="#000"
 								effect="solid"
 							/>
+							<ReactTooltip
+								id="wishlist"
+								place="right"
+								border={true}
+								borderColor="#000"
+								backgroundColor="#fff"
+								textColor="#000"
+								effect="solid"
+							/>
 						</Link>
-						{props.show_wishlist && (
-							<div className="wishlist_show">
-								<i
-									className="fa fa-heart text-danger"
-									aria-hidden="true"
-								></i>
-							</div>
-						)}
+						{props.show_wishlist && renderWishlistOption()}
 						{props.show_delete && (
-							<div className="wishlist_show">
+							<div
+								className="wishlist_show"
+								onClick={removeHistory}
+								data-tip="Remove movie from history"
+								data-for="wishlist"
+							>
 								<i
 									className="fa fa-trash text-danger"
 									aria-hidden="true"
@@ -75,4 +139,13 @@ const MovieCard = (props) => {
 	);
 };
 
-export default MovieCard;
+const mapStateToProps = (state) => {
+	return {
+		user: state.UserAuth.user,
+		userDetail: state.UserAuth.userDetail,
+	};
+};
+
+export default connect(mapStateToProps, { updateWishlist, updateHistory })(
+	MovieCard,
+);

@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MovieCard from '../Common/MovieCard';
 import { connect } from 'react-redux';
-const url =
-	'https://api.themoviedb.org/3/movie/now_playing?api_key=911c65436dd290d171fc662603dac6b3&language=en-US&page=1';
+import axios from 'axios';
+import { apiKey } from '../../redux/config';
+const api_key = `api_key=${apiKey}`;
+const base_url = 'https://api.themoviedb.org/3/movie/';
+
 class History extends React.Component {
 	constructor(props) {
 		super(props);
@@ -12,17 +15,26 @@ class History extends React.Component {
 		};
 	}
 	componentDidMount() {
-		fetch(url)
-			.then((res) => res.json())
-			.then((res) => this.setState({ list: res.results }));
+		if (this.props.user) {
+			this.fetchMovieDataList(this.props.userDetail.history);
+		}
 	}
+	fetchMovieDataList = (list) => {
+		list.forEach((id) => {
+			axios
+				.get(`${base_url}${id}?${api_key}&language=en-US`)
+				.then((data) =>
+					this.setState({ list: [...this.state.list, data.data] }),
+				);
+		});
+	};
 	render() {
 		return (
 			<div className="card setting_common_card">
 				<h2 className="card-header">History</h2>
 				{this.props.user ? (
 					<div
-						className="card-body d-flex flex-row flex-wrap justify-content-between"
+						className="card-body d-flex flex-row flex-wrap justify-content-start"
 						style={{ padding: 0 }}
 					>
 						{this.state.list.map((movie) => {
@@ -57,6 +69,7 @@ class History extends React.Component {
 const mapStateToProps = (state) => {
 	return {
 		user: state.UserAuth.user,
+		userDetail: state.UserAuth.userDetail,
 	};
 };
 
