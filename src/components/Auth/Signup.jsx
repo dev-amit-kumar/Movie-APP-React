@@ -3,6 +3,7 @@ import { Link, Redirect } from "react-router-dom"
 import Zoom from 'react-reveal/Zoom';
 import "../../css/Login.css"
 import {registerUser} from '../../redux/actions'
+import LoadingSpinner from '../Common/LoadingSpinner'
 import { connect } from 'react-redux';
 
 const SignupForm=(props)=>{
@@ -15,12 +16,12 @@ const SignupForm=(props)=>{
         e.preventDefault()
         if(password === repeatPassword){
             props.registerUser(name, email, password)
-            props.history.push('/')
         }
         else{
             alert("Password should match repeat password")
         }
     };
+    
     if(!props.user){
         return(
             <div className="signup-form login-outer-container">
@@ -36,7 +37,7 @@ const SignupForm=(props)=>{
                                     <div className="row">
                                         <div className="form-group col-md-6 col-sm-6">
                                             <label htmlFor="full_name">Full Name</label>
-                                            <input type="text" onChange={(e) => setName(e.target.value)} value={name} className="form-control" id="full_name" placeholder="Enter email address" aria-describedby="emailHelp"/>
+                                            <input type="text" onChange={(e) => setName(e.target.value)} value={name} className="form-control" id="full_name" placeholder="Enter full name" aria-describedby="emailHelp"/>
                                         </div>
                                         <div className="form-group col-md-6 col-sm-6">
                                             <label htmlFor="email_id">Email address</label>
@@ -51,6 +52,7 @@ const SignupForm=(props)=>{
                                             <input type="password" onChange={(e) => setRepeatPassword(e.target.value)} value={repeatPassword} className="form-control" placeholder="Repeat password" id="repeat_password"/>
                                         </div>
                                     </div>
+                                    {props.error && <small className="text-danger">{props.error.message}</small>}
                                     <div className="form-group text-center">
                                         <button type="submit" className="pl-5 pr-5 btn btn-primary">Create Account</button>
                                     </div>
@@ -79,6 +81,11 @@ const SignupForm=(props)=>{
             </div>
         )
     }
+    else if(props.isLoadingUserAuth){
+        return(
+            <LoadingSpinner/>
+        )
+    }
     else{
         return(
             <Redirect to="/"></Redirect>
@@ -88,6 +95,8 @@ const SignupForm=(props)=>{
 const mapStateToProps = (state) => {
     return{
         user: state.UserAuth.user,
+        error: state.UserAuth.error,
+        isLoadingUserAuth: state.UserAuth.isLoadingUserAuth
     }
 }
 export default connect(mapStateToProps, {registerUser})(SignupForm);

@@ -42,7 +42,7 @@ const Profile = (props) => {
         )
     }
     if(props.user){
-        console.log(props.userDetail)
+        console.log(props.userDetail, props.user)
         return(
             <div className="card setting_common_card">
                 <h2 className="card-header">Profile details</h2>
@@ -53,26 +53,21 @@ const Profile = (props) => {
                                 <h4>Personal Details</h4>
                             </div>
                             <div className="form-group col-6">
-                                <label>First Name</label>
-                                <input className="form-control" name="fname" value="Amit" type="text" placeholder="Enter first name" required readOnly/>
-                            </div>
-                            <div className="form-group col-6">
-                                <label>Last Name</label>
-                                <input className="form-control" name="lname" value="Kumar" type="text" placeholder="Enter last name" required readOnly/>
+                                <label>Full Name</label>
+                                <input className="form-control" name="full_name" value={props.userDetail.name} type="text" placeholder="Enter full name" required readOnly/>
                             </div>
                             <div className="form-group col-6">
                                 <label>Email id</label>
-                                <input className="form-control" name="emailid" value="email@gmail.com" type="email" readOnly required/>
-                            </div>
-                            <div className="form-group col-6">
-                                <label>Age</label>
-                                <input className="form-control" name="fname" value="fname" type="number" min="10" max="100" required readOnly/>
+                                <input className="form-control" name="emailid" value={props.user.email} type="email" readOnly required/>
                             </div>
                             <div className="col-12">
-                                <h4>Favourite genres <small className="text-danger">(Max 3)</small></h4>
+                                <h4>Favourite genres <small className="text-danger">(Max 1 to 3)</small></h4>
                             </div>
                             <div className="form-group col-12">
                                 {renderGenre()}
+                            </div>
+                            <div className="form-group col-12">
+                                <button type="submit" className="btn btn-primary">Update</button>
                             </div>
                         </form>
                     </Zoom>

@@ -2,6 +2,7 @@ import { Link, Redirect } from "react-router-dom"
 import Zoom from 'react-reveal/Zoom';
 import "../../css/Login.css"
 import {connect} from 'react-redux'
+import LoadingSpinner from '../Common/LoadingSpinner'
 import {loginUser} from '../../redux/actions'
 import React, { useState } from "react";
 
@@ -12,8 +13,8 @@ const LoginForm=(props)=>{
     const handleSubmit = (e) => {
         e.preventDefault()
         props.loginUser(email, password)
-        props.history.push('/')
     };
+
     if(!props.user){
         return(
             <div className="login-outer-container">
@@ -34,6 +35,7 @@ const LoginForm=(props)=>{
                                         <label htmlFor="exampleInputPassword1">Password</label>
                                         <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} className="form-control" placeholder="Enter password" id="exampleInputPassword1"/>
                                     </div>
+                                    {props.error && <small className="text-danger">{props.error.message}</small>}
                                     <div className="form-group text-center">
                                         <button type="submit" className="pl-5 pr-5 btn btn-primary">Login</button>
                                     </div>
@@ -62,6 +64,11 @@ const LoginForm=(props)=>{
             </div>
         )
     }
+    else if(props.isLoadingUserAuth){
+        return(
+            <LoadingSpinner/>
+        )
+    }
     else{
         return(
             <Redirect to="/"></Redirect>
@@ -71,6 +78,8 @@ const LoginForm=(props)=>{
 const mapStateToProps = (state) => {
     return{
         user: state.UserAuth.user,
+        error: state.UserAuth.error,
+        isLoadingUserAuth: state.UserAuth.isLoadingUserAuth
     }
 }
 

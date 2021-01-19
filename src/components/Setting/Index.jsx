@@ -27,7 +27,7 @@ const Setting = (props) => {
                                 <p><NavLink to="/setting/theme" activeClassName="navlink_active">Change Theme</NavLink></p>
                                 <p><NavLink to="/setting/history" activeClassName="navlink_active">View History</NavLink></p>
                                 <p><NavLink to="/setting/wishlist" activeClassName="navlink_active">View Wishlist</NavLink></p>
-                                {props.user && <button className="dropdown-item logout_btn font-weight-bold" onClick={handleLogout}>Log out <i className="fa fa-sign-out" aria-hidden="true"></i></button>}
+                                {props.user && <p className="font-weight-bold" onClick={handleLogout} style={{cursor: 'pointer'}}>Log out <i className="fa fa-sign-out" aria-hidden="true"></i></p>}
                             </div>
                         </div>
                     </div>

@@ -26,8 +26,13 @@ class Routing extends React.Component {
         });
       }
     render(){
+      console.log(this.props.user, this.props.userDetail)
+      // if(this.props.user && this.props.userDetail.fav_genres.length === 0){
+      //   return(<Redirect to="/setting/profile"></Redirect>)
+      // }
+      // else{
         return (
-            <BrowserRouter>
+          <BrowserRouter>
                 <Header />
                 <Route exact path="/" component={Home} />
                 <Route exact path="/movie/:id" component={MovieDetail} />
@@ -40,7 +45,14 @@ class Routing extends React.Component {
                 <Footer />
             </BrowserRouter>
         )
+      // }
     }
 }
+const mapStateToProps = (state) => {
+  return{
+    user: state.UserAuth.user,
+    userDetail: state.UserAuth.userDetail
+  }
+}
 
-export default connect(null, {setUser, getUserData})(Routing);
+export default connect(mapStateToProps, {setUser, getUserData})(Routing);
