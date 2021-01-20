@@ -8,3 +8,4 @@ export * from './Person';
 export * from './userAuth';
 export * from './userData';
 export * from './WishlistAndHistory';
+export * from "./NewHomePage";

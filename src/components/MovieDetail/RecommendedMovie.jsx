@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import LoadingSpinner from '../Common/LoadingSpinner';
 import DataNotFound from '../Common/DataNotFound';
 import { fetchRecMoviesList } from '../../redux/actions';
+import NoMovies from "../Common/NoMovies";
 
 const RecommendedMovie = ({
 	movie_id,
@@ -33,7 +34,7 @@ const RecommendedMovie = ({
 		} else {
 			return (
 				<h1 className="text-center">
-					<i>Sorry, no movies found</i>
+					<NoMovies/>
 				</h1>
 			);
 		}
