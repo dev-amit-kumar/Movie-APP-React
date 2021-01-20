@@ -65,7 +65,11 @@ const DiscoverMovie = ({ fetchDiscoverMovieList }) => {
 						aria-controls="collapseTwo"
 					>
 						<h6 className="text-center" style={{ margin: 0 }}>
-							Discover Movie By
+							Discover Movie By&emsp;
+							<i
+								className="fa fa-sort-amount-asc"
+								aria-hidden="true"
+							></i>
 						</h6>
 					</a>
 				</div>
