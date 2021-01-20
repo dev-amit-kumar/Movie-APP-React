@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Zoom from 'react-reveal/Zoom';
 const url = 'https://api.themoviedb.org/3/movie';
+
 class DisplayTrailer extends Component {
 	constructor() {
 		super();
@@ -10,15 +12,17 @@ class DisplayTrailer extends Component {
 	render() {
 		if (this.state.keys) {
 			return (
-				<iframe
-					title="trailer"
-					width="100%"
-					height="400"
-					src={`https://www.youtube.com/embed/${this.state.keys}`}
-					frameBorder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-					className="trailer"
-				></iframe>
+				<Zoom>
+					<iframe
+						title="trailer"
+						width="100%"
+						height="400"
+						src={`https://www.youtube.com/embed/${this.state.keys}`}
+						frameBorder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+						className="trailer"
+					></iframe>
+				</Zoom>
 			);
 		} else {
 			return (

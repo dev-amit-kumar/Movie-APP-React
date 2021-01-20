@@ -1,5 +1,5 @@
 import { Link, withRouter } from 'react-router-dom';
-import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 import ReactTooltip from 'react-tooltip';
 import ReactStars from 'react-rating-stars-component';
 import { connect } from 'react-redux';
@@ -104,7 +104,7 @@ const MovieCard = (props) => {
 		}
 	};
 	return (
-		<Fade bottom>
+		<Zoom>
 			<ToastContainer />
 			<div className="movie-outer-card text-center">
 				<div className="movie-inner-card">
@@ -170,7 +170,7 @@ const MovieCard = (props) => {
 					</div>
 				</div>
 			</div>
-		</Fade>
+		</Zoom>
 	);
 };
 
