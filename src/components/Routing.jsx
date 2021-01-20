@@ -10,6 +10,7 @@ import Setting from './Setting/Index';
 import ForgetPassword from './Auth/ForgetPassword';
 import Login from './Auth/Login';
 import SignUp from './Auth/Signup';
+import HomePage from "./Home/HomePage-Components/HomePage";
 import { auth } from '../redux/Firebase';
 import { connect } from 'react-redux';
 import { setUser, getUserData, removeUserData } from '../redux/actions';
@@ -37,6 +38,7 @@ class Routing extends React.Component {
 				<Route exact path="/setting/:type" component={Setting} />
 				<Route exact path="/auth/login" component={Login} />
 				<Route exact path="/auth/signup" component={SignUp} />
+				<Route path="/homepage" component={HomePage}/>
 				<Route
 					exact
 					path="/auth/forget-password"
