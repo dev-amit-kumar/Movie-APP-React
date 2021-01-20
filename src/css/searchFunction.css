@@ -1,6 +1,18 @@
 .searchBox {
 	position: relative;
 }
+.searchBox input {
+	/* background: transparent; */
+	border: none;
+	box-sizing: border-box;
+	border-bottom: 1px solid grey;
+	border-radius: 0;
+	margin-left: 10px;
+}
+
+.searchBox input:focus {
+	outline: none;
+}
 
 .searchResult {
 	position: absolute;
@@ -8,7 +20,7 @@
 	background-color: #000000d9;
 	top: 100%;
 	z-index: 99;
-	left: 0%;
+	left: 10px;
 	right: 40px;
 	padding: 10px 30px;
 }

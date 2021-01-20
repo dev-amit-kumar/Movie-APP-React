@@ -86,7 +86,11 @@ class SortFilter extends Component {
 							aria-controls="collapseOne"
 						>
 							<h6 className="text-center" style={{ margin: 0 }}>
-								Filter Movie List
+								Filter Movie List &emsp;
+								<i
+									className="fa fa-filter"
+									aria-hidden="true"
+								></i>
 							</h6>
 						</a>
 					</div>

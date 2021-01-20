@@ -27,26 +27,21 @@ const SearchBar = (props) => {
 			props.history.push(`/search/${keyword}`);
 		}
 	};
-
 	return (
-		<form className="mr-2 my-auto w-100 d-inline-block searchBox">
+		<form className="my-auto w-100 d-inline-block searchBox">
 			<div className="input-group">
 				<input
 					type="search"
 					id="myInput"
 					list="match-list"
-					onChange={(e) => handleChange(e.target.value)}
 					className="form-control"
+					onChange={(e) => handleChange(e.target.value)}
 					placeholder="Search movie/actor"
 					aria-label="Search movie/actor"
 					aria-describedby="button-addon2"
 				/>
 				<div className="input-group-append">
-					<button
-						onClick={redirect}
-						className="btn btn-outline-light"
-						type="submit"
-					>
+					<button onClick={redirect} className="btn" type="submit">
 						<i className="fa fa-search" aria-hidden="true"></i>
 					</button>
 				</div>
