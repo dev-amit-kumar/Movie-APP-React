@@ -44,22 +44,22 @@ class NowPlaying extends Component {
                     }
 				},
 			],
-          };
+        };
         if(this.props.NowPlayingMovie){
             return (
                 <>
-                        <div className="container-fluid">
-                            <div className="row">
+                    <div className="container-fluid">
+                        <div className="row">
                             <div className="col-11" style={{margin:"0 auto"}}>
-                            <h1 className="font-weight-bolder heading_color mt-4 ml-4">NOW PLAYING</h1>
-                            <Slider {...settings}>
-                                {this.props.NowPlayingMovie && this.props.NowPlayingMovie.map((movie, idx) => {
-                                    return <DisplayNowPlaying data={movie} key={idx} height_s='250px' show_wishlist={true}/>
-                                })}
-                            </Slider>
-                            </div>
+                                <h1 className="font-weight-bolder heading_color mt-4 ml-4">NOW PLAYING</h1>
+                                <Slider {...settings}>
+                                    {this.props.NowPlayingMovie && this.props.NowPlayingMovie.map((movie, idx) => {
+                                        return <DisplayNowPlaying data={movie} key={idx} height_s='250px' show_wishlist={true}/>
+                                    })}
+                                </Slider>
                             </div>
                         </div>
+                    </div>
                 </>
             )
         }

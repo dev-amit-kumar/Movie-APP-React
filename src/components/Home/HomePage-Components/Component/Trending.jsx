@@ -23,26 +23,26 @@ class Trending extends Component {
             slidesToScroll: 4,
             arrows: true,
             responsive: [
-				{
-					breakpoint: 1024,
-					settings: {
-						slidesToShow: 4,
-						slidesToScroll: 3,
-					},
-				},
-				{
-					breakpoint: 780,
-					settings: {
-						slidesToShow: 3,
-						slidesToScroll:2,
-					},
-				},
-				{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 2,
-						slidesToScroll: 1,
-					},
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 3,
+                    },
+                },
+                {
+                    breakpoint: 780,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll:2,
+                    },
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    },
                 },
                 {
                     breakpoint: 340,
@@ -50,36 +50,36 @@ class Trending extends Component {
                         slidesToShow: 1,
                         slidesToScroll: 1,
                     }
-				},
-			],
-          };
+                },
+            ],
+        };
         if(this.props.TrendingMovie){
             return (
                 <div className="container-fluid">
                     <div className="search-option mt-4 ml-5">
-                    <h1 className="heading_color font-weight-bolder ml-4">TRENDING</h1>
-						<button
-							onClick={this.setValue}
-							className={
-								this.props.TrendingType === 'day'
-									? 'btn-active'
-									: 'btn-inactive'
-							}
-							value="day"
-						>
-							Day
-						</button>
-						<button
-							onClick={this.setValue}
-							className={
-								this.props.TrendingType === 'week'
-									? 'btn-active'
-									: 'btn-inactive'
-							}
-							value="week"
-						>
-							Week
-						</button>
+                        <h1 className="heading_color font-weight-bolder ml-4">TRENDING</h1>
+                        <button
+                            onClick={this.setValue}
+                            className={
+                                this.props.TrendingType === 'day'
+                                    ? 'btn-active'
+                                    : 'btn-inactive'
+                            }
+                            value="day"
+                        >
+                            Day
+                        </button>
+                        <button
+                            onClick={this.setValue}
+                            className={
+                                this.props.TrendingType === 'week'
+                                    ? 'btn-active'
+                                    : 'btn-inactive'
+                            }
+                            value="week"
+                        >
+                            Week
+                        </button>
 					</div>
                     <div className="row">
                         <div className="col-11" style={{margin:"0 auto"}}>
@@ -89,7 +89,7 @@ class Trending extends Component {
                                 })}
                             </Slider>
                         </div>
-                        </div>
+                    </div>
                 </div>
             )
         }
