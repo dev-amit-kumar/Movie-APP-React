@@ -240,7 +240,6 @@ const TopContainer = (props) => {
 								<h5 className="mt-2">Overview</h5>
 								<p>
 									{props.data.overview ? (
-										// props.data.overview
 										renderOverview(props.data.overview)
 									) : (
 										<i>Overview not available</i>

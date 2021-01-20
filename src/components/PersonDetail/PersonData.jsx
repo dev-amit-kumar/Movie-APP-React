@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchPersonDetail } from '../../redux/actions';
 import LoadingSpinner from '../Common/LoadingSpinner';
 import DataNotFound from '../Common/DataNotFound';
@@ -11,6 +11,8 @@ const PersonData = ({
 	PersonDetail,
 	isLoadingPersonDetail,
 }) => {
+	const [showReadMore, changeToggle] = useState(false);
+
 	useEffect(() => {
 		fetchPersonDetail(data);
 	}, []);
@@ -50,6 +52,38 @@ const PersonData = ({
 			return `https://image.tmdb.org/t/p/w500${img_url}`;
 		}
 	};
+	const renderOverview = (data) => {
+		if (data.length < 500) {
+			return <p>{data}</p>;
+		} else {
+			return (
+				<>
+					<p>
+						{data.slice(0, 500)}
+						{!showReadMore && (
+							<span
+								className="text-danger"
+								onClick={() => changeToggle(!showReadMore)}
+							>
+								&nbsp;(Read more)
+							</span>
+						)}
+						{showReadMore && (
+							<>
+								<span className="">{data.slice(500)}</span>
+								<span
+									className="text-danger"
+									onClick={() => changeToggle(!showReadMore)}
+								>
+									&nbsp;(Show less)
+								</span>
+							</>
+						)}
+					</p>
+				</>
+			);
+		}
+	};
 	if (PersonDetail) {
 		return (
 			<Zoom>
@@ -84,7 +118,7 @@ const PersonData = ({
 							<b className="heading_color">BIOGRAPHY: </b>
 							<p>
 								{PersonDetail.biography ? (
-									PersonDetail.biography
+									renderOverview(PersonDetail.biography)
 								) : (
 									<i>No biography available</i>
 								)}
