@@ -1,7 +1,7 @@
 import '../../css/DataNotFound.scss';
-const DataNotFound = () => {
+const PageNotFound = () => {
 	return (
-		<div className="container-fluid mt-4">
+		<div className="container-fluid">
 			<div className="jumbotron">
 				<div class="toy-train">
 					<div class="engine">
@@ -34,17 +34,17 @@ const DataNotFound = () => {
 			</div>
 			<div>
 				<h1 className="text-center font-weight-bolder text-danger">
-					Data Not Found
+					Error 404
 				</h1>
 				<h4 className="text-center font-weight-bolder text-primary">
-					Sorry for inconvenience
+					Mistakes are the portals of discovery.
 				</h4>
 				<h4 className="text-center font-weight-bolder text-primary">
-					Try again later
+					But we'd rather suggest you use our homepage
 				</h4>
 			</div>
 		</div>
 	);
 };
 
-export default DataNotFound;
+export default PageNotFound;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Fade from 'react-reveal/Fade';
 import MovieCard from '../Common/MovieCard';
 import Sidebar from './Sidebar/Index';
@@ -27,16 +27,23 @@ const Home = (props) => {
 					);
 				});
 			} else {
-				return (
-					<div>
-						<NoMovies/>
-					</div>
-				);
+				return <NoMovies />;
 			}
 		} else if (isLoadingMovieList) {
 			return <LoadingSpinner />;
 		} else {
 			return <DataNotFound />;
+		}
+	};
+	const renderPagination = ({ movieList, isLoadingMovieList }) => {
+		if (movieList && !isLoadingMovieList) {
+			if (movieList.length > 0) {
+				return <DisplayPagination />;
+			} else {
+				return <></>;
+			}
+		} else {
+			return <></>;
 		}
 	};
 
@@ -52,7 +59,7 @@ const Home = (props) => {
 					{renderMovieList(props)}
 				</div>
 				<div className="col-md-12 d-flex flex-row justify-content-center mt-1">
-					<DisplayPagination />
+					{renderPagination(props)}
 				</div>
 			</div>
 		</div>

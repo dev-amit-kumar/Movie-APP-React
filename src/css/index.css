@@ -105,6 +105,13 @@ code {
 	display: block;
 }
 
+.noMovieContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .full-cover {
 	height: 85vh;
 	display: flex;
