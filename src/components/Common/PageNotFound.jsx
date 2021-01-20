@@ -1,33 +1,36 @@
 import { Link } from 'react-router-dom';
 import '../../css/DataNotFound.scss';
-const PageNotFound = () => {
+const PageNotFound = (props) => {
+	const gotoHome = () => {
+		props.history.push('/');
+	};
 	return (
 		<div className="container-fluid">
 			<div className="jumbotron">
-				<div class="toy-train">
-					<div class="engine">
-						<div class="window">
-							<div class="engine-main">
-								<div class="smokes">
+				<div className="toy-train">
+					<div className="engine">
+						<div className="window">
+							<div className="engine-main">
+								<div className="smokes">
 									<span></span>
 								</div>
 							</div>
 						</div>
-						<div class="engine-body">
-							<div class="wheels">
-								<div class="big-wheel"></div>
-								<div class="normal-wheel"></div>
+						<div className="engine-body">
+							<div className="wheels">
+								<div className="big-wheel"></div>
+								<div className="normal-wheel"></div>
 							</div>
 						</div>
 					</div>
-					<div class="locomotive">
-						<div class="trash"></div>
-						<div class="wheels">
-							<div class="normal-wheel"></div>
-							<div class="normal-wheel"></div>
+					<div className="locomotive">
+						<div className="trash"></div>
+						<div className="wheels">
+							<div className="normal-wheel"></div>
+							<div className="normal-wheel"></div>
 						</div>
 					</div>
-					<div class="tracks">
+					<div className="tracks">
 						<span></span>
 						<span></span>
 					</div>
@@ -44,11 +47,10 @@ const PageNotFound = () => {
 					But we'd rather suggest you use our homepage
 				</h4>
 				<Link
-					className="font-weight-bold text-secondary"
+					className="font-weight-bold text-secondary gotoHomeBtn"
 					to="/"
-					style={{ fontSize: '25px' }}
 				>
-					<u>Go to Home Page</u>
+					<p>Go to Home Page</p>
 				</Link>
 			</div>
 		</div>
