@@ -1,4 +1,5 @@
 import { db } from '../Firebase';
+import { triggerSwal } from './swalToast';
 
 export const setUser = (user) => {
 	return {
@@ -30,6 +31,8 @@ export const getUserData = (user) => (dispatch) => {
 				ChangeColor(data.themeColor);
 				dispatch({ type: 'GET_USER_DATA', payload: doc.data() });
 			});
+	} catch (error) {
+		triggerSwal(error.message);
 	} finally {
 		dispatch({ type: 'TOGGLE_IS_LOADING_USER_DATA' });
 	}
@@ -41,6 +44,8 @@ export const updateProfileData = (user, fullname, genreList) => (dispatch) => {
 		db.collection('users')
 			.doc(user.uid)
 			.set({ name: fullname, fav_genres: genreList }, { merge: true });
+	} catch (error) {
+		triggerSwal(error.message);
 	} finally {
 		dispatch({ type: 'TOGGLE_IS_UPDATING_USER_DATA' });
 	}
@@ -53,18 +58,9 @@ export const updateUserTheme = (user, themeColor) => (dispatch) => {
 		db.collection('users')
 			.doc(user.uid)
 			.set({ themeColor: themeColor }, { merge: true });
+	} catch (error) {
+		triggerSwal(error.message);
 	} finally {
 		dispatch({ type: 'TOGGLE_IS_UPDATING_USER_DATA' });
 	}
 };
-
-// auth.createUserWithEmailAndPassword(email,password)
-// .then((res) => {
-//     db.collection("users")
-//     .doc(res.user.uid)
-//     .set({name: fullname, wishlist: [], history: [], fav_genres:[]})
-//     alert("Register Succesfull")
-// })
-// .catch((error) => {
-//     dispatch({type: "REGISTER_ERROR", payload: error})
-// });
