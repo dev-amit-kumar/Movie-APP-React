@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import LoadingSpinner from '../Common/LoadingSpinner';
 import DataNotFound from '../Common/DataNotFound';
 import DisplayPagination from './Pagination/DisplayPagination';
+import NoMovies from '../Common/NoMovies';
 
 const Home = (props) => {
 	useEffect(() => {
@@ -28,7 +29,7 @@ const Home = (props) => {
 			} else {
 				return (
 					<div>
-						<h1>No movies found for this filter options</h1>
+						<NoMovies/>
 					</div>
 				);
 			}
