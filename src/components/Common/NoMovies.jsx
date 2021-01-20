@@ -5,12 +5,12 @@ const NoMovies = () => {
 			<h1 className="text-center font-weight-bold text-danger">
 				NO MOVIES FOUND
 			</h1>
-			<div class="cssload-dots">
-				<div class="cssload-dot"></div>
-				<div class="cssload-dot"></div>
-				<div class="cssload-dot"></div>
-				<div class="cssload-dot"></div>
-				<div class="cssload-dot"></div>
+			<div className="cssload-dots">
+				<div className="cssload-dot"></div>
+				<div className="cssload-dot"></div>
+				<div className="cssload-dot"></div>
+				<div className="cssload-dot"></div>
+				<div className="cssload-dot"></div>
 			</div>
 
 			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">

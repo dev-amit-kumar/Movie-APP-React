@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../../css/DataNotFound.scss';
 const PageNotFound = (props) => {
-	const gotoHome = () => {
-		props.history.push('/');
-	};
 	return (
 		<div className="container-fluid">
 			<div className="jumbotron">

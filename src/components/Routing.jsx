@@ -33,14 +33,14 @@ class Routing extends React.Component {
 			<BrowserRouter>
 				<Header />
 				<Switch>
-					<Route exact path="/" component={Home} />
+					<Route exact path="/movie_list" component={Home} />
 					<Route exact path="/movie/:id" component={MovieDetail} />
 					<Route exact path="/person/:id" component={PersonDetail} />
 					<Route path="/search/:str" component={SearchPage} />
 					<Route exact path="/setting/:type" component={Setting} />
 					<Route exact path="/auth/login" component={Login} />
 					<Route exact path="/auth/signup" component={SignUp} />
-					<Route path="/homepage" component={HomePage} />
+					<Route path="/" component={HomePage} />
 					<Route
 						exact
 						path="/auth/forget-password"

@@ -5,7 +5,6 @@ import '../../css/Login.css';
 import { registerUser } from '../../redux/actions';
 import LoadingSpinner from '../Common/LoadingSpinner';
 import { connect } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const SignupForm = (props) => {
@@ -166,7 +165,6 @@ const SignupForm = (props) => {
 						</Link>
 					</div>
 				</div>
-				<ToastContainer />
 			</div>
 		);
 	} else if (props.isLoadingUserAuth) {

@@ -27,7 +27,7 @@ const Header = (props) => {
 					</Link>
 					<Link
 						className="nav-link text-white margin_movie_btn"
-						to="/"
+						to="/movie_list"
 						data-tip="View movie list"
 					>
 						Movies <i className="fa fa-film" aria-hidden="true"></i>
