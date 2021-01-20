@@ -1,4 +1,5 @@
 import { auth, db } from '../Firebase';
+import { triggerSwal } from './swalToast';
 
 export const registerUser = (fullname, email, password) => (dispatch) => {
 	try {
@@ -17,6 +18,8 @@ export const registerUser = (fullname, email, password) => (dispatch) => {
 			.catch((error) => {
 				dispatch({ type: 'REGISTER_ERROR', payload: error });
 			});
+	} catch (error) {
+		triggerSwal(error.message);
 	} finally {
 		dispatch({ type: 'TOGGLE_IS_LOADING_AUTH_USER' });
 	}
@@ -33,6 +36,8 @@ export const loginUser = (email, password) => (dispatch) => {
 			.catch((error) => {
 				dispatch({ type: 'LOGIN_ERROR', payload: error });
 			});
+	} catch (error) {
+		triggerSwal(error.message);
 	} finally {
 		dispatch({ type: 'TOGGLE_IS_LOADING_AUTH_USER' });
 	}
@@ -43,7 +48,9 @@ export const logoutUser = () => (dispatch) => {
 		dispatch({ type: 'TOGGLE_IS_LOADING_AUTH_USER' });
 		auth.signOut()
 			.then()
-			.catch((err) => alert(err));
+			.catch((err) => triggerSwal(err.message));
+	} catch (error) {
+		triggerSwal(error.message);
 	} finally {
 		dispatch({ type: 'TOGGLE_IS_LOADING_AUTH_USER' });
 	}
