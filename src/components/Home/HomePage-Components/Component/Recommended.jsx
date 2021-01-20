@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import HomeMovieCard from '../../HomePage-Components/Display/HomeMovieCard';
-import { fetchRecommendedMovieList } from '../../../../redux/actions';
-import LoadingSpinner from '../../../Common/LoadingSpinner';
-import NoMovies from '../../../Common/NoMovies';
+import { fetchTrendingMovieList } from '../../../../redux/actions';
 class Recommended extends Component {
 	constructor() {
 		super();
@@ -50,7 +48,7 @@ class Recommended extends Component {
 				},
 			],
 		};
-		if (this.props.RecommendedMovie) {
+		if (this.props.TrendingMovie) {
 			return (
 				<div className="container-fluid">
 					<div className="row">
@@ -59,8 +57,8 @@ class Recommended extends Component {
 								RECOMMENDED
 							</h1>
 							<Slider {...settings}>
-								{this.props.RecommendedMovie &&
-									this.props.RecommendedMovie.map(
+								{this.props.TrendingMovie &&
+									this.props.TrendingMovie.map(
 										(movie, idx) => {
 											var count = 0;
 											for (
@@ -95,23 +93,20 @@ class Recommended extends Component {
 					</div>
 				</div>
 			);
-		} else if (this.props.isLoadingRecommendedMovie) {
-			return <LoadingSpinner />;
 		} else {
-			return <NoMovies />;
+			return <></>;
 		}
 	}
 	componentDidMount() {
-		this.props.fetchRecommendedMovieList();
+		this.props.fetchTrendingMovieList('day');
 	}
 }
 const mapStateToProps = (state) => {
 	return {
-		RecommendedMovie: state.NewHomePage.RecommendedMovie,
-		isLoadingRecommendedMovie: state.NewHomePage.isLoadingRecommendedMovie,
+		TrendingMovie: state.NewHomePage.TrendingMovie,
 	};
 };
 
-export default connect(mapStateToProps, { fetchRecommendedMovieList })(
+export default connect(mapStateToProps, { fetchTrendingMovieList })(
 	Recommended,
 );

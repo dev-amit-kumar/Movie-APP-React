@@ -3,15 +3,13 @@ import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import DisplayNowPlaying from '../Display/HomeMovieCard';
 import { fetchNowPlayingMovieList } from '../../../../redux/actions';
-import LoadingSpinner from '../../../Common/LoadingSpinner';
-import NoMovies from '../../../Common/NoMovies';
 
 class NowPlaying extends Component {
 	render() {
 		var settings = {
 			cssEase: 'linear',
 			speed: 500,
-			slidesToShow: 6,
+			slidesToShow: 5,
 			slidesToScroll: 1,
 			arrows: true,
 			responsive: [
@@ -77,10 +75,8 @@ class NowPlaying extends Component {
 					</div>
 				</>
 			);
-		} else if (this.props.isLoadingNowPlayingMovie) {
-			return <LoadingSpinner />;
 		} else {
-			return <NoMovies />;
+			return <></>;
 		}
 	}
 	componentDidMount() {

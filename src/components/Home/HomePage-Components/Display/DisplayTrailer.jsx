@@ -4,21 +4,29 @@ class DisplayTrailer extends Component {
 	constructor() {
 		super();
 		this.state = {
-			keys: 'sfM7_JLk-84',
+			keys: null,
 		};
 	}
 	render() {
-		return (
-			<iframe
-				title="trailer"
-				width="100%"
-				height="400"
-				src={`https://www.youtube.com/embed/${this.state.keys}`}
-				frameBorder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-				className="trailer"
-			></iframe>
-		);
+		if (this.state.keys) {
+			return (
+				<iframe
+					title="trailer"
+					width="100%"
+					height="400"
+					src={`https://www.youtube.com/embed/${this.state.keys}`}
+					frameBorder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+					className="trailer"
+				></iframe>
+			);
+		} else {
+			return (
+				<div class="spinner-border text-primary" role="status">
+					<span class="sr-only">Loading...</span>
+				</div>
+			);
+		}
 	}
 	componentDidMount() {
 		fetch(

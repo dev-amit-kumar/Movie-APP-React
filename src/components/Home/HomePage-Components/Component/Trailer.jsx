@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import DisplayTrailer from '../Display/DisplayTrailer';
 import { fetchNowPlayingMovieList } from '../../../../redux/actions';
 import LoadingSpinner from '../../../Common/LoadingSpinner';
-import NoMovies from '../../../Common/NoMovies';
 import '../../../../css/Trailer.css';
 import { connect } from 'react-redux';
 const Trailer = (props) => {
@@ -11,14 +10,12 @@ const Trailer = (props) => {
 	}, []);
 	if (props.NowPlayingMovie) {
 		return (
-			<div className="container pt-5 pb-5">
+			<div className="container pt-5 pb-5 justify-content-center align-items-center d-flex">
 				<DisplayTrailer data={props.NowPlayingMovie[0]} />
 			</div>
 		);
-	} else if (props.isLoadingNowPlayingMovie) {
-		return <LoadingSpinner />;
 	} else {
-		return <NoMovies />;
+		return <LoadingSpinner />;
 	}
 };
 const mapStateToProps = (state) => {
