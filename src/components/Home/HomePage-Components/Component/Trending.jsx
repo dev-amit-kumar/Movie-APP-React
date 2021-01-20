@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import HomeMovieCard from '../../HomePage-Components/Display/HomeMovieCard';
 import {fetchTrendingMovieList} from "../../../../redux/actions";
 import LoadingSpinner from '../../../Common/LoadingSpinner';
-import DataNotFound from '../../../Common/DataNotFound';
+import NoMovies from '../../../Common/NoMovies';
 class Trending extends Component {
     constructor(){
         super()
@@ -96,7 +96,7 @@ class Trending extends Component {
         else if (this.props.isLoadingTrendingMovie) {
             return <LoadingSpinner />;
         } else {
-            return <DataNotFound />;
+            return <NoMovies/>;
         }
     }
     componentDidMount(){

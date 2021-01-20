@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import DisplayNowPlaying from '../Display/HomeMovieCard';
 import {fetchNowPlayingMovieList} from "../../../../redux/actions"
 import LoadingSpinner from '../../../Common/LoadingSpinner';
-import DataNotFound from '../../../Common/DataNotFound';
+import NoMovies from '../../../Common/NoMovies';
 
 class NowPlaying extends Component {
     render() {
@@ -66,7 +66,7 @@ class NowPlaying extends Component {
         else if (this.props.isLoadingNowPlayingMovie) {
             return <LoadingSpinner />;
         } else {
-            return <DataNotFound />;
+            return <NoMovies />;
         }
     }
     componentDidMount(){

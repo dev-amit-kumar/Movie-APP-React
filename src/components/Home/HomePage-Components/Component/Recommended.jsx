@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import HomeMovieCard from '../../HomePage-Components/Display/HomeMovieCard';
 import {fetchRecommendedMovieList} from "../../../../redux/actions"
 import LoadingSpinner from '../../../Common/LoadingSpinner';
-import DataNotFound from '../../../Common/DataNotFound';
+import NoMovies from '../../../Common/NoMovies';
 const url ="https://api.themoviedb.org/3/movie/now_playing?api_key=911c65436dd290d171fc662603dac6b3&language=en-US&page=1";
 class Recommended extends Component {
     constructor(){
@@ -80,7 +80,7 @@ class Recommended extends Component {
         else if (this.props.isLoadingRecommendedMovie) {
             return <LoadingSpinner />;
         } else {
-            return <DataNotFound />;
+            return <NoMovies />;
         }
     }
     componentDidMount(){
