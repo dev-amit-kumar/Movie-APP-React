@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../../css/DataNotFound.scss';
 const DataNotFound = () => {
 	return (
@@ -32,16 +33,20 @@ const DataNotFound = () => {
 					</div>
 				</div>
 			</div>
-			<div>
-				<h1 className="text-center font-weight-bolder text-danger">
+			<div className="text-center">
+				<h1 className="font-weight-bolder text-danger">
 					Data Not Found
 				</h1>
-				<h4 className="text-center font-weight-bolder text-primary">
+				<h4 className="font-weight-bolder text-primary">
 					Sorry for inconvenience
 				</h4>
-				<h4 className="text-center font-weight-bolder text-primary">
-					Try again later
-				</h4>
+				<Link
+					className="font-weight-bold text-secondary"
+					to="/"
+					style={{ fontSize: '25px' }}
+				>
+					<u>Go to Home Page</u>
+				</Link>
 			</div>
 		</div>
 	);

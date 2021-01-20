@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../../css/DataNotFound.scss';
 const PageNotFound = () => {
 	return (
@@ -32,16 +33,23 @@ const PageNotFound = () => {
 					</div>
 				</div>
 			</div>
-			<div>
-				<h1 className="text-center font-weight-bolder text-danger">
-					Error 404
+			<div className="text-center">
+				<h1 className="font-weight-bolder text-danger">
+					Error 404 Page Not Found
 				</h1>
-				<h4 className="text-center font-weight-bolder text-primary">
+				<h4 className="font-weight-bolder text-primary">
 					Mistakes are the portals of discovery.
 				</h4>
-				<h4 className="text-center font-weight-bolder text-primary">
+				<h4 className="font-weight-bolder text-primary">
 					But we'd rather suggest you use our homepage
 				</h4>
+				<Link
+					className="font-weight-bold text-secondary"
+					to="/"
+					style={{ fontSize: '25px' }}
+				>
+					<u>Go to Home Page</u>
+				</Link>
 			</div>
 		</div>
 	);

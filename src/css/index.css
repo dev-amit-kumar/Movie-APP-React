@@ -104,7 +104,9 @@ code {
 .hide_on_mobile {
 	display: block;
 }
-
+.jumbotron {
+	background-color: #fff0;
+}
 .noMovieContainer {
 	display: flex;
 	flex-direction: column;
