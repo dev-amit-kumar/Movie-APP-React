@@ -56,7 +56,7 @@ class Recommended extends Component {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-11" style={{margin:"0 auto"}}>
-                            <h1 className="font-weight-bolder heading_color mt-4 ml-4">Recommended</h1>
+                            <h1 className="font-weight-bolder heading_color mt-4 ml-4">RECOMMENDED</h1>
                             <Slider {...settings}>
                                     {this.props.RecommendedMovie && this.props.RecommendedMovie.map((movie, idx) => {
                                         var count = 0
