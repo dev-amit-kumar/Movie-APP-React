@@ -21,7 +21,13 @@ class KnownForMovie extends React.Component {
 							</h2>
 							<div className="row text-center">
 								{this.props.KnownFor.map((movie, idx) => {
-									return <MovieCard data={movie} key={idx} />;
+									return (
+										<MovieCard
+											data={movie}
+											key={idx}
+											show_wishlist={true}
+										/>
+									);
 								})}
 							</div>
 						</>

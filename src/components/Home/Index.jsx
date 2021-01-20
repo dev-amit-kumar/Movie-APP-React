@@ -4,9 +4,9 @@ import MovieCard from '../Common/MovieCard';
 import Sidebar from './Sidebar/Index';
 import { fetchDiscoverMovieList } from '../../redux/actions';
 import { connect } from 'react-redux';
-import LoadingSpinner from '../Common/LoadingSpinner'
-import DataNotFound from '../Common/DataNotFound' 
-import DisplayPagination from "./Pagination/DisplayPagination";
+import LoadingSpinner from '../Common/LoadingSpinner';
+import DataNotFound from '../Common/DataNotFound';
+import DisplayPagination from './Pagination/DisplayPagination';
 
 const Home = (props) => {
 	useEffect(() => {
@@ -39,24 +39,24 @@ const Home = (props) => {
 		}
 	};
 
-    return (
-        <div className="container-fluid">    
-            <div className="row">
-                <Fade left>
-                    <div className="col-md-2 col-12" id="accordion">
-                        <Sidebar/>
-                    </div>
-                </Fade>
-                <div className="col-md-10 col-12 container d-flex flex-row flex-wrap justify-content-between">
-                    {renderMovieList(props)}
-                </div>
-                <div className="col-md-12 d-flex flex-row justify-content-center mt-1">
-                    <DisplayPagination/>
-                </div>
-            </div>
-        </div>
-    )
-}
+	return (
+		<div className="container-fluid mt-4">
+			<div className="row">
+				<Fade left>
+					<div className="col-md-2 col-12" id="accordion">
+						<Sidebar />
+					</div>
+				</Fade>
+				<div className="col-md-10 col-12 container d-flex flex-row flex-wrap justify-content-between">
+					{renderMovieList(props)}
+				</div>
+				<div className="col-md-12 d-flex flex-row justify-content-center mt-1">
+					<DisplayPagination />
+				</div>
+			</div>
+		</div>
+	);
+};
 
 const mapStateToProps = (state) => {
 	return {

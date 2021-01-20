@@ -4,6 +4,7 @@ import ReactStars from 'react-rating-stars-component';
 import '../../css/TopContainer.css';
 const TopContainer = (props) => {
 	const [videoSrc, changeSrc] = useState('');
+	const [showReadMore, changeToggle] = useState(false);
 
 	const fnum = (x) => {
 		if (isNaN(x)) return x;
@@ -30,6 +31,38 @@ const TopContainer = (props) => {
 			return '../demo.png';
 		} else {
 			return `https://image.tmdb.org/t/p/w500/${props.data.poster_path}`;
+		}
+	};
+	const renderOverview = (data) => {
+		if (data.length < 600) {
+			return <p>{data}</p>;
+		} else {
+			return (
+				<>
+					<p>
+						{data.slice(0, 600)}
+						{!showReadMore && (
+							<span
+								className="text-warning"
+								onClick={() => changeToggle(!showReadMore)}
+							>
+								&nbsp;(Read more)
+							</span>
+						)}
+						{showReadMore && (
+							<>
+								<span className="">{data.slice(600)}</span>
+								<span
+									className="text-warning"
+									onClick={() => changeToggle(!showReadMore)}
+								>
+									&nbsp;(Show less)
+								</span>
+							</>
+						)}
+					</p>
+				</>
+			);
 		}
 	};
 
@@ -207,7 +240,7 @@ const TopContainer = (props) => {
 								<h5 className="mt-2">Overview</h5>
 								<p>
 									{props.data.overview ? (
-										props.data.overview
+										renderOverview(props.data.overview)
 									) : (
 										<i>Overview not available</i>
 									)}

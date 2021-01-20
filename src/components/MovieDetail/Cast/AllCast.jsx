@@ -16,37 +16,61 @@ const AllCast = ({
 		fetchCastsList(movie_id);
 	}, []);
 
-	var settings = {
-		cssEase: 'linear',
-		speed: 500,
-		slidesToShow: 8,
-		slidesToScroll: 2,
-		arrows: true,
-		responsive: [
-			{
-				breakpoint: 1024,
-				settings: {
-					slidesToShow: 5,
-					slidesToScroll: 5,
-				},
-			},
-			{
-				breakpoint: 600,
-				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 2,
-				},
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 3,
-					slidesToScroll: 1,
-				},
-			},
-		],
-	};
 	if (castsList) {
+		var minimum = 8;
+		var minimum1024 = 5;
+		var minimum480 = 2;
+		var minimum600 = 3;
+		if (castsList.cast.length === 1) {
+			minimum = castsList.cast.length;
+			minimum480 = 1;
+			minimum600 = 1;
+			minimum1024 = 1;
+		} else if (castsList.cast.length === 2) {
+			minimum = 2;
+			minimum1024 = 2;
+			minimum600 = 2;
+			minimum480 = 2;
+		} else if (castsList.cast.length === 3) {
+			minimum = 3;
+			minimum1024 = 3;
+			minimum600 = 3;
+			minimum480 = 2;
+		} else if (castsList.cast.length < 8) {
+			minimum = castsList.cast.length;
+			minimum1024 = parseInt(minimum / 2);
+			minimum600 = parseInt(minimum / 2);
+		}
+		var settings = {
+			cssEase: 'linear',
+			speed: 500,
+			slidesToShow: minimum,
+			slidesToScroll: 2,
+			arrows: true,
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: minimum1024,
+						slidesToScroll: 5,
+					},
+				},
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: minimum600,
+						slidesToScroll: minimum600,
+					},
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: minimum480,
+						slidesToScroll: minimum480,
+					},
+				},
+			],
+		};
 		return (
 			<div className="other_data">
 				<h2 className="heading_color">Movie Cast</h2>
