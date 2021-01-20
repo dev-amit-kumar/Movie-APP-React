@@ -6,8 +6,13 @@ import {fetchTrendingMovieList} from "../../../../redux/actions";
 import LoadingSpinner from '../../../Common/LoadingSpinner';
 import DataNotFound from '../../../Common/DataNotFound';
 class Trending extends Component {
+    constructor(){
+        super()
+        this.state={
+            value:"person"
+        }
+    }
     setValue=(e)=>{
-        console.log(e.target.value)
         this.props.fetchTrendingMovieList(e.target.value)
     }
     render() {
@@ -48,22 +53,42 @@ class Trending extends Component {
 				},
 			],
           };
-          if(this.props.TrendingMovie){
+        if(this.props.TrendingMovie){
             return (
-                <div className="">
-                        <div className="text-center font-weight-bolder heading_color">
-                            <h1>TRENDING</h1>
+                <div className="container-fluid">
+                    <div className="search-option mt-4 ml-5">
+                    <h1 className="heading_color font-weight-bolder ml-4">TRENDING</h1>
+						<button
+							onClick={this.setValue}
+							className={
+								this.props.TrendingType === 'day'
+									? 'btn-active'
+									: 'btn-inactive'
+							}
+							value="day"
+						>
+							Day
+						</button>
+						<button
+							onClick={this.setValue}
+							className={
+								this.props.TrendingType === 'week'
+									? 'btn-active'
+									: 'btn-inactive'
+							}
+							value="week"
+						>
+							Week
+						</button>
+					</div>
+                    <div className="row">
+                        <div className="col-11" style={{margin:"0 auto"}}>
+                            <Slider {...settings}>
+                                {this.props.TrendingMovie && this.props.TrendingMovie.map((movie, idx) => {
+                                    return <HomeMovieCard data={movie} key={idx} height_s='250px'/>
+                                })}
+                            </Slider>
                         </div>
-                        <div className="d-flex justify-content-center">
-                            <button onClick={this.setValue} className="btn btn-success ml-2 mr-2 font-bold font-weight-bold" value="day">Day</button>
-                            <button onClick={this.setValue} className="btn btn-info ml-2 mr-2 font-bold font-weight-bold" value="week">Week</button>
-                        </div>
-                        <div className="container">
-                        <Slider {...settings}>
-                            {this.props.TrendingMovie && this.props.TrendingMovie.map((movie, idx) => {
-                                return <HomeMovieCard data={movie} key={idx} height_s='250px'/>
-                            })}
-                        </Slider>
                         </div>
                 </div>
             )
@@ -81,6 +106,7 @@ class Trending extends Component {
 const mapStateToProps=(state)=>{
     return{
         TrendingMovie:state.NewHomePage.TrendingMovie,
+        TrendingType:state.NewHomePage.TrendingType,
         isLoadingTrendingMovie:state.NewHomePage.isLoadingTrendingMovie
     }
 }

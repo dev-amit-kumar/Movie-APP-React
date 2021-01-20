@@ -3,6 +3,8 @@ const initialState={
     RecommendedMovie:null,
     NowPlayingMovie:null,
 
+    TrendingType:null,
+
     isLoadingTrendingMovie:false,
     isLoadingRecommendedMovie:false,
     isLoadingNowPlayingMovie:false
@@ -13,7 +15,8 @@ const NewHomePage = (state = initialState, action) => {
         case "GET_TRENDING_MOVIE":
             return {
                 ...state,
-                TrendingMovie: payload
+                TrendingMovie: payload.movieList,
+                TrendingType:payload.TrendingType
                 }
         case "GET_RECOMMENDED_MOVIE":
             return {

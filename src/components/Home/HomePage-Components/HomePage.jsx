@@ -5,6 +5,7 @@ import Trailer from "./Component/Trailer";
 const HomePage=()=>{
     return(
         <div>
+            <Trailer/>
             <NowPlaying/>
             <Trending/>
             <Recommended/>

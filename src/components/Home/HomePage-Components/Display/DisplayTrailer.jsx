@@ -9,10 +9,8 @@ class DisplayTrailer extends Component {
     }
     render() {
         return (
-            <div className="jumbotron" style={{backgroundImage:`url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${this.props.data.backdrop_path})`}}>
-                <div className="container d-flex justify-content-center">
-                    <iframe title="trailer" width="900" height="315" src={`https://www.youtube.com/embed/${this.state.keys}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
-                </div>
+            <div>
+                <iframe title="trailer" width="1200" height="315" src={`https://www.youtube.com/embed/${this.state.keys}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
             </div>
         )
     }

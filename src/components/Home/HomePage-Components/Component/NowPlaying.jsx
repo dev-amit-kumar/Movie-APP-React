@@ -11,8 +11,8 @@ class NowPlaying extends Component {
         var settings = {
             cssEase: "linear",
             speed: 500,
-            slidesToShow: 5,
-            slidesToScroll: 4,
+            slidesToShow: 6,
+            slidesToScroll: 5,
             arrows: true,
             responsive: [
 				{
@@ -45,25 +45,29 @@ class NowPlaying extends Component {
 				},
 			],
           };
-          if(this.props.NowPlayingMovie){
-                return (
-                    <>
-                        <h1 className="col-12 d-flex justify-content-center font-weight-bolder heading_color">NOW PLAYING</h1>
-                            <div className="container">
+        if(this.props.NowPlayingMovie){
+            return (
+                <>
+                        <div className="container-fluid">
+                            <div className="row">
+                            <div className="col-11" style={{margin:"0 auto"}}>
+                            <h1 className="font-weight-bolder heading_color mt-4 ml-4">NOW PLAYING</h1>
                             <Slider {...settings}>
-                            {this.props.NowPlayingMovie && this.props.NowPlayingMovie.map((movie, idx) => {
-                                return <DisplayNowPlaying data={movie} key={idx} height_s='250px' show_wishlist={true}/>
-                            })}
+                                {this.props.NowPlayingMovie && this.props.NowPlayingMovie.map((movie, idx) => {
+                                    return <DisplayNowPlaying data={movie} key={idx} height_s='250px' show_wishlist={true}/>
+                                })}
                             </Slider>
                             </div>
-                    </>
-                )
-                }
-                else if (this.props.isLoadingNowPlayingMovie) {
-                    return <LoadingSpinner />;
-                } else {
-                    return <DataNotFound />;
-                }
+                            </div>
+                        </div>
+                </>
+            )
+        }
+        else if (this.props.isLoadingNowPlayingMovie) {
+            return <LoadingSpinner />;
+        } else {
+            return <DataNotFound />;
+        }
     }
     componentDidMount(){
         this.props.fetchNowPlayingMovieList()

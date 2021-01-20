@@ -6,12 +6,18 @@ const turl ="https://api.themoviedb.org/3/trending/movie";
 
 export const fetchTrendingMovieList = (type) => async (dispatch) => {
     try {
-        dispatch({ type: "GET_TRENDING_MOVIE", payload:null
+        dispatch({ type: "GET_TRENDING_MOVIE", payload:{
+            movieList:null,
+            TrendingType:null
+            }
         });
         dispatch({ type: "TOGGLE_IS_LOADING_TRENDING_MOVIE" });
 
         const { data } = await axios.get(`${turl}/${type}?${api_key}&language=en-US&page=1`)
-        dispatch({ type: "GET_TRENDING_MOVIE", payload:data.results
+        dispatch({ type: "GET_TRENDING_MOVIE", payload:{
+            movieList:data.results,
+            TrendingType:type
+            }
         });
     } finally {
         dispatch({ type: "TOGGLE_IS_LOADING_TRENDING_MOVIE" });

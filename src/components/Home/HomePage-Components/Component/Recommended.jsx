@@ -10,7 +10,7 @@ class Recommended extends Component {
     constructor(){
         super()
         this.state={
-            genre:[12],
+            genre:[28],
         }
     }
     render() {
@@ -51,35 +51,37 @@ class Recommended extends Component {
 				},
 			],
           };
-          if(this.props.RecommendedMovie){
-            return (
-                <div>
-                <h1 className="col-12 d-flex justify-content-center font-weight-bolder heading_color">Recommended</h1>
-                <div className="container">
-                <Slider {...settings}>
-                        {this.props.RecommendedMovie && this.props.RecommendedMovie.map((movie, idx) => {
-                            var count = 0
-                            for(var i=0;i<=this.state.genre.length;i++){
-                                    if(movie.genre_ids.includes(this.state.genre[i])){
-                                        count++
-                                    }
-                            }
-                            if(count===this.state.genre.length){
-                                return(
-                                        <HomeMovieCard data={movie} key={idx}  height_s='250px'/>
-                                )
-                            }
-                            })}
-                    </Slider>
-                    </div>
+        if(this.props.RecommendedMovie){
+        return (
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-11" style={{margin:"0 auto"}}>
+                            <h1 className="font-weight-bolder heading_color mt-4 ml-4">Recommended</h1>
+                            <Slider {...settings}>
+                                    {this.props.RecommendedMovie && this.props.RecommendedMovie.map((movie, idx) => {
+                                        var count = 0
+                                        for(var i=0;i<=this.state.genre.length;i++){
+                                                if(movie.genre_ids.includes(this.state.genre[i])){
+                                                    count++
+                                                }
+                                        }
+                                        if(count===this.state.genre.length){
+                                            return(
+                                                <HomeMovieCard data={movie} key={idx}  height_s='250px'/>
+                                            )
+                                        }
+                                        })}
+                            </Slider>
                 </div>
-            )
-        }
-        else if (this.props.isLoadingRecommendedMovie) {
-            return <LoadingSpinner />;
-        } else {
-            return <DataNotFound />;
-        }
+            </div>
+            </div>
+        )
+    }
+    else if (this.props.isLoadingRecommendedMovie) {
+        return <LoadingSpinner />;
+    } else {
+        return <DataNotFound />;
+    }
     }componentDidMount(){
         this.props.fetchRecommendedMovieList()
     }
