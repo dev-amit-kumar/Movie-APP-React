@@ -1,4 +1,4 @@
-import { auth, db } from '../Firebase';
+import { auth, db, fbProvider, googleProvider } from '../Firebase';
 import { triggerSwal } from './swalToast';
 
 export const registerUser = (fullname, email, password) => (dispatch) => {
@@ -9,6 +9,54 @@ export const registerUser = (fullname, email, password) => (dispatch) => {
 			.then((res) => {
 				db.collection('users').doc(res.user.uid).set({
 					name: fullname,
+					wishlist: [],
+					history: [],
+					fav_genres: [],
+					themeColor: '#032541',
+				});
+			})
+			.catch((error) => {
+				dispatch({ type: 'REGISTER_ERROR', payload: error });
+			});
+	} catch (error) {
+		triggerSwal(error.message);
+	} finally {
+		dispatch({ type: 'TOGGLE_IS_LOADING_AUTH_USER' });
+	}
+};
+
+export const signupWithFB = () => (dispatch) => {
+	try {
+		dispatch({ type: 'TOGGLE_IS_LOADING_AUTH_USER' });
+		dispatch({ type: 'REGISTER_ERROR', payload: null });
+		auth.signInWithPopup(fbProvider)
+			.then((res) => {
+				db.collection('users').doc(res.user.uid).set({
+					name: res.user.displayName,
+					wishlist: [],
+					history: [],
+					fav_genres: [],
+					themeColor: '#032541',
+				});
+			})
+			.catch((error) => {
+				dispatch({ type: 'REGISTER_ERROR', payload: error });
+			});
+	} catch (error) {
+		triggerSwal(error.message);
+	} finally {
+		dispatch({ type: 'TOGGLE_IS_LOADING_AUTH_USER' });
+	}
+};
+
+export const signupWithGoogle = () => (dispatch) => {
+	try {
+		dispatch({ type: 'TOGGLE_IS_LOADING_AUTH_USER' });
+		dispatch({ type: 'REGISTER_ERROR', payload: null });
+		auth.signInWithPopup(googleProvider)
+			.then((res) => {
+				db.collection('users').doc(res.user.uid).set({
+					name: res.user.displayName,
 					wishlist: [],
 					history: [],
 					fav_genres: [],

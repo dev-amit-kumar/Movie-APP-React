@@ -3,7 +3,7 @@ import Zoom from 'react-reveal/Zoom';
 import '../../css/Login.css';
 import { connect } from 'react-redux';
 import LoadingSpinner from '../Common/LoadingSpinner';
-import { loginUser } from '../../redux/actions';
+import { loginUser, signupWithFB, signupWithGoogle } from '../../redux/actions';
 import React, { useState } from 'react';
 
 const LoginForm = (props) => {
@@ -13,6 +13,14 @@ const LoginForm = (props) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		props.loginUser(email, password);
+	};
+
+	const handleFB = () => {
+		props.signupWithFB();
+	};
+
+	const handleGoogle = () => {
+		props.signupWithGoogle();
 	};
 
 	if (!props.user) {
@@ -80,10 +88,12 @@ const LoginForm = (props) => {
 												<i
 													className="fa fa-facebook-official login-fb"
 													aria-hidden="true"
+													onClick={handleFB}
 												></i>
 												<i
 													className="fa fa-google-plus-square login-goggle"
 													aria-hidden="true"
+													onClick={handleGoogle}
 												></i>
 											</h5>
 										</div>
@@ -127,4 +137,8 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { loginUser })(LoginForm);
+export default connect(mapStateToProps, {
+	loginUser,
+	signupWithFB,
+	signupWithGoogle,
+})(LoginForm);

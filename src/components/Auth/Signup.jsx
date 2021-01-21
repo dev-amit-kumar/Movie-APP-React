@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Zoom from 'react-reveal/Zoom';
 import '../../css/Login.css';
-import { registerUser } from '../../redux/actions';
+import {
+	registerUser,
+	signupWithFB,
+	signupWithGoogle,
+} from '../../redux/actions';
 import LoadingSpinner from '../Common/LoadingSpinner';
 import { connect } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,6 +27,14 @@ const SignupForm = (props) => {
 			setPasswordError(true);
 		}
 	};
+	const handleFB = () => {
+		props.signupWithFB();
+	};
+
+	const handleGoogle = () => {
+		props.signupWithGoogle();
+	};
+
 	if (!props.user) {
 		return (
 			<div className="signup-form login-outer-container">
@@ -133,10 +145,12 @@ const SignupForm = (props) => {
 												</span>
 												<i
 													className="fa fa-facebook-official login-fb"
+													onClick={handleFB}
 													aria-hidden="true"
 												></i>
 												<i
 													className="fa fa-google-plus-square login-goggle"
+													onClick={handleGoogle}
 													aria-hidden="true"
 												></i>
 											</h5>
@@ -180,4 +194,8 @@ const mapStateToProps = (state) => {
 		isLoadingUserAuth: state.UserAuth.isLoadingUserAuth,
 	};
 };
-export default connect(mapStateToProps, { registerUser })(SignupForm);
+export default connect(mapStateToProps, {
+	registerUser,
+	signupWithFB,
+	signupWithGoogle,
+})(SignupForm);
