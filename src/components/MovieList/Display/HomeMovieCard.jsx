@@ -52,22 +52,6 @@ const DisplayNowPlaying = (props) => {
 								effect="solid"
 							/>
 						</Link>
-						{props.show_wishlist && (
-							<div className="wishlist_show">
-								<i
-									className="fa fa-heart text-danger"
-									aria-hidden="true"
-								></i>
-							</div>
-						)}
-						{props.show_delete && (
-							<div className="wishlist_show">
-								<i
-									className="fa fa-trash text-danger"
-									aria-hidden="true"
-								></i>
-							</div>
-						)}
 					</div>
 				</div>
 			</div>
