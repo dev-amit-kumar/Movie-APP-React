@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Slider from 'react-slick';
-import HomeMovieCard from '../../HomePage-Components/Display/HomeMovieCard';
-import { fetchTrendingMovieList } from '../../../../redux/actions';
+import HomeMovieCard from '../Display/HomeMovieCard';
+import { fetchTrendingMovieList } from '../../../redux/actions';
 class Recommended extends Component {
 	constructor() {
 		super();

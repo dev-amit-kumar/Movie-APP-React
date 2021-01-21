@@ -10,7 +10,7 @@ import Setting from './Setting/Index';
 import ForgetPassword from './Auth/ForgetPassword';
 import Login from './Auth/Login';
 import SignUp from './Auth/Signup';
-import HomePage from './Home/HomePage-Components/HomePage';
+import HomePage from './MovieList/HomePage';
 import { auth } from '../redux/Firebase';
 import { connect } from 'react-redux';
 import { setUser, getUserData, removeUserData } from '../redux/actions';

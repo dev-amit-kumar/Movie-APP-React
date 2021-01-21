@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import DisplayTrailer from '../Display/DisplayTrailer';
-import { fetchNowPlayingMovieList } from '../../../../redux/actions';
-import LoadingSpinner from '../../../Common/LoadingSpinner';
-import '../../../../css/Trailer.css';
+import { fetchNowPlayingMovieList } from '../../../redux/actions';
+import LoadingSpinner from '../../Common/LoadingSpinner';
+import '../../../css/Trailer.css';
 import { connect } from 'react-redux';
 const Trailer = (props) => {
 	useEffect(() => {

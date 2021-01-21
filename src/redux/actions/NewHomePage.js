@@ -1,7 +1,7 @@
 import axios from 'axios';
-// import { apiKey } from '../config';
-const api_key = `api_key=911c65436dd290d171fc662603dac6b3`;
-const url = 'https://api.themoviedb.org/3/movie';
+import { apiKey } from '../config';
+const api_key = `api_key=${apiKey}`;
+// const url = 'https://api.themoviedb.org/3/movie';
 const turl = 'https://api.themoviedb.org/3/trending/movie';
 
 export const fetchTrendingMovieList = (type) => async (dispatch) => {
@@ -52,7 +52,7 @@ export const fetchNowPlayingMovieList = () => async (dispatch) => {
 		dispatch({ type: 'TOGGLE_IS_LOADING_NOW_PLAYING_MOVIE' });
 
 		const { data } = await axios.get(
-			`https://api.themoviedb.org/3/movie/now_playing?api_key=911c65436dd290d171fc662603dac6b3&language=en-US&page=1`,
+			`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`,
 		);
 		dispatch({ type: 'GET_NOW_PLAYING_MOVIE', payload: data.results });
 	} finally {

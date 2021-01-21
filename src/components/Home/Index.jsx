@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 import MovieCard from '../Common/MovieCard';
 import Sidebar from './Sidebar/Index';

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Zoom from 'react-reveal/Zoom';
 import ReactTooltip from 'react-tooltip';
 import ReactStars from 'react-rating-stars-component';
-import '../../../../css/HomeMovieCard.css';
+import '../../../css/HomeMovieCard.css';
 const DisplayNowPlaying = (props) => {
 	const img_src = () => {
 		if (props.data.poster_path === null) {

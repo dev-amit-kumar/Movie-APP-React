@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import DisplayNowPlaying from '../Display/HomeMovieCard';
-import { fetchNowPlayingMovieList } from '../../../../redux/actions';
+import { fetchNowPlayingMovieList } from '../../../redux/actions';
 
 class NowPlaying extends Component {
 	render() {
