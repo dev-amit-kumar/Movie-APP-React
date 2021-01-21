@@ -3,6 +3,7 @@ const initialState = {
 	userDetail: null,
 	loginError: null,
 	registerError: null,
+	socialError: null,
 
 	isLoadingUserDetail: false,
 	isLoadingUserAuth: false,
@@ -22,6 +23,8 @@ const UserAuth = (state = initialState, action) => {
 			return { ...state, loginError: payload };
 		case 'REGISTER_ERROR':
 			return { ...state, registerError: payload };
+		case 'SOCIAL_ERROR':
+			return { ...state, socialError: payload };
 
 		case 'TOGGLE_IS_LOADING_USER_DATA':
 			return {

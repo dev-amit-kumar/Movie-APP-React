@@ -28,7 +28,7 @@ export const registerUser = (fullname, email, password) => (dispatch) => {
 export const signupWithFB = () => (dispatch) => {
 	try {
 		dispatch({ type: 'TOGGLE_IS_LOADING_AUTH_USER' });
-		dispatch({ type: 'REGISTER_ERROR', payload: null });
+		dispatch({ type: 'SOCIAL_ERROR', payload: null });
 		auth.signInWithPopup(fbProvider)
 			.then((res) => {
 				db.collection('users').doc(res.user.uid).set({
@@ -40,7 +40,8 @@ export const signupWithFB = () => (dispatch) => {
 				});
 			})
 			.catch((error) => {
-				dispatch({ type: 'REGISTER_ERROR', payload: error });
+				triggerSwal(error.message);
+				dispatch({ type: 'SOCIAL_ERROR', payload: error });
 			});
 	} catch (error) {
 		triggerSwal(error.message);
@@ -52,7 +53,7 @@ export const signupWithFB = () => (dispatch) => {
 export const signupWithGoogle = () => (dispatch) => {
 	try {
 		dispatch({ type: 'TOGGLE_IS_LOADING_AUTH_USER' });
-		dispatch({ type: 'REGISTER_ERROR', payload: null });
+		dispatch({ type: 'SOCIAL_ERROR', payload: null });
 		auth.signInWithPopup(googleProvider)
 			.then((res) => {
 				db.collection('users').doc(res.user.uid).set({
@@ -64,7 +65,8 @@ export const signupWithGoogle = () => (dispatch) => {
 				});
 			})
 			.catch((error) => {
-				dispatch({ type: 'REGISTER_ERROR', payload: error });
+				triggerSwal(error.message);
+				dispatch({ type: 'SOCIAL_ERROR', payload: error });
 			});
 	} catch (error) {
 		triggerSwal(error.message);
