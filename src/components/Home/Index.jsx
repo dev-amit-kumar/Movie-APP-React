@@ -55,7 +55,7 @@ const Home = (props) => {
 						<Sidebar />
 					</div>
 				</Fade>
-				<div className="col-md-10 col-12 container d-flex flex-row flex-wrap justify-content-between">
+				<div className="col-md-10 col-12 container d-flex flex-row flex-wrap justify-content-start">
 					{renderMovieList(props)}
 				</div>
 				<div className="col-md-12 d-flex flex-row justify-content-center mt-1">
