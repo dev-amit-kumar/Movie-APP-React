@@ -257,20 +257,26 @@ const TopContainer = (props) => {
 												color: '#07B4E1',
 											}}
 										>
-											{props.data.production_countries.map(
-												(item, idx) => {
-													if (
-														idx !==
-														props.data
-															.production_countries
-															.length -
-															1
-													) {
-														return `${item['name']}, `;
-													} else {
-														return item['name'];
-													}
-												},
+											{props.data.production_countries &&
+											props.data.production_countries
+												.length > 0 ? (
+												props.data.production_countries.map(
+													(item, idx) => {
+														if (
+															idx !==
+															props.data
+																.production_countries
+																.length -
+																1
+														) {
+															return `${item['name']}, `;
+														} else {
+															return item['name'];
+														}
+													},
+												)
+											) : (
+												<h6>Not available</h6>
 											)}
 										</h6>
 									</div>
