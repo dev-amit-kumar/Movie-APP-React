@@ -74,12 +74,19 @@ const AllCast = ({
 		return (
 			<div className="other_data">
 				<h2 className="heading_color">Movie Cast</h2>
-				<Slider {...settings}>
-					{castsList &&
-						castsList.cast.map((cast, idx) => {
-							return <CastData data={cast} key={idx} />;
-						})}
-				</Slider>
+				<hr />
+				{castsList && castsList.cast.length > 0 ? (
+					<Slider {...settings}>
+						{castsList &&
+							castsList.cast.map((cast, idx) => {
+								return <CastData data={cast} key={idx} />;
+							})}
+					</Slider>
+				) : (
+					<h1 className="text-center">
+						<i>No cast information available</i>
+					</h1>
+				)}
 			</div>
 		);
 	} else if (isLoadingCastsList) {
